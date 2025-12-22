@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg7bggui85a6r"]
+
+[ext_resource type="Script" uid="uid://clx6ais68y0nr" path="res://globals/dialogue_manager/dialogue_manager.gd" id="1_jx2yq"]
+
+[node name="DialogueManager" type="CanvasLayer"]
+script = ExtResource("1_jx2yq")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_top = 0.568
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.06402588
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2

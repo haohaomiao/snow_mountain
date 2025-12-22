@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://neymkah0n6mn"]
+
+[ext_resource type="Script" uid="uid://bti7hmumrjwmq" path="res://scenes/ski/ski.gd" id="1_0010o"]
+[ext_resource type="Texture2D" uid="uid://bnncj5whioheb" path="res://assets/滑雪概念图.png" id="1_x4vlj"]
+
+[node name="Ski" type="Node2D"]
+script = ExtResource("1_0010o")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -163.0
+offset_right = 2620.0
+offset_bottom = 1937.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_x4vlj")

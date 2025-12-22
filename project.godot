@@ -11,5 +11,21 @@ config_version=5
 [application]
 
 config/name="snow_mountain"
+run/main_scene="uid://drkvxhf86uc8j"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*res://globals/event_bus.gd"
+SceneManager="*res://globals/scene_manager.gd"
+SoundManager="*res://globals/sound_manager.gd"
+DialogueManager="*res://globals/dialogue_manager/DialogueManager.tscn"
+GameState="*res://globals/game_state.gd"
+Storyline="*res://globals/story_line.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"

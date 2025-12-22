@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://becn37hc4mfv7"]
+
+[ext_resource type="Texture2D" uid="uid://dgrd6uuajokk8" path="res://assets/酒吧概念图2.png" id="1_1wkxo"]
+[ext_resource type="Script" uid="uid://dv40qmtn7riv7" path="res://scenes/bar/bar.gd" id="1_o2rff"]
+
+[node name="Bar" type="Node2D"]
+script = ExtResource("1_o2rff")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+offset_right = 2683.0
+offset_bottom = 2100.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_1wkxo")
