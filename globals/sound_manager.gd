@@ -26,7 +26,7 @@ func _ready() -> void:
     add_child(_sfx)
 
     EventBus.play_bgm.connect(_on_play_bgm)
-    EventBus.play_sfx.connect(_on_play_sfx)
+    # EventBus.play_sfx.connect(_on_play_sfx)
 
 func _on_play_bgm(id: String) -> void:
     var path: String = BGM.get(id, "")

@@ -5,9 +5,9 @@ signal request_scene(scene_key: String, payload: Dictionary)
 signal phase_changed(phase: Phase, payload: Dictionary)
 signal phase_completed(phase: Phase, payload: Dictionary)
 signal play_bgm(id: String)
-#signal play_sfx(id: String)
-#signal dialogue_finished()
-#signal request_dialogue()
+signal play_sfx(id: String)
+signal dialogue_finished()
+signal request_dialogue()
 
 var debug_log := true
 
