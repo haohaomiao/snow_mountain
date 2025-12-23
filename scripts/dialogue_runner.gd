@@ -7,7 +7,7 @@ signal choice_made(index: int)
 signal act_finished
 
 var is_active: bool = false
-var _act: DialogueAct
+var _act: DialogueAct = preload("res://acts/NPC/Day1.tres")
 var _index: int = 0
 var _waiting_for_choice := false
 var _return_stack: Array[Dictionary] = []

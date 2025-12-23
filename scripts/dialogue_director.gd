@@ -48,7 +48,7 @@ func request_dialogue(day: int, subject: Subject) -> bool:
 	return true
 
 func resolve_act(day: int, subject: Subject) -> DialogueAct:
-	var subject_name := Subject.find_key(subject) as Subject
+	var subject_name := Subject.find_key(subject)
 	if subject_name == null:
 		return null
 

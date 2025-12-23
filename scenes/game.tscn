@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyde3lw70dhb"]
+
+[ext_resource type="Script" uid="uid://coanxt6cugg4x" path="res://scripts/dialogue_director.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://20ocomkmuthb" path="res://scenes/dialogue_box.tscn" id="2_lnu2h"]
+
+[node name="Game" type="Node2D"]
+
+[node name="DialogueDirector" type="Node" parent="."]
+script = ExtResource("1_yqjtg")
+acts_root = null
+runner_path = null
+metadata/_custom_type_script = "uid://coanxt6cugg4x"
+
+[node name="DialogueBox" parent="DialogueDirector" instance=ExtResource("2_lnu2h")]
