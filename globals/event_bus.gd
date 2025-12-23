@@ -12,7 +12,8 @@ signal play_bgm(id: String)
 var debug_log := true
 
 func go(scene_key: String, payload := {}):
-    # 考虑之后可能有发信号前做处理的需求，加了一层封装，可以去掉
+    # 考虑之后可能有发信号前做处理和debug的需求，
+    # 加了一层封装，可以去掉,也就是只有上面的信号定义其实也可以
     if debug_log:
         print("[EventBus] request_scene -> ", scene_key, " ", payload)
     request_scene.emit(scene_key, payload)
