@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://l7kjl56pydes"]
+
+[ext_resource type="AudioStream" uid="uid://p5ql3juhgbt0" path="res://music/sfx/DoorInteract-1.ogg" id="1_i58mf"]
+[ext_resource type="AudioStream" uid="uid://drj1o76s0nulo" path="res://music/sfx/DoorInteract-2.ogg" id="2_pdlam"]
+[ext_resource type="AudioStream" uid="uid://bgd1sodhie1bm" path="res://music/sfx/DoorInteract-3.ogg" id="3_wfebf"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_i58mf")
+stream_1/stream = ExtResource("2_pdlam")
+stream_2/stream = ExtResource("3_wfebf")

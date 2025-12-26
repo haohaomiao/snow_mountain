@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyde3lw70dhb"]
+
+[ext_resource type="Script" uid="uid://coanxt6cugg4x" path="res://scenes/bar/dialogue/dialogue_director.gd" id="1_tcu61"]
+[ext_resource type="PackedScene" uid="uid://20ocomkmuthb" path="res://scenes/bar/dialogue/dialogue_box.tscn" id="2_4ex4t"]
+[ext_resource type="PackedScene" uid="uid://crhnrgwkssxrn" path="res://scenes/bar/bar_player/bar_player.tscn" id="3_uolcu"]
+[ext_resource type="Texture2D" uid="uid://lnt0aa7rpksu" path="res://assets/bar/bar.png" id="4_4ex4t"]
+
+[node name="Bar" type="Node2D"]
+
+[node name="DialogueDirector" type="Node" parent="."]
+script = ExtResource("1_tcu61")
+runner_path = NodePath("DialogueBox")
+metadata/_custom_type_script = "uid://coanxt6cugg4x"
+
+[node name="DialogueBox" parent="DialogueDirector" instance=ExtResource("2_4ex4t")]
+
+[node name="BackGround" type="Sprite2D" parent="."]
+
+[node name="Bar" type="Sprite2D" parent="."]
+position = Vector2(322.75, 192.5)
+scale = Vector2(0.27390566, 0.32407406)
+texture = ExtResource("4_4ex4t")
+region_enabled = true
+region_rect = Rect2(158.48096, 401.69565, 2353.2813, 1188.9745)
+
+[node name="Player" parent="." instance=ExtResource("3_uolcu")]
+position = Vector2(346, 308)

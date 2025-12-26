@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://omea612adw5q"]
+
+[ext_resource type="AudioStream" uid="uid://o87o4uipy1gc" path="res://music/sfx/FireLighting-1.ogg" id="1_banr0"]
+[ext_resource type="AudioStream" uid="uid://dkb8xhbhmi1ri" path="res://music/sfx/FireLighting-2.ogg" id="2_miagi"]
+[ext_resource type="AudioStream" uid="uid://dqby5ohca11pv" path="res://music/sfx/FireLighting-3.ogg" id="3_4ovy7"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_banr0")
+stream_1/stream = ExtResource("2_miagi")
+stream_2/stream = ExtResource("3_4ovy7")

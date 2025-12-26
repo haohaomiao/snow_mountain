@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://smbcvcot02gd"]
+
+[ext_resource type="Script" uid="uid://b43owx7bibo7m" path="res://globals/sound_manager/sound_manager.gd" id="1_s8vuo"]
+[ext_resource type="AudioStream" uid="uid://cjdjegy6gcywk" path="res://music/sfx/BarWind.ogg" id="2_wcfih"]
+[ext_resource type="AudioStream" uid="uid://l7kjl56pydes" path="res://music/sfx/random_select/door_interact.tres" id="3_aa63w"]
+[ext_resource type="AudioStream" uid="uid://omea612adw5q" path="res://music/sfx/random_select/fire_lighting.tres" id="5_k1d7a"]
+[ext_resource type="AudioStream" uid="uid://c42ud8ox8lam1" path="res://music/sfx/FireBuring.ogg" id="6_yr0f0"]
+[ext_resource type="AudioStream" uid="uid://c7bgoy1joq5d6" path="res://music/sfx/random_select/talking_start.tres" id="8_gb18h"]
+[ext_resource type="AudioStream" uid="uid://cx0tavoxx7abd" path="res://music/sfx/SkiSkate.ogg" id="10_6tadu"]
+[ext_resource type="AudioStream" uid="uid://eqvvn0loae50" path="res://music/sfx/SkiWind.ogg" id="11_ecfj0"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_s8vuo")
+metadata/_custom_type_script = "uid://b43owx7bibo7m"
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="BarWind" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_wcfih")
+mix_target = 1
+
+[node name="DoorInteract" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_aa63w")
+
+[node name="FireBuring" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_yr0f0")
+
+[node name="FireLighting" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_k1d7a")
+
+[node name="SkiSkate" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("10_6tadu")
+
+[node name="SkiWind" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("11_ecfj0")
+
+[node name="TalkingStart" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_gb18h")
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
