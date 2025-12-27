@@ -17,7 +17,12 @@
 │  │  └─ dialogue/              # 对话系统（DialogueBox/Runner/Director 与 Resource 脚本）
 │  └─ ski/
 │     ├─ ski.tscn               # 滑雪场景（地图/Parallax + Player 实例）
-│     └─ ski_player.tscn        # 滑雪角色（测试/占位）
+│     ├─ ski.gd                 # 滑雪场景脚本（含计时结束切回 bar）
+│     ├─ ski_controller.gd      # 实验：驱动雪道贴图沿 -dir 滚动（Shader UV）
+│     ├─ snow_track.gdshader    # 实验：雪道滚动用的 canvas_item Shader（UV repeat）
+│     ├─ snow_track.gd          # 雪道 WIP：双贴图交接/回收（TrackA/TrackB）
+│     ├─ ski_player.tscn        # 滑雪角色（测试/占位）
+│     └─ ski_player.gd          # 滑雪角色移动逻辑（测试）
 ├─ scripts/                     # 可复用的通用脚本
 │  └─ interactable.gd           # Interactable（Area2D）：鼠标 hover 提示 + 左键点击触发 interacted
 ├─ acts/                        # 对话/剧情资源（.tres）
@@ -48,10 +53,12 @@
 
 在 `project.godot` 的 `[autoload]` 中注册了以下单例（可全局访问）：
 
+- `CursorManager` → `res://globals/cursor_manager.gd`
 - `GameState` → `res://globals/game_state.gd`
 - `EventBus` → `res://globals/event_bus.gd`
 - `SceneManager` → `res://globals/scene_manager.gd`
 - `SoundManager` → `res://globals/sound_manager/sound_manager.tscn`
+- `Transition` → `res://globals/transition/transition.tscn`
 
 ## 打开与运行
 
@@ -61,4 +68,6 @@
 
 - 对话框：`DialogueRunner` 默认隐藏，需要对话时 `start_act()` 自动显示；对话结束自动隐藏（见 `scenes/bar/dialogue/dialogue_runner.gd`）。
 - 酒馆：`scenes/bar/bar.tscn` 里实例了 `bar_player`，并挂了 `DialogueDirector`（通过 `$DialogueBox` 驱动对话）。
-- 互动：`scripts/interactable.gd` 负责 hover 时切换鼠标样式，左键点击时触发 `interacted`；离开时用 `Input.set_custom_mouse_cursor(null)` 还原默认鼠标。
+- 互动：`scripts/interactable.gd` 在 hover 时通过 `CursorManager` 切换鼠标样式，并支持左键点击触发 `interacted`。
+- 切场景：通过 `EventBus.go(scene_key)` 发起，`globals/scene_manager.gd` 监听后执行切场景，并在切换前后调用 `Transition.fade_out()/fade_in()`（含强制 `CursorManager.set_default()`）。
+- 滑雪：`scenes/ski/ski.tscn` 目前以 `Parallax2D.autoscroll` 做远景/雪道滚动；`scenes/ski/ski.gd` 播放 BGM，并在 `SkiTimer` 到时让玩家按 `-dir` 滑出屏幕后再 `EventBus.go("bar")`。

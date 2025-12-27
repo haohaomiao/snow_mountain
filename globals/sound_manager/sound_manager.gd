@@ -4,12 +4,13 @@ extends Node
 @onready var sfx: Node = $SFX
 @onready var bgm_player: AudioStreamPlayer = $BGMPlayer
 
-func play_sfx(name: String) -> void:
+func play_sfx(name: String) -> AudioStreamPlayer:
 	var player := sfx.get_node(name) as AudioStreamPlayer
 	if not player:
 		print('未找到音效文件 %s' % name)
 		return
 	player.play()
+	return player
 	
 func play_bgm(strem: AudioStream) -> void:
 	if bgm_player.stream == strem and bgm_player.playing:
