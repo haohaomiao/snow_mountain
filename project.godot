@@ -10,11 +10,6 @@ config_version=5
 
 [application]
 
-<<<<<<< Updated upstream
-config/name="snow_mountain"
-config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
-=======
 config/name="ThatGameJam"
 run/main_scene="uid://20ocomkmuthb"
 config/features=PackedStringArray("4.5", "Forward Plus")
@@ -55,4 +50,3 @@ down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
->>>>>>> Stashed changes
