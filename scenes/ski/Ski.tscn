@@ -1,37 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://g4cv2hpa86mv"]
+[gd_scene load_steps=7 format=3 uid="uid://g4cv2hpa86mv"]
 
 [ext_resource type="Texture2D" uid="uid://b4nt0qgpga63m" path="res://assets/ski/mountain.png" id="1_85xeq"]
 [ext_resource type="PackedScene" uid="uid://dhupkfeq5a5ug" path="res://scenes/ski/ski_player.tscn" id="1_f2ocn"]
+[ext_resource type="Texture2D" uid="uid://d2eik77ny2bff" path="res://assets/ski/sky.jpg" id="1_qes8t"]
+[ext_resource type="Script" uid="uid://1d4fr7errpng" path="res://scenes/ski/ski.gd" id="1_xsy6n"]
+[ext_resource type="AudioStream" uid="uid://kkcd2riln23v" path="res://music/bgm/SnowField_MusicDemo_1227.ogg" id="2_n4i4o"]
 [ext_resource type="Texture2D" uid="uid://45nnwd0kx0dh" path="res://assets/ski/test.png" id="2_os1bg"]
 
 [node name="Ski" type="Node2D"]
+script = ExtResource("1_xsy6n")
+exit_duration = 2.0
+EXIT_DISTANCE = 1000.0
+bgm = ExtResource("2_n4i4o")
 metadata/_edit_vertical_guides_ = [-207.0, -167.0, 667.0]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="EstablishingShot" type="Node2D" parent="."]
+
+[node name="Sky" type="Parallax2D" parent="EstablishingShot"]
+scroll_scale = Vector2(0.05, 1)
+repeat_size = Vector2(640, 0)
+autoscroll = Vector2(10, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="EstablishingShot/Sky"]
+position = Vector2(160, 192)
+texture = ExtResource("1_qes8t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="EstablishingShot/Sky"]
+position = Vector2(480, 192)
+texture = ExtResource("1_qes8t")
+
+[node name="Mountains" type="Parallax2D" parent="EstablishingShot"]
 scroll_scale = Vector2(0.05, 1)
 repeat_size = Vector2(640, 0)
 autoscroll = Vector2(20, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+[node name="Sprite2D" type="Sprite2D" parent="EstablishingShot/Mountains"]
 texture = ExtResource("1_85xeq")
 offset = Vector2(160, 192)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="EstablishingShot/Mountains"]
 position = Vector2(320, 0)
 texture = ExtResource("1_85xeq")
 offset = Vector2(160, 192)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="CloseShot" type="Node2D" parent="."]
 rotation = -0.5235988
 
-[node name="Parallax2D2" type="Parallax2D" parent="Node2D"]
+[node name="SnowTrack" type="Parallax2D" parent="CloseShot"]
 repeat_size = Vector2(500, 0)
 autoscroll = Vector2(100, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="CloseShot/SnowTrack"]
 position = Vector2(193.91019, 464.13773)
 scale = Vector2(1.5134465, 1.9736645)
 texture = ExtResource("2_os1bg")
 
 [node name="ski_player" parent="." instance=ExtResource("1_f2ocn")]
 position = Vector2(433, 216)
+
+[node name="MediumShot" type="Node2D" parent="."]
+
+[node name="SkiTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true

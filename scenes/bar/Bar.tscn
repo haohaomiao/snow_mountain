@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyde3lw70dhb"]
+[gd_scene load_steps=10 format=3 uid="uid://dyde3lw70dhb"]
 
+[ext_resource type="Script" uid="uid://ds1ycq1v3fil8" path="res://scenes/bar/bar.gd" id="1_f28po"]
 [ext_resource type="Script" uid="uid://coanxt6cugg4x" path="res://scenes/bar/dialogue/dialogue_director.gd" id="1_tcu61"]
 [ext_resource type="PackedScene" uid="uid://20ocomkmuthb" path="res://scenes/bar/dialogue/dialogue_box.tscn" id="2_4ex4t"]
+[ext_resource type="AudioStream" uid="uid://bkuuv4ik8nyrb" path="res://music/bgm/BarNormal_MusicDemo_ver3.ogg" id="2_078ud"]
 [ext_resource type="PackedScene" uid="uid://crhnrgwkssxrn" path="res://scenes/bar/bar_player/bar_player.tscn" id="3_uolcu"]
 [ext_resource type="Texture2D" uid="uid://lnt0aa7rpksu" path="res://assets/bar/bar.png" id="4_4ex4t"]
+[ext_resource type="Script" uid="uid://c2nhy2o7redl5" path="res://scenes/bar/leaving_door.gd" id="6_078ud"]
+[ext_resource type="PackedScene" uid="uid://dfsi08vxswl0v" path="res://scenes/bar/bar_npc/bar_npc.tscn" id="8_vkkt2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkkt2"]
+size = Vector2(32, 86)
 
 [node name="Bar" type="Node2D"]
+script = ExtResource("1_f28po")
+bgm = ExtResource("2_078ud")
 
 [node name="DialogueDirector" type="Node" parent="."]
 script = ExtResource("1_tcu61")
@@ -13,6 +22,7 @@ runner_path = NodePath("DialogueBox")
 metadata/_custom_type_script = "uid://coanxt6cugg4x"
 
 [node name="DialogueBox" parent="DialogueDirector" instance=ExtResource("2_4ex4t")]
+visible = false
 
 [node name="BackGround" type="Sprite2D" parent="."]
 
@@ -25,3 +35,13 @@ region_rect = Rect2(158.48096, 401.69565, 2353.2813, 1188.9745)
 
 [node name="Player" parent="." instance=ExtResource("3_uolcu")]
 position = Vector2(346, 308)
+
+[node name="LeavingDoor" type="Area2D" parent="."]
+script = ExtResource("6_078ud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeavingDoor"]
+position = Vector2(95, 120)
+shape = SubResource("RectangleShape2D_vkkt2")
+
+[node name="BarNPC" parent="." instance=ExtResource("8_vkkt2")]
+position = Vector2(193, 247)

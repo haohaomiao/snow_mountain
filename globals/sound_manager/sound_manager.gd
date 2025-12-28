@@ -8,14 +8,15 @@ signal ready_for_use
 
 func _ready() -> void:
     emit_signal("ready_for_use")
-
-func play_sfx(name: String) -> void:
-    var player := sfx.get_node(name) as AudioStreamPlayer
-    if not player:
-        print('未找到音效文件 %s' % name)
-        return
-    player.play()
     
+func play_sfx(name: String) -> AudioStreamPlayer:
+	var player := sfx.get_node(name) as AudioStreamPlayer
+	if not player:
+		print('未找到音效文件 %s' % name)
+		return
+	player.play()
+	return player
+	
 func play_bgm(strem: AudioStream) -> void:
     print("play_bgm")
     if bgm_player.stream == strem and bgm_player.playing:

@@ -22,8 +22,7 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 		interact()
 #这里可能需要实现一个鼠标manager
 func _on_mouse_entered() -> void:
-	Input.set_custom_mouse_cursor(preload("res://assets/cursor/cursor_link.png"))
+	CursorManager.set_interactable()
 	
 func _mouse_exited() -> void:
-	#Input.set_custom_mouse_cursor(preload("res://assets/cursor/cursor_arrow.png"))
-	Input.set_custom_mouse_cursor(null)
+	CursorManager.set_default()
