@@ -1,15 +1,15 @@
 extends Node
 const Phase = GameState.Phase
 const SCENES := {
-	"ski": "res://scenes/ski/ski.tscn",
-	"bar": "res://scenes/bar/bar.tscn",
-	#"ending": "res://scenes/Ending.tscn"
+    "ski": "res://scenes/ski/ski.tscn",
+    "bar": "res://scenes/bar/bar.tscn",
+    #"ending": "res://scenes/Ending.tscn"
 }
 
 var _is_changing := false
 
 func _ready():
-	EventBus.request_scene.connect(_on_request_scene)
+    EventBus.request_scene.connect(_on_request_scene)
 
 func _on_request_scene(scene_key: String, payload: Dictionary) -> void:
 	if _is_changing:

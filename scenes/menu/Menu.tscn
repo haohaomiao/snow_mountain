@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://fc86d88vo7b0"]
+
+[ext_resource type="Texture2D" uid="uid://c6pbqaxe7ywop" path="res://assets/ski/skifield_.png" id="1_kcc1k"]
+[ext_resource type="Script" uid="uid://br3cqkqgckadr" path="res://scenes/menu/menu.gd" id="1_u7h56"]
+[ext_resource type="Texture2D" uid="uid://dajfepw7w3hs" path="res://assets/title.png" id="2_1s7fx"]
+[ext_resource type="Texture2D" uid="uid://cdllmkrptjmb3" path="res://assets/start_button.png" id="4_a7470"]
+[ext_resource type="Texture2D" uid="uid://0thrixbu1bxf" path="res://assets/about_button.png" id="5_ljdvc"]
+[ext_resource type="Script" uid="uid://bwix63vdqfif6" path="res://scenes/menu/dim.gd" id="6_a7470"]
+[ext_resource type="Texture2D" uid="uid://bte6msk40oawl" path="res://assets/about_board.png" id="7_ljdvc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0usu"]
+texture = ExtResource("7_ljdvc")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u7h56")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kcc1k")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.631
+texture = ExtResource("2_1s7fx")
+expand_mode = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.55
+anchor_right = 0.6
+anchor_bottom = 0.91
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="StartButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_a7470")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AboutButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("5_ljdvc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AboutLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Dim" type="ColorRect" parent="AboutLayer"]
+modulate = Color(0, 0, 0, 0.5803922)
+self_modulate = Color(0.019717345, 0.019717345, 0.019717345, 0.7607843)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_a7470")
+
+[node name="AboutPanel" type="Panel" parent="AboutLayer"]
+anchors_preset = -1
+anchor_left = 0.192
+anchor_top = 0.212
+anchor_right = 0.74
+anchor_bottom = 0.668
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_o0usu")
+
+[node name="AboutTitle" type="Label" parent="AboutLayer/AboutPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "About"
+
+[node name="TeamInfo" type="RichTextLabel" parent="AboutLayer/AboutPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.164
+anchor_top = 0.25
+anchor_right = 0.822
+anchor_bottom = 0.733
+grow_horizontal = 2
+grow_vertical = 2
+text = "Team info: to do..."
+
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/AboutButton" to="." method="_on_about_button_pressed"]
+[connection signal="clicked" from="AboutLayer/Dim" to="." method="_on_dim_clicked"]
+[connection signal="gui_input" from="AboutLayer/Dim" to="AboutLayer/Dim" method="_on_gui_input"]
