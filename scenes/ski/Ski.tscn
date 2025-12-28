@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dhupkfeq5a5ug" path="res://scenes/ski/ski_player.tscn" id="1_f2ocn"]
 [ext_resource type="Texture2D" uid="uid://d2eik77ny2bff" path="res://assets/ski/sky.jpg" id="1_qes8t"]
 [ext_resource type="Script" uid="uid://1d4fr7errpng" path="res://scenes/ski/ski.gd" id="1_xsy6n"]
-[ext_resource type="AudioStream" uid="uid://kkcd2riln23v" path="res://music/bgm/SnowField_MusicDemo_1227.ogg" id="2_n4i4o"]
-[ext_resource type="Texture2D" uid="uid://45nnwd0kx0dh" path="res://assets/ski/test.png" id="2_os1bg"]
+[ext_resource type="AudioStream" uid="uid://bd13y2h28h6bb" path="res://music/bgm/SnowField_MusicDemo_1228.ogg" id="2_n4i4o"]
+[ext_resource type="Texture2D" uid="uid://b6sawxj0e40rj" path="res://assets/ski/skitrack.png" id="5_n4i4o"]
 
 [node name="Ski" type="Node2D"]
 script = ExtResource("1_xsy6n")
@@ -44,23 +44,34 @@ texture = ExtResource("1_85xeq")
 offset = Vector2(160, 192)
 
 [node name="CloseShot" type="Node2D" parent="."]
-rotation = -0.5235988
+rotation = -0.20943952
 
 [node name="SnowTrack" type="Parallax2D" parent="CloseShot"]
-repeat_size = Vector2(500, 0)
-autoscroll = Vector2(100, 0)
+repeat_size = Vector2(960, 0)
+autoscroll = Vector2(50, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="CloseShot/SnowTrack"]
-position = Vector2(193.91019, 464.13773)
-scale = Vector2(1.5134465, 1.9736645)
-texture = ExtResource("2_os1bg")
+position = Vector2(-116.24759, 501.90433)
+texture = ExtResource("5_n4i4o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CloseShot/SnowTrack"]
+position = Vector2(123.75241, 501.90433)
+texture = ExtResource("5_n4i4o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CloseShot/SnowTrack"]
+position = Vector2(363.75244, 501.90433)
+texture = ExtResource("5_n4i4o")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CloseShot/SnowTrack"]
+position = Vector2(603.7524, 501.90433)
+texture = ExtResource("5_n4i4o")
 
 [node name="ski_player" parent="." instance=ExtResource("1_f2ocn")]
-position = Vector2(433, 216)
+position = Vector2(452, 259)
 
 [node name="MediumShot" type="Node2D" parent="."]
 
 [node name="SkiTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 100.0
 one_shot = true
 autostart = true
