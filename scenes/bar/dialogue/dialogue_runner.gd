@@ -7,7 +7,7 @@ signal choice_made(index: int)
 signal act_finished
 
 var is_active: bool = false
-var _act: DialogueAct = preload("res://acts/NPC/Day1.tres")
+var _act: DialogueAct
 var _index: int = 0
 var _waiting_for_choice := false
 var _return_stack: Array[Dictionary] = []
@@ -16,6 +16,7 @@ var _return_stack: Array[Dictionary] = []
 @onready var _click_catcher: Button = $PanelContainer/ClickCatcher
 
 func _ready() -> void:
+	$PanelContainer/ClickCatcher.pressed.connect(SoundManager.play_sfx.bind('WindowClick'))
 	close()
 # ========= 对外 API =========
 
@@ -59,16 +60,24 @@ func choose(index: int) -> void:
 		return
 
 	var line: DialogueLine = _act.lines[_index]
-	if index < 0 or index >= line.choice_branches.size():
+	if index < 0 or index >= line.choices.size():
 		return
-	var branch_act: DialogueAct = line.choice_branches[index]
-	if branch_act == null:
-		return
-
+		
 	_waiting_for_choice = false
 	_set_click_catcher_enabled(true)
 	_clear_choices()
 	emit_signal("choice_made", index)
+
+	var branch_act: DialogueAct = null
+	if index < line.choice_branches.size():
+		branch_act = line.choice_branches[index]
+		if branch_act == null:
+			return
+
+	if branch_act == null:
+		_index += 1
+		_play_current_line()
+		return
 
 	_return_stack.push_back({
 		"act": _act,
@@ -117,9 +126,11 @@ func _render_choices(line: DialogueLine) -> void:
 	for i in line.choices.size():
 		var button := Button.new()
 		button.text = line.choices[i]
-		var has_target := i < line.choice_branches.size() and line.choice_branches[i] != null
-		button.disabled = not has_target
+		var explicitly_disabled := i < line.choice_branches.size() and line.choice_branches[i] == null
+		button.disabled = explicitly_disabled
 		button.pressed.connect(choose.bind(i))
+		button.pressed.connect(SoundManager.play_sfx.bind('WindowClick'))
+		button.mouse_entered.connect(SoundManager.play_sfx.bind('WindowFocus'))
 		_choices_container.add_child(button)
 
 # =========  =========

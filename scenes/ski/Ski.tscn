@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d2eik77ny2bff" path="res://assets/ski/sky.jpg" id="1_qes8t"]
 [ext_resource type="Script" uid="uid://1d4fr7errpng" path="res://scenes/ski/ski.gd" id="1_xsy6n"]
 [ext_resource type="AudioStream" uid="uid://bd13y2h28h6bb" path="res://music/bgm/SnowField_MusicDemo_1228.ogg" id="2_n4i4o"]
-[ext_resource type="Texture2D" uid="uid://b6sawxj0e40rj" path="res://assets/ski/skitrack.png" id="5_n4i4o"]
+[ext_resource type="Texture2D" uid="uid://br7uon03bceey" path="res://assets/ski/1229skitrack.png" id="5_n4i4o"]
 
 [node name="Ski" type="Node2D"]
 script = ExtResource("1_xsy6n")
@@ -72,6 +72,6 @@ position = Vector2(452, 259)
 [node name="MediumShot" type="Node2D" parent="."]
 
 [node name="SkiTimer" type="Timer" parent="."]
-wait_time = 100.0
+wait_time = 30.0
 one_shot = true
 autostart = true

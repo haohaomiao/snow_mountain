@@ -1,0 +1,111 @@
+[gd_resource type="Resource" script_class="DialogueAct" load_steps=22 format=3]
+
+[ext_resource type="Script" uid="uid://bw5nvw6g1w033" path="res://scenes/bar/dialogue/dialogue_line.gd" id="1_dialogue_line"]
+[ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
+[ext_resource type="Resource" path="res://acts/NPC/Day4_03_branch_1.tres" id="3_branch_1"]
+[ext_resource type="Resource" path="res://acts/NPC/Day4_03_branch_2.tres" id="4_branch_2"]
+
+[sub_resource type="Resource" id="Line_01"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "哎，喝了酒就不可避免地有这种感受呢"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_02"]
+script = ExtResource("1_dialogue_line")
+text = "感觉不好？"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_03"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "不，感觉好，像今天的天色那般好。只是有点奇怪。"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_04"]
+script = ExtResource("1_dialogue_line")
+text = "啊，我大概明白"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_05"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "当然，你能明白"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_06"]
+script = ExtResource("1_dialogue_line")
+text = "那么，我们再来一瓶好么？"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_07"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "……"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_08"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "我不喝了"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_09"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "这里的山很多，青青的树也多，看起来，雪季就快要过去了"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_10"]
+script = ExtResource("1_dialogue_line")
+text = "是啊，我猜也许这才是它很少被人说道的原因吧"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_11"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "看来就算是常年住在这里，如此幸运的人，也会有不满意的时候呀"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_12"]
+script = ExtResource("1_dialogue_line")
+text = "（哈哈大笑）"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_13"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "也许我们再没机会一起滑雪了，不是么？明天我就要离开。"
+has_choices = true
+choices = Array[String](["（沉默）", "咱们一定要滑"])
+choice_branches = Array[ExtResource("2_dialogue_act")]([ExtResource("3_branch_1"), ExtResource("4_branch_2")])
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_14"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "要是不能滑，就没有意义了"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_15"]
+script = ExtResource("1_dialogue_line")
+text = "（意义？）"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_16"]
+script = ExtResource("1_dialogue_line")
+text = "那么，我们说定了"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_17"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "（笑）说定了可没什么好处"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[resource]
+script = ExtResource("2_dialogue_act")
+act_id = "Day4_03"
+day_index = 4
+lines = Array[ExtResource("1_dialogue_line")]([SubResource("Line_01"), SubResource("Line_02"), SubResource("Line_03"), SubResource("Line_04"), SubResource("Line_05"), SubResource("Line_06"), SubResource("Line_07"), SubResource("Line_08"), SubResource("Line_09"), SubResource("Line_10"), SubResource("Line_11"), SubResource("Line_12"), SubResource("Line_13"), SubResource("Line_14"), SubResource("Line_15"), SubResource("Line_16"), SubResource("Line_17")])
+metadata/_custom_type_script = "uid://6jp7pl2lqrck"

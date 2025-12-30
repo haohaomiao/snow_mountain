@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogueAct" load_steps=6 format=3 uid="uid://cxun7wxjfmo67"]
+
+[ext_resource type="Script" uid="uid://bw5nvw6g1w033" path="res://scenes/bar/dialogue/dialogue_line.gd" id="1_dialogue_line"]
+[ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
+[ext_resource type="Resource" uid="uid://w58wgiand2nx" path="res://acts/NPC/Day2_04_branch_1.tres" id="3_branch_1"]
+[ext_resource type="Resource" uid="uid://d1di2jhhm8ojo" path="res://acts/NPC/Day2_04_branch_2.tres" id="4_branch_2"]
+
+[sub_resource type="Resource" id="Line_01"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "那么……好好享受这里的雪和夜晚吧。"
+has_choices = true
+choices = Array[String](["你也是呀", "真期待你滑上那个雪道"])
+choice_branches = Array[ExtResource("2_dialogue_act")]([ExtResource("3_branch_1"), ExtResource("4_branch_2")])
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[resource]
+script = ExtResource("2_dialogue_act")
+lines = Array[ExtResource("1_dialogue_line")]([SubResource("Line_01")])
+metadata/_custom_type_script = "uid://6jp7pl2lqrck"

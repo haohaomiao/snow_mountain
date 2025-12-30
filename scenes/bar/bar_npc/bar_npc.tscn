@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfsi08vxswl0v"]
 
-[ext_resource type="Texture2D" uid="uid://ji3t04yclj3h" path="res://icon.svg" id="1_e5jlj"]
-[ext_resource type="Script" uid="uid://dd6t863te5o4j" path="res://scenes/bar/bar_npc/bar_npc_interactable.gd" id="2_cu38s"]
+[ext_resource type="Texture2D" uid="uid://tmnhjyjxf8d3" path="res://assets/npc/npc.png" id="1_mpymf"]
+[ext_resource type="Script" uid="uid://dd6t863te5o4j" path="res://npc_interactable.gd" id="2_rv78h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7n8xq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_e5jlj")
+"texture": ExtResource("1_mpymf")
 }],
 "loop": true,
 "name": &"default",
@@ -15,16 +15,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wlns"]
-size = Vector2(36, 40)
+size = Vector2(20, 38)
 
 [node name="BarNPC" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.28125, 0.328125)
 sprite_frames = SubResource("SpriteFrames_7n8xq")
+autoplay = "default"
 
 [node name="NPCInteractable" type="Area2D" parent="."]
-script = ExtResource("2_cu38s")
+script = ExtResource("2_rv78h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCInteractable"]
 shape = SubResource("RectangleShape2D_4wlns")

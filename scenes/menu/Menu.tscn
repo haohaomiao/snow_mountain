@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://c6pbqaxe7ywop" path="res://assets/ski/skifield_.png" id="1_kcc1k"]
 [ext_resource type="Script" uid="uid://br3cqkqgckadr" path="res://scenes/menu/menu.gd" id="1_u7h56"]
-[ext_resource type="Texture2D" uid="uid://dajfepw7w3hs" path="res://assets/title.png" id="2_1s7fx"]
-[ext_resource type="Texture2D" uid="uid://cdllmkrptjmb3" path="res://assets/start_button.png" id="4_a7470"]
-[ext_resource type="Texture2D" uid="uid://0thrixbu1bxf" path="res://assets/about_button.png" id="5_ljdvc"]
+[ext_resource type="Texture2D" uid="uid://dajfepw7w3hs" path="res://assets/menu/title.png" id="2_1s7fx"]
+[ext_resource type="Texture2D" uid="uid://cdllmkrptjmb3" path="res://assets/menu/start_button.png" id="4_a7470"]
+[ext_resource type="Texture2D" uid="uid://0thrixbu1bxf" path="res://assets/menu/about_button.png" id="5_ljdvc"]
 [ext_resource type="Script" uid="uid://bwix63vdqfif6" path="res://scenes/menu/dim.gd" id="6_a7470"]
-[ext_resource type="Texture2D" uid="uid://bte6msk40oawl" path="res://assets/about_board.png" id="7_ljdvc"]
+[ext_resource type="Texture2D" uid="uid://bte6msk40oawl" path="res://assets/menu/about_board.png" id="7_ljdvc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0usu"]
 texture = ExtResource("7_ljdvc")

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 CursorManager="*res://globals/cursor_manager.gd"
 GameState="*res://globals/game_state.gd"
+SubjectProgress="*res://globals/subject_progress.gd"
 EventBus="*res://globals/event_bus.gd"
 SceneManager="*res://globals/scene_manager.gd"
 SoundManager="*res://globals/sound_manager/sound_manager.tscn"
