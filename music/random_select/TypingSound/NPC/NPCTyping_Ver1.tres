@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://de1nq6yneot0w"]
+
+[ext_resource type="AudioStream" uid="uid://dcr8uhjanybj4" path="res://music/sfx/TypingSound_Group/TypingNPCVer1_1.wav" id="1_edoe6"]
+[ext_resource type="AudioStream" uid="uid://bfbxinj6oe5t6" path="res://music/sfx/TypingSound_Group/TypingNPCVer1_2.wav" id="2_yilas"]
+[ext_resource type="AudioStream" uid="uid://6pnnsm4jxc3x" path="res://music/sfx/TypingSound_Group/TypingNPCVer1_3.wav" id="3_l6njm"]
+[ext_resource type="AudioStream" uid="uid://kamis4asig7" path="res://music/sfx/TypingSound_Group/TypingNPCVer1_4.wav" id="4_xnyyw"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_edoe6")
+stream_1/stream = ExtResource("2_yilas")
+stream_2/stream = ExtResource("3_l6njm")
+stream_3/stream = ExtResource("4_xnyyw")

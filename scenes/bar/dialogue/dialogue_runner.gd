@@ -5,17 +5,24 @@ signal line_changed(line: DialogueLine)
 signal choices_requested(choices: Array[String])
 signal choice_made(index: int)
 signal act_finished
+signal line_start(player: AudioStreamPlayer)
 
 var is_active: bool = false
 var _act: DialogueAct
 var _index: int = 0
 var _waiting_for_choice := false
 var _return_stack: Array[Dictionary] = []
+var voice : AudioStreamPlayer
 
 @onready var _choices_container: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/Choices
 @onready var _click_catcher: Button = $PanelContainer/ClickCatcher
-
+func _stopvoice() -> void:
+	if voice == null: return
+	await get_tree().create_timer(0.5).timeout
+	voice.stop()
+	
 func _ready() -> void:
+	line_start.connect(_stopvoice)
 	$PanelContainer/ClickCatcher.pressed.connect(SoundManager.play_sfx.bind('WindowClick'))
 	close()
 # ========= 对外 API =========
@@ -102,6 +109,11 @@ func _play_current_line() -> void:
 
 	var line: DialogueLine = _act.lines[_index]
 	emit_signal("line_changed", line)
+	#if line.speaker == line.Speaker.PLAYER:
+	voice = SoundManager.play_sfx('PlayerTyping')
+	#else:
+		#voice = SoundManager.play_sfx('NPCTyping')
+	emit_signal('line_start')
 	%SpeakText.text = line.text
 	%Speaker.text = line.get_speaker_name()
 	_clear_choices()

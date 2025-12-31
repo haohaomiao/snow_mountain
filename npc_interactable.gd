@@ -26,7 +26,8 @@ func interact() -> void:
 	if not _director.has_next_act(day, subject):
 		_disable_interaction()
 		return
-
+	var Startplayer := SoundManager.play_sfx('TalkingStart')
+	await get_tree().create_timer(0.35).timeout
 	_director.request_dialogue(day, subject)
 
 func _get_dialogue_director() -> DialogueDirector:

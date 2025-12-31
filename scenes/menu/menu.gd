@@ -1,11 +1,12 @@
 extends Node
-
+@export var bgm : AudioStream
 func _ready() -> void:
-	SoundManager.ready_for_use.connect(play_bgm)
 	SoundManager.setup_ui_sounds(self)
+	SoundManager.ready_for_use.connect(play_bgm)
 
 func play_bgm() -> void:
-	SoundManager.play_bgm(preload("res://music/bgm/SnowField_MusicDemo_1221-2.ogg"))
+	print('背景音乐')
+	SoundManager.play_bgm(bgm)
 
 func _on_start_button_pressed() -> void:
 	EventBus.go("ski")

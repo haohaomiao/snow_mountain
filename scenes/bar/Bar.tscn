@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://ds1ycq1v3fil8" path="res://scenes/bar/bar.gd" id="1_l1w72"]
 [ext_resource type="AudioStream" uid="uid://magy7h88i30l" path="res://music/bgm/BarNormal_MusicDemo_ver4.ogg" id="2_vkkt2"]
 [ext_resource type="Script" uid="uid://coanxt6cugg4x" path="res://scenes/bar/dialogue/dialogue_director.gd" id="3_v67d5"]
+[ext_resource type="Texture2D" uid="uid://c3ddyvge8lf8x" path="res://bar_test.png" id="3_vkkt2"]
 [ext_resource type="PackedScene" uid="uid://20ocomkmuthb" path="res://scenes/dialogue_box.tscn" id="4_rrntp"]
-[ext_resource type="Texture2D" uid="uid://dyi2l88jv71x2" path="res://assets/bar/bar_ground.png" id="5_5qaxt"]
 [ext_resource type="PackedScene" uid="uid://crhnrgwkssxrn" path="res://scenes/bar/bar_player/bar_player.tscn" id="6_cmq8q"]
 [ext_resource type="Script" uid="uid://c2nhy2o7redl5" path="res://scenes/bar/leaving_door.gd" id="7_i5gm6"]
 [ext_resource type="PackedScene" uid="uid://dfsi08vxswl0v" path="res://scenes/bar/bar_npc/bar_npc.tscn" id="8_7uitc"]
@@ -18,7 +18,7 @@ bgm = ExtResource("2_vkkt2")
 
 [node name="BackGround" type="Sprite2D" parent="."]
 position = Vector2(323, 247)
-texture = ExtResource("5_5qaxt")
+texture = ExtResource("3_vkkt2")
 
 [node name="LeavingDoor" type="Area2D" parent="."]
 script = ExtResource("7_i5gm6")
@@ -56,3 +56,5 @@ position = Vector2(345, 244)
 
 [node name="BarNPC" parent="Objectives" instance=ExtResource("8_7uitc")]
 position = Vector2(193, 247)
+
+[node name="Timer" type="Timer" parent="."]

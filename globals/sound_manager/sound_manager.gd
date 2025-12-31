@@ -26,9 +26,7 @@ func play_bgm(strem: AudioStream) -> void:
 
 func setup_ui_sounds(node: Node) -> void:
 	var button := node as BaseButton
-	print('运行')
 	if button:
-		print('设置成功')
 		button.pressed.connect(SoundManager.play_sfx.bind('WindowClick'))
 		button.mouse_entered.connect(SoundManager.play_sfx.bind('WindowFocus'))
 	
