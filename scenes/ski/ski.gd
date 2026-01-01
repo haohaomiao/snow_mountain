@@ -8,6 +8,7 @@ var exit_dir := Vector2.from_angle(deg_to_rad(-30.0))
 
 func _ready() -> void:
 	SoundManager.play_bgm(bgm)
+	SoundManager.play_sfx('SkiWind')
 	$SkiTimer.timeout.connect(_on_ski_timer_timeout)
 
 func _on_ski_timer_timeout() -> void:

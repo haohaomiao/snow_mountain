@@ -47,6 +47,8 @@ script = ExtResource("3_v67d5")
 
 [node name="DialogueBox" parent="CanvasLayer/DialogueDirector" instance=ExtResource("4_rrntp")]
 visible = false
+typing_seconds_per_char = 0.03
+typing_punct_pause_seconds = 0.2
 
 [node name="Objectives" type="Node2D" parent="."]
 y_sort_enabled = true

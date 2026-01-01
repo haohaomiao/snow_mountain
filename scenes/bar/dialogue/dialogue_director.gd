@@ -17,6 +17,9 @@ var is_busy: bool = false
 var _current_day: int = -1
 var _current_subject: Subject = Subject.NPC
 
+func _get_language_dir() -> String:
+	return "en" if GameState.english else "ch"
+
 func _ready() -> void:
 	print(_runner, " script=", _runner.get_script())
 	print("is DialogueRunner? ", _runner is DialogueRunner)
@@ -75,9 +78,19 @@ func resolve_day(day: int, subject: Subject) -> DialogueDay:
 		return null
 
 	var root := acts_root.trim_suffix("/")
-	var path := "%s/%s/Day%d.tres" % [root, subject_name, day]
+	var preferred_lang := _get_language_dir()
+	var path := "%s/%s/%s/Day%d.tres" % [root, preferred_lang, subject_name, day]
+
 	if not ResourceLoader.exists(path):
-		return null
+		var fallback_lang := "ch" if preferred_lang == "en" else "en"
+		var fallback_path := "%s/%s/%s/Day%d.tres" % [root, fallback_lang, subject_name, day]
+		if ResourceLoader.exists(fallback_path):
+			path = fallback_path
+		else:
+			var legacy_path := "%s/%s/Day%d.tres" % [root, subject_name, day]
+			if not ResourceLoader.exists(legacy_path):
+				return null
+			path = legacy_path
 
 	return load(path) as DialogueDay
 

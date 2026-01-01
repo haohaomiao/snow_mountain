@@ -26,7 +26,7 @@ func advance(day: int, subject: Subject) -> int:
 	return next_index
 
 func get_subject_name(subject: Subject) -> String:
-	var key := Subject.find_key(subject) as Subject
-	if key == null:
-		return ""
-	return Subject.keys()[key] as String
+	var subject_name = Subject.find_key(subject)
+	if subject_name is String:
+		return subject_name
+	return ""

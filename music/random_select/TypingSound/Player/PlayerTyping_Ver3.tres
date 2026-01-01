@@ -1,13 +1,13 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://b8rsfmkpo70c2"]
 
-[ext_resource type="AudioStream" uid="uid://dmm0oyoi1obxm" path="res://music/sfx/TypingSound_Group/TypingPlayerVer3_1.wav" id="1_6wdtu"]
-[ext_resource type="AudioStream" uid="uid://b0b6hgq7gr04p" path="res://music/sfx/TypingSound_Group/TypingPlayerVer3_2.wav" id="2_n3gm2"]
-[ext_resource type="AudioStream" uid="uid://beyddqqvq4c0s" path="res://music/sfx/TypingSound_Group/TypingPlayerVer3_3.wav" id="3_jx7yh"]
-[ext_resource type="AudioStream" uid="uid://b832i1wnaauxc" path="res://music/sfx/TypingSound_Group/TypingPlayerVer3_4.wav" id="4_bm33x"]
+[ext_resource type="AudioStream" uid="uid://c5mph76yo7rwv" path="res://music/sfx/TypingSound_Group/TypingPlayerVer3_1.ogg" id="1_lfsqa"]
+[ext_resource type="AudioStream" uid="uid://ykby4embh1tv" path="res://music/sfx/TypingSound_Group/TypingPlayerVer3_2.ogg" id="2_tnbgc"]
+[ext_resource type="AudioStream" uid="uid://bljy5bwxqgwkc" path="res://music/sfx/TypingSound_Group/TypingPlayerVer3_3.ogg" id="3_78ayi"]
+[ext_resource type="AudioStream" uid="uid://ckxnpixw85fu1" path="res://music/sfx/TypingSound_Group/TypingPlayerVer3_4.ogg" id="4_wak2o"]
 
 [resource]
 streams_count = 4
-stream_0/stream = ExtResource("1_6wdtu")
-stream_1/stream = ExtResource("2_n3gm2")
-stream_2/stream = ExtResource("3_jx7yh")
-stream_3/stream = ExtResource("4_bm33x")
+stream_0/stream = ExtResource("1_lfsqa")
+stream_1/stream = ExtResource("2_tnbgc")
+stream_2/stream = ExtResource("3_78ayi")
+stream_3/stream = ExtResource("4_wak2o")

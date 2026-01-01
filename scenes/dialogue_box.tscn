@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://20ocomkmuthb"]
+[gd_scene load_steps=2 format=3 uid="uid://20ocomkmuthb"]
 
 [ext_resource type="Script" uid="uid://c1sg0tby256mi" path="res://scenes/bar/dialogue/dialogue_runner.gd" id="1_rc1id"]
-[ext_resource type="FontFile" uid="uid://d3xyw82rfym72" path="res://assets/fonts/VT323-Regular.ttf" id="2_fu8b5"]
 
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
@@ -11,6 +10,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rc1id")
+typing_min_seconds = 0.4
+typing_seconds_per_char = 0.02
+typing_fade_out_seconds = 0.05
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -39,9 +41,8 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_fu8b5")
 text = "这是玩家的对话内容"
-autowrap_mode = 1
+autowrap_mode = 3
 
 [node name="Choices" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

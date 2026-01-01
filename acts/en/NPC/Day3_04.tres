@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="DialogueAct" load_steps=16 format=3 uid="uid://dh6ihb4ep7a0g"]
+
+[ext_resource type="Script" uid="uid://bw5nvw6g1w033" path="res://scenes/bar/dialogue/dialogue_line.gd" id="1_dialogue_line"]
+[ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
+[ext_resource type="Resource" uid="uid://crdkw508dxdyu" path="res://acts/en/NPC/Day3_04_branch_1.tres" id="3_branch_1"]
+[ext_resource type="Resource" uid="uid://bp6gxq088robq" path="res://acts/en/NPC/Day3_04_branch_2.tres" id="4_branch_2"]
+
+[sub_resource type="Resource" id="Line_01"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "So—how long have you been staying here?"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_02"]
+script = ExtResource("1_dialogue_line")
+text = "Three days? A week? Two weeks?"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_03"]
+script = ExtResource("1_dialogue_line")
+text = "Before I met you, I don’t think I cared about time at all."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_04"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "Heh. Sounds like you’re drunk."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_05"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "(Suddenly) Do you know what I’m about to say?"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_06"]
+script = ExtResource("1_dialogue_line")
+text = "—You’re asking me sincerely."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_07"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "Alright. Then let me ask you sincerely."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_08"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "If you don’t know——if you’re not pretending to know the way I do——"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_09"]
+script = ExtResource("1_dialogue_line")
+text = "Then what?"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_10"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "Then don’t say anything. And if you only want to talk about your hopes, don’t say those either."
+has_choices = true
+choices = Array[String](["(Laughs) I just don’t have a plan.", "Maybe… we could ski together."])
+choice_branches = Array[ExtResource("2_dialogue_act")]([ExtResource("3_branch_1"), ExtResource("4_branch_2")])
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_11"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+text = "Alright. It’s settled. We’ll meet at the cable car at the summit."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[resource]
+script = ExtResource("2_dialogue_act")
+lines = Array[ExtResource("1_dialogue_line")]([SubResource("Line_01"), SubResource("Line_02"), SubResource("Line_03"), SubResource("Line_04"), SubResource("Line_05"), SubResource("Line_06"), SubResource("Line_07"), SubResource("Line_08"), SubResource("Line_09"), SubResource("Line_10"), SubResource("Line_11")])
+metadata/_custom_type_script = "uid://6jp7pl2lqrck"
