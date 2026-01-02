@@ -6,6 +6,8 @@ const SCENES := {
 	#"ending": "res://scenes/Ending.tscn"
 }
 
+signal day_changed
+
 var _is_changing := false
 
 func _ready():
@@ -34,4 +36,3 @@ func _on_request_scene(scene_key: String, payload: Dictionary) -> void:
 		await Transition.fade_in()
 	EventBus.change_phase(payload)
 	_is_changing = false
-	

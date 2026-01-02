@@ -287,5 +287,3 @@ shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_enabled = false
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

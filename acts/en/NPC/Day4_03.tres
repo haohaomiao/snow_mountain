@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="DialogueAct" load_steps=22 format=3]
+[gd_resource type="Resource" script_class="DialogueAct" load_steps=22 format=3 uid="uid://sjocxaqlrc4g"]
 
 [ext_resource type="Script" uid="uid://bw5nvw6g1w033" path="res://scenes/bar/dialogue/dialogue_line.gd" id="1_dialogue_line"]
 [ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
-[ext_resource type="Resource" path="res://acts/en/NPC/Day4_03_branch_1.tres" id="3_branch_1"]
-[ext_resource type="Resource" path="res://acts/en/NPC/Day4_03_branch_2.tres" id="4_branch_2"]
+[ext_resource type="Resource" uid="uid://dgl38rd2b81ys" path="res://acts/en/NPC/Day4_03_branch_1.tres" id="3_branch_1"]
+[ext_resource type="Resource" uid="uid://cay0633hulxqt" path="res://acts/en/NPC/Day4_03_branch_2.tres" id="4_branch_2"]
 
 [sub_resource type="Resource" id="Line_01"]
 script = ExtResource("1_dialogue_line")
@@ -77,7 +77,7 @@ script = ExtResource("1_dialogue_line")
 speaker = 1
 text = "Maybe we won’t get another chance to ski together. I’m leaving tomorrow."
 has_choices = true
-choices = Array[String](["(Silence)", "We will ski again."])
+choices = Array[String](["(Silence)", "We must ski again."])
 choice_branches = Array[ExtResource("2_dialogue_act")]([ExtResource("3_branch_1"), ExtResource("4_branch_2")])
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
@@ -107,4 +107,3 @@ metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 script = ExtResource("2_dialogue_act")
 lines = Array[ExtResource("1_dialogue_line")]([SubResource("Line_01"), SubResource("Line_02"), SubResource("Line_03"), SubResource("Line_04"), SubResource("Line_05"), SubResource("Line_06"), SubResource("Line_07"), SubResource("Line_08"), SubResource("Line_09"), SubResource("Line_10"), SubResource("Line_11"), SubResource("Line_12"), SubResource("Line_13"), SubResource("Line_14"), SubResource("Line_15"), SubResource("Line_16"), SubResource("Line_17")])
 metadata/_custom_type_script = "uid://6jp7pl2lqrck"
-

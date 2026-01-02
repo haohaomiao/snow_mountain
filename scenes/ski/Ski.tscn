@@ -1,17 +1,90 @@
-[gd_scene load_steps=7 format=3 uid="uid://g4cv2hpa86mv"]
+[gd_scene load_steps=22 format=3 uid="uid://g4cv2hpa86mv"]
 
 [ext_resource type="Texture2D" uid="uid://b4nt0qgpga63m" path="res://assets/ski/mountain.png" id="1_85xeq"]
 [ext_resource type="PackedScene" uid="uid://dhupkfeq5a5ug" path="res://scenes/ski/ski_player.tscn" id="1_f2ocn"]
 [ext_resource type="Texture2D" uid="uid://d2eik77ny2bff" path="res://assets/ski/sky.jpg" id="1_qes8t"]
 [ext_resource type="Script" uid="uid://1d4fr7errpng" path="res://scenes/ski/ski.gd" id="1_xsy6n"]
-[ext_resource type="AudioStream" uid="uid://bd13y2h28h6bb" path="res://music/bgm/SnowField_MusicDemo_1228.ogg" id="2_n4i4o"]
-[ext_resource type="Texture2D" uid="uid://br7uon03bceey" path="res://assets/ski/1229skitrack.png" id="5_n4i4o"]
+[ext_resource type="AudioStream" uid="uid://c8hsyu58u5fe" path="res://music/bgm/SnowFieldSingleMusic.ogg" id="2_2fbrk"]
+[ext_resource type="AudioStream" uid="uid://6it8ud76m76r" path="res://music/bgm/SnowFieldDoubleMusic.ogg" id="3_7xlgx"]
+[ext_resource type="Texture2D" uid="uid://br7uon03bceey" path="res://assets/ski/skitrack.png" id="5_n4i4o"]
+
+[sub_resource type="Curve" id="Curve_n4i4o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.68749994, 0.7961255), -0.7339485, -0.7339485, 0, 0, Vector2(0.89338225, 0.47832108), -1.7792665, -1.7792665, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2fbrk"]
+curve = SubResource("Curve_n4i4o")
+
+[sub_resource type="Gradient" id="Gradient_7xlgx"]
+offsets = PackedFloat32Array(0.45726496, 0.6025641)
+colors = PackedColorArray(1, 1, 1, 0.3529412, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_noa7m"]
+gradient = SubResource("Gradient_7xlgx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5m4dm"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 1, 1)
+gravity = Vector3(100, 98, 0)
+scale_max = 4.0
+color_initial_ramp = SubResource("GradientTexture1D_noa7m")
+alpha_curve = SubResource("CurveTexture_2fbrk")
+turbulence_enabled = true
+turbulence_influence_min = 0.020000001
+turbulence_influence_max = 0.080000006
+
+[sub_resource type="Gradient" id="Gradient_n4i4o"]
+offsets = PackedFloat32Array(0, 0.48333332, 1)
+colors = PackedColorArray(0.29803923, 0.8392157, 1, 0, 0.29936135, 0.8394652, 0.99999946, 1, 0.29803923, 0.8392157, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2fbrk"]
+gradient = SubResource("Gradient_n4i4o")
+width = 1
+height = 32
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_noa7m"]
+colors = PackedColorArray(1, 1, 1, 0.09411765, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5m4dm"]
+gradient = SubResource("Gradient_noa7m")
+
+[sub_resource type="Gradient" id="Gradient_8s4lh"]
+offsets = PackedFloat32Array(0, 0.48290598, 0.99572647)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4s5u5"]
+gradient = SubResource("Gradient_8s4lh")
+
+[sub_resource type="Curve" id="Curve_wlfea"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, -25.461243), 0.0, 0.0, 0, 0, Vector2(0.16176471, 24.907776), 0.0, 0.0, 0, 0, Vector2(0.34558824, -32.6568), 0.0, 0.0, 0, 0, Vector2(0.5036765, 15.31366), 0.0, 0.0, 0, 0, Vector2(0.7205882, -39.852386), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_p73sb"]
+curve = SubResource("Curve_wlfea")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a48q5"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 200, 1)
+gravity = Vector3(100, 20, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 5.9999976
+tangential_accel_curve = SubResource("CurveTexture_p73sb")
+damping_max = 100.00001
+scale_min = 1.5
+scale_max = 1.8
+color_ramp = SubResource("GradientTexture1D_4s5u5")
+color_initial_ramp = SubResource("GradientTexture1D_5m4dm")
 
 [node name="Ski" type="Node2D"]
 script = ExtResource("1_xsy6n")
 exit_duration = 2.0
 EXIT_DISTANCE = 1000.0
-bgm = ExtResource("2_n4i4o")
+single_bgm = ExtResource("2_2fbrk")
+double_bgm = ExtResource("3_7xlgx")
 metadata/_edit_vertical_guides_ = [-207.0, -167.0, 667.0]
 
 [node name="EstablishingShot" type="Node2D" parent="."]
@@ -75,3 +148,28 @@ position = Vector2(452, 259)
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="SnowEffect" type="CanvasLayer" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="SnowEffect"]
+position = Vector2(236, 6)
+amount = 200
+lifetime = 10.0
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_5m4dm")
+
+[node name="WindEffect" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="WindEffect"]
+position = Vector2(14, 205)
+amount = 10
+texture = SubResource("GradientTexture2D_2fbrk")
+lifetime = 5.0
+preprocess = 30.0
+randomness = 1.0
+visibility_rect = Rect2(-400, -200, 800, 400)
+trail_enabled = true
+trail_lifetime = 1.0
+trail_sections = 12
+process_material = SubResource("ParticleProcessMaterial_a48q5")

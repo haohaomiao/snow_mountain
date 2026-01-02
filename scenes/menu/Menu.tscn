@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c6pbqaxe7ywop" path="res://assets/ski/skifield_.png" id="1_kcc1k"]
 [ext_resource type="Script" uid="uid://br3cqkqgckadr" path="res://scenes/menu/menu.gd" id="1_u7h56"]
 [ext_resource type="Texture2D" uid="uid://dajfepw7w3hs" path="res://assets/menu/title.png" id="2_1s7fx"]
-[ext_resource type="AudioStream" uid="uid://bd13y2h28h6bb" path="res://music/bgm/SnowField_MusicDemo_1228.ogg" id="2_o0usu"]
+[ext_resource type="AudioStream" uid="uid://cp5px0dmoxhx2" path="res://music/bgm/MainMenuMusic.ogg" id="2_o0usu"]
 [ext_resource type="Texture2D" uid="uid://cdllmkrptjmb3" path="res://assets/menu/start_button.png" id="4_a7470"]
 [ext_resource type="Texture2D" uid="uid://0thrixbu1bxf" path="res://assets/menu/about_button.png" id="5_ljdvc"]
 [ext_resource type="Script" uid="uid://bwix63vdqfif6" path="res://scenes/menu/dim.gd" id="6_a7470"]

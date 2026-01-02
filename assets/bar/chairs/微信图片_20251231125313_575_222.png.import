@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br7uon03bceey"
-path="res://.godot/imported/skitrack.png-e69b767c46fa3dc096b243c5984d735c.ctex"
+uid="uid://dcjhq635pwsse"
+path="res://.godot/imported/微信图片_20251231125313_575_222.png-2c6098d7403d4c70d48d7c721fd6f055.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ski/skitrack.png"
-dest_files=["res://.godot/imported/skitrack.png-e69b767c46fa3dc096b243c5984d735c.ctex"]
+source_file="res://assets/bar/chairs/微信图片_20251231125313_575_222.png"
+dest_files=["res://.godot/imported/微信图片_20251231125313_575_222.png-2c6098d7403d4c70d48d7c721fd6f055.ctex"]
 
 [params]
 

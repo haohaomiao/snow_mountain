@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/BarNormal_MusicDemo_ver4.ogg-66ca6f19851647ba
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

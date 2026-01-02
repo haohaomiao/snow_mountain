@@ -11,4 +11,3 @@ func set_default() -> void:
 
 func set_interactable() -> void:
 	Input.set_custom_mouse_cursor(CURSOR_INTERACT)
-

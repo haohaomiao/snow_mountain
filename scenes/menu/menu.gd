@@ -2,7 +2,7 @@ extends Node
 @export var bgm : AudioStream
 func _ready() -> void:
 	SoundManager.setup_ui_sounds(self)
-	SoundManager.ready_for_use.connect(play_bgm)
+	play_bgm()
 
 func play_bgm() -> void:
 	print('背景音乐')

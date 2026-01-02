@@ -1,15 +1,19 @@
 extends Node2D
 
-var exit_dir := Vector2.from_angle(deg_to_rad(-30.0))
+var exit_dir := Vector2.from_angle(deg_to_rad(-12.0))
 @export var exit_duration := 3.0
 
 @export var EXIT_DISTANCE := 2000.0
-@export var bgm : AudioStream
+@export var single_bgm : AudioStream
+@export var double_bgm : AudioStream
 
+var bgm : AudioStream = single_bgm
 func _ready() -> void:
+	match_bgm()
 	SoundManager.play_bgm(bgm)
 	SoundManager.play_sfx('SkiWind')
 	$SkiTimer.timeout.connect(_on_ski_timer_timeout)
+	EventBus.day_changed.connect(match_bgm)
 
 func _on_ski_timer_timeout() -> void:
 	print('结束滑雪')
@@ -28,3 +32,11 @@ func _exit_player_offscreen() -> void:
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.tween_property(player, "global_position", target_world, duration)
 	await tween.finished
+
+func match_bgm() -> void:
+	match GameState.day:
+		4:
+			bgm = double_bgm
+		_:
+			bgm = single_bgm
+	

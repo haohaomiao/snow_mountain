@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dycq84oydd6a3"]
+[gd_scene load_steps=16 format=3 uid="uid://dycq84oydd6a3"]
 
 [ext_resource type="Script" uid="uid://ds1ycq1v3fil8" path="res://scenes/bar/bar.gd" id="1_l1w72"]
-[ext_resource type="AudioStream" uid="uid://magy7h88i30l" path="res://music/bgm/BarNormal_MusicDemo_ver4.ogg" id="2_vkkt2"]
+[ext_resource type="AudioStream" uid="uid://cv34w7x5vwqan" path="res://music/bgm/BarNormalMusic.ogg" id="2_fdyug"]
+[ext_resource type="AudioStream" uid="uid://h1hubpmiibnm" path="res://music/bgm/BarChristmasIntroMusic.ogg" id="3_gq2kc"]
 [ext_resource type="Script" uid="uid://coanxt6cugg4x" path="res://scenes/bar/dialogue/dialogue_director.gd" id="3_v67d5"]
-[ext_resource type="Texture2D" uid="uid://c3ddyvge8lf8x" path="res://bar_test.png" id="3_vkkt2"]
+[ext_resource type="AudioStream" uid="uid://8f7bpwyauw4f" path="res://music/bgm/BarChristmasMusic.ogg" id="4_76tu6"]
 [ext_resource type="PackedScene" uid="uid://20ocomkmuthb" path="res://scenes/dialogue_box.tscn" id="4_rrntp"]
+[ext_resource type="Texture2D" uid="uid://djy0bgn7l2kki" path="res://assets/bar/bar_christmas.png" id="5_fdyug"]
 [ext_resource type="PackedScene" uid="uid://crhnrgwkssxrn" path="res://scenes/bar/bar_player/bar_player.tscn" id="6_cmq8q"]
 [ext_resource type="Script" uid="uid://c2nhy2o7redl5" path="res://scenes/bar/leaving_door.gd" id="7_i5gm6"]
 [ext_resource type="PackedScene" uid="uid://dfsi08vxswl0v" path="res://scenes/bar/bar_npc/bar_npc.tscn" id="8_7uitc"]
@@ -12,25 +14,47 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y7uo"]
 size = Vector2(36, 104)
 
+[sub_resource type="Gradient" id="Gradient_fdyug"]
+offsets = PackedFloat32Array(0.0033333334, 1)
+colors = PackedColorArray(0.48439777, 0.4843983, 0.48439795, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gq2kc"]
+gradient = SubResource("Gradient_fdyug")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_gq2kc"]
+offsets = PackedFloat32Array(0, 0.27666667, 0.32666665, 0.81, 1)
+colors = PackedColorArray(0.19607843, 0, 0, 1, 0.78431374, 0.21568628, 0.105882354, 1, 0.8761743, 0.43020314, 0.3231481, 1, 0.9811365, 0.9181082, 0.7079249, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_76tu6"]
+gradient = SubResource("Gradient_gq2kc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="Bar" type="Node2D"]
 script = ExtResource("1_l1w72")
-bgm = ExtResource("2_vkkt2")
+day_1_2_3_bgm = ExtResource("2_fdyug")
+day_4_bgm = ExtResource("3_gq2kc")
+day_5_bgm = ExtResource("4_76tu6")
 
 [node name="BackGround" type="Sprite2D" parent="."]
-position = Vector2(323, 247)
-texture = ExtResource("3_vkkt2")
+position = Vector2(334, 247)
+texture = ExtResource("5_fdyug")
 
 [node name="LeavingDoor" type="Area2D" parent="."]
 script = ExtResource("7_i5gm6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeavingDoor"]
-position = Vector2(681, 381)
+position = Vector2(617, 373)
 shape = SubResource("RectangleShape2D_8y7uo")
 
-[node name="Black" type="CanvasLayer" parent="."]
+[node name="背景黑布" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="Black"]
+[node name="ColorRect" type="ColorRect" parent="背景黑布"]
 custom_minimum_size = Vector2(10000, 1000000)
 offset_left = -1626.0
 offset_top = -1204.0
@@ -40,12 +64,12 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="对话框" type="CanvasLayer" parent="."]
 
-[node name="DialogueDirector" type="Node" parent="CanvasLayer"]
+[node name="DialogueDirector" type="Node" parent="对话框"]
 script = ExtResource("3_v67d5")
 
-[node name="DialogueBox" parent="CanvasLayer/DialogueDirector" instance=ExtResource("4_rrntp")]
+[node name="DialogueBox" parent="对话框/DialogueDirector" instance=ExtResource("4_rrntp")]
 visible = false
 typing_seconds_per_char = 0.03
 typing_punct_pause_seconds = 0.2
@@ -56,7 +80,21 @@ y_sort_enabled = true
 [node name="Player" parent="Objectives" instance=ExtResource("6_cmq8q")]
 position = Vector2(345, 244)
 
+[node name="PointLight2D" type="PointLight2D" parent="Objectives/Player"]
+scale = Vector2(10.34375, 8.78125)
+texture = SubResource("GradientTexture2D_gq2kc")
+
 [node name="BarNPC" parent="Objectives" instance=ExtResource("8_7uitc")]
 position = Vector2(193, 247)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="全局变暗" type="CanvasModulate" parent="."]
+color = Color(0.6899446, 0.6081292, 0.5537689, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(528, 148)
+scale = Vector2(1.4999999, 1.375)
+energy = 0.2
+texture = SubResource("GradientTexture2D_76tu6")

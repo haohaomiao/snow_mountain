@@ -407,6 +407,7 @@ func _render_choices(line: DialogueLine) -> void:
 		button.text = line.choices[i]
 		var explicitly_disabled := i < line.choice_branches.size() and line.choice_branches[i] == null
 		button.disabled = explicitly_disabled
+		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.pressed.connect(choose.bind(i))
 		button.pressed.connect(SoundManager.play_sfx.bind('WindowClick'))
 		button.mouse_entered.connect(SoundManager.play_sfx.bind('WindowFocus'))

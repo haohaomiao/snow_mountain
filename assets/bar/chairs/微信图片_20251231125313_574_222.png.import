@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7rvut8obql0b"
-path="res://.godot/imported/chair_left.png-f0089f03d5e21575541ee0d489810ef0.ctex"
+uid="uid://heoepxujqk5p"
+path="res://.godot/imported/微信图片_20251231125313_574_222.png-67fde75d8ca4c7d9024382ae31896ea0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bar/chair_left.png"
-dest_files=["res://.godot/imported/chair_left.png-f0089f03d5e21575541ee0d489810ef0.ctex"]
+source_file="res://assets/bar/chairs/微信图片_20251231125313_574_222.png"
+dest_files=["res://.godot/imported/微信图片_20251231125313_574_222.png-67fde75d8ca4c7d9024382ae31896ea0.ctex"]
 
 [params]
 

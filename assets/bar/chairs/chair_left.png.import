@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br7uon03bceey"
-path="res://.godot/imported/skitrack.png-e69b767c46fa3dc096b243c5984d735c.ctex"
+uid="uid://7rvut8obql0b"
+path="res://.godot/imported/chair_left.png-5eb54a54d91e3a34899821cc8cc832f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ski/skitrack.png"
-dest_files=["res://.godot/imported/skitrack.png-e69b767c46fa3dc096b243c5984d735c.ctex"]
+source_file="res://assets/bar/chairs/chair_left.png"
+dest_files=["res://.godot/imported/chair_left.png-5eb54a54d91e3a34899821cc8cc832f6.ctex"]
 
 [params]
 
