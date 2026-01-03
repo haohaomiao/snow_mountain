@@ -34,24 +34,27 @@ shape = SubResource("RectangleShape2D_sut6u")
 position = Vector2(-43, -2)
 
 [node name="Sprite2D" type="Sprite2D" parent="ChatChairLeft"]
+position = Vector2(0, 8)
 texture = ExtResource("1_ggp38")
+offset = Vector2(0, -12)
 region_enabled = true
 region_rect = Rect2(389, 136, 23, 34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatChairLeft"]
-position = Vector2(0, 7.625)
 shape = SubResource("RectangleShape2D_j7opn")
 
 [node name="ChatChairRight" type="StaticBody2D" parent="."]
 position = Vector2(52, -2)
 
 [node name="Sprite2D" type="Sprite2D" parent="ChatChairRight"]
+position = Vector2(0, 9)
 texture = ExtResource("1_ggp38")
+offset = Vector2(0, -12)
 region_enabled = true
 region_rect = Rect2(420, 136, 23, 34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatChairRight"]
-position = Vector2(0, 8.6875)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ggp38")
 
 [node name="ChatChairFront" type="StaticBody2D" parent="."]

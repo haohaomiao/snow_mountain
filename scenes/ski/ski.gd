@@ -12,10 +12,12 @@ var exit_dir := Vector2.from_angle(deg_to_rad(-12.0))
 @onready var _mountains_alt: CanvasItem = $EstablishingShot/Mountains_
 @onready var _snow_track: CanvasItem = $CloseShot/SnowTrack
 @onready var _snow_track_alt: CanvasItem = $CloseShot/SnowTrack_
-@onready var ski_player: Node2D = $ski_player
+@onready var ski_player: CharacterBody2D = $ski_player
 @onready var ski_npc: SkiNpc = $ski_npc
 
 var bgm : AudioStream = single_bgm
+
+var _exit_skate_requester: String = ""
 func _ready() -> void:
 	_apply_day_state(GameState.day)
 	match_bgm(GameState.day)
@@ -23,22 +25,32 @@ func _ready() -> void:
 	SoundManager.play_sfx('SkiWind')
 	$SkiTimer.timeout.connect(_on_ski_timer_timeout)
 	EventBus.day_changed.connect(_on_day_changed)
+	_exit_skate_requester = "ski_exit_%s" % str(get_instance_id())
 
 func _on_ski_timer_timeout() -> void:
 	print('结束滑雪')
-	await _exit_player_offscreen()
+	SoundManager.request_loop_sfx("SkiSkate", _exit_skate_requester, true)
+	await _exit_characters_offscreen()
 	EventBus.go("bar")
 
-func _exit_player_offscreen() -> void:
-	# 玩家沿 -dir 冲出屏幕
-	var dir := (-exit_dir)
+func _exit_characters_offscreen() -> void:
+	if ski_player != null:
+		ski_player.set_physics_process(false)
+	if ski_npc != null:
+		ski_npc.set_follow_enabled(false)
+		ski_npc.set_physics_process(false)
 
-	var target_world := ski_player.global_position + dir * EXIT_DISTANCE
+	var dir := (-exit_dir)
 	var duration := maxf(0.0, exit_duration)
 
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.tween_property(ski_player, "global_position", target_world, duration)
+	if ski_player != null:
+		var player_target := ski_player.global_position + dir * EXIT_DISTANCE
+		tween.tween_property(ski_player, "global_position", player_target, duration)
+	if ski_npc != null and ski_npc.visible:
+		var npc_target := ski_npc.global_position + dir * EXIT_DISTANCE
+		tween.parallel().tween_property(ski_npc, "global_position", npc_target, duration)
 	await tween.finished
 
 func _on_day_changed(cur_day: int) -> void:

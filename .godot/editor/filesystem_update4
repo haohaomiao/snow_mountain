@@ -19,3 +19,9 @@ res://scenes/bar/bar.gd
 res://globals/sound_manager/sound_manager.tscn
 res://globals/sound_manager/sound_manager.gd
 res://globals/scene_manager.gd
+res://scenes/bar/bar_player/bar_player.gd
+res://globals/subject_progress.gd
+res://scenes/bar/bar_npc/npc_interactable.gd
+res://scenes/bar/objects/intro_tree.tscn
+res://scenes/bar/bar_player/bar_player.tscn
+res://scenes/ski/ski_player.gd

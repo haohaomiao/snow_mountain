@@ -271,7 +271,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(14, 30)
+size = Vector2(14, 13)
 
 [node name="BarPlayer" type="CharacterBody2D"]
 script = ExtResource("1_sg76f")
@@ -279,13 +279,20 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a8ls1")
-animation = &"down_default"
-autoplay = "down_default"
+animation = &"right_default"
+autoplay = "right_default"
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_enabled = false
+limit_left = -400
+limit_top = -300
+limit_right = 400
+limit_bottom = 300
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0

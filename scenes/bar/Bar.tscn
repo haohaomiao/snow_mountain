@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dycq84oydd6a3"]
+[gd_scene load_steps=21 format=3 uid="uid://dycq84oydd6a3"]
 
 [ext_resource type="Script" uid="uid://ds1ycq1v3fil8" path="res://scenes/bar/bar.gd" id="1_l1w72"]
 [ext_resource type="AudioStream" uid="uid://cv34w7x5vwqan" path="res://music/bgm/BarNormalMusic.ogg" id="2_fdyug"]
@@ -26,6 +26,25 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_76tu6"]
+a = Vector2(66, -92)
+b = Vector2(0, 237)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5d5an"]
+a = Vector2(-57, -275)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6fd3g"]
+a = Vector2(-38, 67)
+b = Vector2(53, 118)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_53nt1"]
+a = Vector2(86, -9)
+b = Vector2(-362, -9)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ndwor"]
+a = Vector2(360, 219)
+b = Vector2(-351, 222)
+
 [node name="Bar" type="Node2D"]
 script = ExtResource("1_l1w72")
 day_1_2_3_bgm = ExtResource("2_fdyug")
@@ -33,6 +52,8 @@ day_4_bgm = ExtResource("3_gq2kc")
 day_5_bgm = ExtResource("4_76tu6")
 intro_look = ExtResource("5_76tu6")
 christmas_look = ExtResource("6_5d5an")
+metadata/_edit_vertical_guides_ = [-309.0, 310.0]
+metadata/_edit_horizontal_guides_ = [-210.0, 233.0]
 
 [node name="LeavingDoor" type="Area2D" parent="."]
 script = ExtResource("7_i5gm6")
@@ -74,8 +95,10 @@ y_sort_enabled = true
 
 [node name="Look" type="Node2D" parent="VisualObjects"]
 y_sort_enabled = true
+metadata/_edit_lock_ = true
 
 [node name="BarNormal" parent="VisualObjects/Look" instance=ExtResource("10_53nt1")]
+metadata/_edit_lock_ = true
 
 [node name="Objectives" type="Node2D" parent="VisualObjects"]
 y_sort_enabled = true
@@ -84,8 +107,43 @@ y_sort_enabled = true
 position = Vector2(-122, 30)
 
 [node name="Player" parent="VisualObjects/Objectives" instance=ExtResource("6_cmq8q")]
-position = Vector2(-63, 8)
+position = Vector2(-229, -42)
+metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="VisualObjects/Objectives/Player"]
 scale = Vector2(10.34375, 8.78125)
 texture = SubResource("GradientTexture2D_gq2kc")
+
+[node name="Borderlines" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borderlines"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D"]
+position = Vector2(-293, -16)
+shape = SubResource("SegmentShape2D_76tu6")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D2"]
+position = Vector2(295, 208)
+shape = SubResource("SegmentShape2D_5d5an")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D3"]
+position = Vector2(185, -184)
+shape = SubResource("SegmentShape2D_6fd3g")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borderlines/StaticBody2D4"]
+position = Vector2(74, -98)
+shape = SubResource("SegmentShape2D_53nt1")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D5"]
+position = Vector2(3, -6)
+shape = SubResource("SegmentShape2D_ndwor")

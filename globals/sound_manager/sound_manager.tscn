@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://smbcvcot02gd"]
+[gd_scene load_steps=14 format=3 uid="uid://smbcvcot02gd"]
 
 [ext_resource type="Script" uid="uid://b43owx7bibo7m" path="res://globals/sound_manager/sound_manager.gd" id="1_s8vuo"]
 [ext_resource type="AudioStream" uid="uid://b6i6hcbwis58p" path="res://music/sfx/WindowClick.ogg" id="2_dmdnw"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cx0tavoxx7abd" path="res://music/sfx/SkiSkate.ogg" id="10_6tadu"]
 [ext_resource type="AudioStream" uid="uid://dk7bm7uwwsheb" path="res://music/sfx/SkiWind.ogg" id="11_ecfj0"]
 [ext_resource type="AudioStream" uid="uid://mdrsqobt7qyc" path="res://music/random_select/TypingSound/NPC/NPCTyping.tres" id="12_0xjot"]
+[ext_resource type="AudioStream" uid="uid://xlxockc4mi26" path="res://music/sfx/BarFootstep.ogg" id="13_gbcdf"]
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_s8vuo")
@@ -63,6 +64,10 @@ bus = &"Voice"
 [node name="BarWind" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("2_wcfih")
 bus = &"Environment"
+
+[node name="BarFootstep" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_gbcdf")
+volume_db = -6.0
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -6.0

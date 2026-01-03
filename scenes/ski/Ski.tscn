@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://g4cv2hpa86mv"]
+[gd_scene load_steps=30 format=3 uid="uid://g4cv2hpa86mv"]
 
 [ext_resource type="Texture2D" uid="uid://b4nt0qgpga63m" path="res://assets/ski/mountain.png" id="1_85xeq"]
 [ext_resource type="PackedScene" uid="uid://dhupkfeq5a5ug" path="res://scenes/ski/ski_player.tscn" id="1_f2ocn"]
@@ -82,6 +82,22 @@ scale_min = 1.5
 scale_max = 1.8
 color_ramp = SubResource("GradientTexture1D_4s5u5")
 color_initial_ramp = SubResource("GradientTexture1D_5m4dm")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8s4lh"]
+a = Vector2(670, -125)
+b = Vector2(-28, 21)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4s5u5"]
+a = Vector2(632, 99)
+b = Vector2(-50, 100)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wlfea"]
+a = Vector2(7, 236)
+b = Vector2(6, 398)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p73sb"]
+a = Vector2(577, 117)
+b = Vector2(579, 421)
 
 [node name="Ski" type="Node2D"]
 script = ExtResource("1_xsy6n")
@@ -195,15 +211,16 @@ texture = ExtResource("9_4s5u5")
 
 [node name="ski_player" parent="." instance=ExtResource("1_f2ocn")]
 position = Vector2(452, 259)
+metadata/_edit_lock_ = true
 
 [node name="ski_npc" parent="." instance=ExtResource("11_8s4lh")]
-visible = false
 position = Vector2(552, 289)
+metadata/_edit_lock_ = true
 
 [node name="MediumShot" type="Node2D" parent="."]
 
 [node name="SkiTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 40.0
 one_shot = true
 autostart = true
 
@@ -231,3 +248,27 @@ trail_enabled = true
 trail_lifetime = 1.0
 trail_sections = 12
 process_material = SubResource("ParticleProcessMaterial_a48q5")
+
+[node name="Borderlines" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D"]
+position = Vector2(-10, 229)
+shape = SubResource("SegmentShape2D_8s4lh")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D2"]
+position = Vector2(24, 281)
+shape = SubResource("SegmentShape2D_4s5u5")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D3"]
+shape = SubResource("SegmentShape2D_wlfea")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D4"]
+shape = SubResource("SegmentShape2D_p73sb")
