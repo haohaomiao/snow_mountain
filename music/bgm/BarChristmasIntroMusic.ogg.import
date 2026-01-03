@@ -2,7 +2,11 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
+<<<<<<< Updated upstream
 uid="uid://h1hubpmiibnm"
+=======
+uid="uid://y0jiaw84trqv"
+>>>>>>> Stashed changes
 path="res://.godot/imported/BarChristmasIntroMusic.ogg-d3b3f28b34f6bbebfa201aa430a459f5.oggvorbisstr"
 
 [deps]

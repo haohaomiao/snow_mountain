@@ -33,6 +33,10 @@ stream = ExtResource("3_aa63w")
 
 [node name="FireBuring" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("6_yr0f0")
+<<<<<<< Updated upstream
+=======
+bus = &"Environment"
+>>>>>>> Stashed changes
 
 [node name="FireLighting" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("5_k1d7a")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bggd36ymdw626"]
+
+[ext_resource type="Texture2D" uid="uid://dbs0efsmk4im" path="res://assets/bar/bar_normal_.png" id="1_ka8ig"]
+
+[node name="DiagonalTable" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ka8ig")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(228, 25, 24, 51)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -9)
+polygon = PackedVector2Array(-7, 3, 5, 5, 3, 23, -9, 21)

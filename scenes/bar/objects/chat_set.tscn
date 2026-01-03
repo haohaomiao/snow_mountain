@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://contqivsxyhxh"]
+
+[ext_resource type="Texture2D" uid="uid://dbs0efsmk4im" path="res://assets/bar/bar_normal_.png" id="1_ggp38"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sut6u"]
+size = Vector2(28, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7opn"]
+size = Vector2(20, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggp38"]
+size = Vector2(19, 6.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muyr4"]
+size = Vector2(20, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uuhj"]
+size = Vector2(20, 11)
+
+[node name="ChatSet" type="Node2D"]
+
+[node name="ChatTable" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ChatTable"]
+texture = ExtResource("1_ggp38")
+region_enabled = true
+region_rect = Rect2(356, 176, 56, 46)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatTable"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_sut6u")
+
+[node name="ChatChairLeft" type="StaticBody2D" parent="."]
+position = Vector2(-43, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ChatChairLeft"]
+texture = ExtResource("1_ggp38")
+region_enabled = true
+region_rect = Rect2(389, 136, 23, 34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatChairLeft"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_j7opn")
+
+[node name="ChatChairRight" type="StaticBody2D" parent="."]
+position = Vector2(52, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ChatChairRight"]
+texture = ExtResource("1_ggp38")
+region_enabled = true
+region_rect = Rect2(420, 136, 23, 34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatChairRight"]
+position = Vector2(0.5, 11.625)
+shape = SubResource("RectangleShape2D_ggp38")
+
+[node name="ChatChairFront" type="StaticBody2D" parent="."]
+position = Vector2(-1, -38)
+
+[node name="Sprite2D" type="Sprite2D" parent="ChatChairFront"]
+position = Vector2(0, -20)
+texture = ExtResource("1_ggp38")
+offset = Vector2(0, 20)
+region_enabled = true
+region_rect = Rect2(356, 135, 23, 35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatChairFront"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_muyr4")
+
+[node name="ChatChairBack" type="StaticBody2D" parent="."]
+position = Vector2(0, 27)
+
+[node name="Sprite2D" type="Sprite2D" parent="ChatChairBack"]
+texture = ExtResource("1_ggp38")
+region_enabled = true
+region_rect = Rect2(452, 147, 25, 26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatChairBack"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_1uuhj")

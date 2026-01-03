@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://40xqy77i17et"]
+
+[ext_resource type="Texture2D" uid="uid://dbs0efsmk4im" path="res://assets/bar/bar_normal_.png" id="1_gkhnk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plx8q"]
+size = Vector2(8, 6)
+
+[node name="Stool" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gkhnk")
+region_enabled = true
+region_rect = Rect2(310, 178, 20, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_plx8q")

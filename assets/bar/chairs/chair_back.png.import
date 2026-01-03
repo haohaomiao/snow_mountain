@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< Updated upstream:assets/bar/chairs/chair_back.png.import
 uid="uid://blw22fsiusr1q"
 path="res://.godot/imported/chair_back.png-a7782841fd8a26a0db806b9c26393533.ctex"
+========
+uid="uid://djy0bgn7l2kki"
+path="res://.godot/imported/bar_christmas.png-e77273be9ed261b7bf47b03232044816.ctex"
+>>>>>>>> Stashed changes:assets/bar/bar_christmas.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< Updated upstream:assets/bar/chairs/chair_back.png.import
 source_file="res://assets/bar/chairs/chair_back.png"
 dest_files=["res://.godot/imported/chair_back.png-a7782841fd8a26a0db806b9c26393533.ctex"]
+========
+source_file="res://assets/bar/bar_christmas.png"
+dest_files=["res://.godot/imported/bar_christmas.png-e77273be9ed261b7bf47b03232044816.ctex"]
+>>>>>>>> Stashed changes:assets/bar/bar_christmas.png.import
 
 [params]
 
