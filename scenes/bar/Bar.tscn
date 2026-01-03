@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dycq84oydd6a3"]
+[gd_scene load_steps=16 format=3 uid="uid://dycq84oydd6a3"]
 
 [ext_resource type="Script" uid="uid://ds1ycq1v3fil8" path="res://scenes/bar/bar.gd" id="1_l1w72"]
 [ext_resource type="AudioStream" uid="uid://cv34w7x5vwqan" path="res://music/bgm/BarNormalMusic.ogg" id="2_fdyug"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://coanxt6cugg4x" path="res://scenes/bar/dialogue/dialogue_director.gd" id="3_v67d5"]
 [ext_resource type="AudioStream" uid="uid://cfpf1u1qf0v2l" path="res://music/bgm/BarChristmasMusic.ogg" id="4_76tu6"]
 [ext_resource type="PackedScene" uid="uid://20ocomkmuthb" path="res://scenes/dialogue_box.tscn" id="4_rrntp"]
+[ext_resource type="PackedScene" uid="uid://cr7yhbhtwo58m" path="res://scenes/bar/bar_intro.tscn" id="5_76tu6"]
+[ext_resource type="PackedScene" uid="uid://dbo3iy8d3q4ec" path="res://scenes/bar/bar_christmas.tscn" id="6_5d5an"]
 [ext_resource type="PackedScene" uid="uid://crhnrgwkssxrn" path="res://scenes/bar/bar_player/bar_player.tscn" id="6_cmq8q"]
 [ext_resource type="Script" uid="uid://c2nhy2o7redl5" path="res://scenes/bar/leaving_door.gd" id="7_i5gm6"]
 [ext_resource type="PackedScene" uid="uid://dfsi08vxswl0v" path="res://scenes/bar/bar_npc/bar_npc.tscn" id="8_7uitc"]
@@ -29,6 +31,8 @@ script = ExtResource("1_l1w72")
 day_1_2_3_bgm = ExtResource("2_fdyug")
 day_4_bgm = ExtResource("3_gq2kc")
 day_5_bgm = ExtResource("4_76tu6")
+intro_look = ExtResource("5_76tu6")
+christmas_look = ExtResource("6_5d5an")
 
 [node name="LeavingDoor" type="Area2D" parent="."]
 script = ExtResource("7_i5gm6")

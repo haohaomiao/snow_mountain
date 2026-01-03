@@ -22,7 +22,7 @@ func _on_request_scene(scene_key: String, payload: Dictionary) -> void:
 	if path == "":
 		push_error("Unknown scene_key: %s" % scene_key)
 		return
-
+	SoundManager.stop_all_sfx()
 	_is_changing = true
 	if Transition:
 		await Transition.fade_out()

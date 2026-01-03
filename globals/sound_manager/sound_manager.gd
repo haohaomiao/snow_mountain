@@ -32,3 +32,7 @@ func setup_ui_sounds(node: Node) -> void:
 	
 	for child in node.get_children():
 		setup_ui_sounds(child)
+
+func stop_all_sfx() -> void:
+	for s in sfx.get_children() as Array[AudioStreamPlayer]:
+		s.stop()

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcpf6i6cgjo5x"]
+
+[ext_resource type="Texture2D" uid="uid://cubqrksjp2e5b" path="res://assets/bar/bar_christmas_.png" id="1_jcmdp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwans"]
+size = Vector2(52, 45)
+
+[node name="ChristmasTree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jcmdp")
+offset = Vector2(0, -40)
+region_enabled = true
+region_rect = Rect2(2, 208, 90, 155)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_uwans")

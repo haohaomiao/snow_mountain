@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://pyivk01uj6sw"]
+
+[ext_resource type="Texture2D" uid="uid://dbs0efsmk4im" path="res://assets/bar/bar_normal_.png" id="1_imihl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwans"]
+size = Vector2(52, 45)
+
+[node name="IntroTree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_imihl")
+offset = Vector2(0, -40)
+region_enabled = true
+region_rect = Rect2(2, 208, 90, 155)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_uwans")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbs0efsmk4im" path="res://assets/bar/bar_normal_.png" id="1_64867"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vt61o"]
-size = Vector2(12, 10)
+size = Vector2(6, 6)
 
 [node name="CounterChair" type="StaticBody2D"]
 
@@ -13,4 +13,5 @@ region_enabled = true
 region_rect = Rect2(336, 184, 16, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_vt61o")

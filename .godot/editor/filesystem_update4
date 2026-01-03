@@ -5,3 +5,17 @@ res://scenes/ski/ski.tscn
 res://scenes/ski/ski.gd
 res://assets/player/new_atlas_texture.tres
 res://scenes/ski/ski_npc.gd
+res://scenes/bar/objects/fire_place.tscn
+res://scenes/bar/objects/fire_place.gd
+res://scenes/bar/leaving_door.gd
+res://scenes/bar/objects/big_sofa.tscn
+res://scenes/bar/objects/counter_chair.tscn
+res://scenes/bar/objects/chat_set.tscn
+res://scenes/bar/objects/fireplace_christmas.tscn
+res://scenes/bar/bar_christmas.tscn
+res://scenes/bar/bar_intro.tscn
+res://scenes/ski/ski_player.tscn
+res://scenes/bar/bar.gd
+res://globals/sound_manager/sound_manager.tscn
+res://globals/sound_manager/sound_manager.gd
+res://globals/scene_manager.gd
