@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< Updated upstream:bar_test.png.import
-uid="uid://c3ddyvge8lf8x"
-path="res://.godot/imported/bar_test.png-497a02a2ce5ea5adbd025f0e0ec83e38.ctex"
-========
 uid="uid://dbs0efsmk4im"
 path="res://.godot/imported/bar_normal_.png-3cf6af5171bb44f4e9ba251e36ce73c9.ctex"
->>>>>>>> Stashed changes:assets/bar/bar_normal_.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< Updated upstream:bar_test.png.import
-source_file="res://bar_test.png"
-dest_files=["res://.godot/imported/bar_test.png-497a02a2ce5ea5adbd025f0e0ec83e38.ctex"]
-========
 source_file="res://assets/bar/bar_normal_.png"
 dest_files=["res://.godot/imported/bar_normal_.png-3cf6af5171bb44f4e9ba251e36ce73c9.ctex"]
->>>>>>>> Stashed changes:assets/bar/bar_normal_.png.import
 
 [params]
 

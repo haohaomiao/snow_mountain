@@ -16,6 +16,8 @@ var _return_stack: Array[Dictionary] = []
 @export var typing_seconds_per_char: float = 0.05 # 10 字 ≈ 0.5s
 @export var typing_punct_pause_seconds: float = 0.1
 @export var typing_fade_out_seconds: float = 0.1
+@export var choice_button_font_size: int = 14
+@export var choice_button_min_height: float = 24.0
 
 var voice: AudioStreamPlayer
 var _voice_fade_tween: Tween
@@ -24,15 +26,16 @@ var _voice_initial_volume_db_by_name: Dictionary = {}
 var _typing_session_id: int = 0
 var _is_typing: bool = false
 var _current_line: DialogueLine
-
-@onready var _choices_container: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/Choices
-@onready var _click_catcher: Button = $PanelContainer/ClickCatcher
+@onready var _choices_container: VBoxContainer = %ChoicesContainer
+@onready var _click_catcher: Button = %ClickCatcher
 
 func _ready() -> void:
-	$PanelContainer/ClickCatcher.pressed.connect(SoundManager.play_sfx.bind('WindowClick'))
+	_click_catcher.pressed.connect(SoundManager.play_sfx.bind('WindowClick'))
 	close()
+	get_viewport().gui_focus_changed.connect(func(c):
+		print("Focus -> ", c)
+	)
 # ========= 对外 API =========
-
 func start_act(act: DialogueAct) -> void:
 	if act == null:
 		return
@@ -143,6 +146,7 @@ func _skip_current_line() -> void:
 	_cancel_typing()
 	if line != null:
 		%SpeakText.text = line.text
+		%SpeakText.visible_characters = -1
 	_stop_typing_sfx(false)
 	_after_line_fully_shown(line)
 
@@ -152,7 +156,13 @@ func _start_typewriter(line: DialogueLine) -> void:
 	var session_id := _typing_session_id
 	_is_typing = true
 	_current_line = line
-	%SpeakText.text = ""
+	%SpeakText.text = line.text
+	%SpeakText.visible_characters = 0
+
+	var scroll := %SpeakText.get_parent() as ScrollContainer
+	if scroll != null:
+		scroll.scroll_horizontal = 0
+		scroll.scroll_vertical = 0
 
 	_stop_typing_sfx(true)
 	var effective_len := _get_effective_text_length(line.text)
@@ -166,7 +176,6 @@ func _run_typewriter(session_id: int, line: DialogueLine, effective_len: int) ->
 	var target_duration := max(typing_min_seconds, typing_seconds_per_char * float(effective_len)) as float
 	var start_ms := Time.get_ticks_msec()
 	var per_char_delay := _get_effective_char_delay_seconds(effective_len)
-	var display := ""
 	var i := 0
 
 	while i < full_text.length():
@@ -176,17 +185,16 @@ func _run_typewriter(session_id: int, line: DialogueLine, effective_len: int) ->
 		var special := _consume_special_punctuation(full_text, i)
 		if special["count"] > 0:
 			var count := int(special["count"])
-			display += special["text"]
-			%SpeakText.text = display
 			var next_index := i + count
+			%SpeakText.visible_characters = next_index
 			if _has_effective_char_after(full_text, next_index):
 				await _punctuation_pause(session_id)
 			i = next_index
 			continue
 
 		var ch := full_text.substr(i, 1)
-		display += ch
-		%SpeakText.text = display
+		%SpeakText.visible_characters = i + 1
+		print(i)
 
 		var has_more_effective := _has_effective_char_after(full_text, i + 1)
 		if _is_whitespace_char(ch):
@@ -204,6 +212,7 @@ func _run_typewriter(session_id: int, line: DialogueLine, effective_len: int) ->
 
 	if session_id != _typing_session_id:
 		return
+	%SpeakText.visible_characters = -1
 
 	var elapsed_seconds := float(Time.get_ticks_msec() - start_ms) / 1000.0
 	var remaining_seconds := target_duration - elapsed_seconds as float
@@ -407,7 +416,13 @@ func _render_choices(line: DialogueLine) -> void:
 		button.text = line.choices[i]
 		var explicitly_disabled := i < line.choice_branches.size() and line.choice_branches[i] == null
 		button.disabled = explicitly_disabled
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if choice_button_min_height > 0.0:
+			button.custom_minimum_size.y = choice_button_min_height
+		if choice_button_font_size > 0:
+			button.add_theme_font_size_override("font_size", choice_button_font_size)
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		button.custom_minimum_size.x = 200
 		button.pressed.connect(choose.bind(i))
 		button.pressed.connect(SoundManager.play_sfx.bind('WindowClick'))
 		button.mouse_entered.connect(SoundManager.play_sfx.bind('WindowFocus'))

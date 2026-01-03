@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://g4cv2hpa86mv"]
+[gd_scene load_steps=26 format=3 uid="uid://g4cv2hpa86mv"]
 
 [ext_resource type="Texture2D" uid="uid://b4nt0qgpga63m" path="res://assets/ski/mountain.png" id="1_85xeq"]
 [ext_resource type="PackedScene" uid="uid://dhupkfeq5a5ug" path="res://scenes/ski/ski_player.tscn" id="1_f2ocn"]
@@ -6,7 +6,11 @@
 [ext_resource type="Script" uid="uid://1d4fr7errpng" path="res://scenes/ski/ski.gd" id="1_xsy6n"]
 [ext_resource type="AudioStream" uid="uid://c8hsyu58u5fe" path="res://music/bgm/SnowFieldSingleMusic.ogg" id="2_2fbrk"]
 [ext_resource type="AudioStream" uid="uid://6it8ud76m76r" path="res://music/bgm/SnowFieldDoubleMusic.ogg" id="3_7xlgx"]
+[ext_resource type="Texture2D" uid="uid://bj2su18klsw7e" path="res://assets/ski/sky_double.png" id="5_5m4dm"]
 [ext_resource type="Texture2D" uid="uid://br7uon03bceey" path="res://assets/ski/skitrack.png" id="5_n4i4o"]
+[ext_resource type="Texture2D" uid="uid://dvq6kbvuckiyr" path="res://assets/ski/moutain_pink.png" id="7_8s4lh"]
+[ext_resource type="Texture2D" uid="uid://y2a10jckj4p0" path="res://assets/ski/skitrack_pink.png" id="9_4s5u5"]
+[ext_resource type="PackedScene" uid="uid://c72y6huftmc6f" path="res://scenes/ski/ski_npc.tscn" id="11_8s4lh"]
 
 [sub_resource type="Curve" id="Curve_n4i4o"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.68749994, 0.7961255), -0.7339485, -0.7339485, 0, 0, Vector2(0.89338225, 0.47832108), -1.7792665, -1.7792665, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -102,6 +106,20 @@ texture = ExtResource("1_qes8t")
 position = Vector2(480, 192)
 texture = ExtResource("1_qes8t")
 
+[node name="Sky_" type="Parallax2D" parent="EstablishingShot"]
+visible = false
+scroll_scale = Vector2(0.05, 1)
+repeat_size = Vector2(640, 0)
+autoscroll = Vector2(10, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="EstablishingShot/Sky_"]
+position = Vector2(160, 192)
+texture = ExtResource("5_5m4dm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="EstablishingShot/Sky_"]
+position = Vector2(480, 192)
+texture = ExtResource("5_5m4dm")
+
 [node name="Mountains" type="Parallax2D" parent="EstablishingShot"]
 scroll_scale = Vector2(0.05, 1)
 repeat_size = Vector2(640, 0)
@@ -114,6 +132,21 @@ offset = Vector2(160, 192)
 [node name="Sprite2D2" type="Sprite2D" parent="EstablishingShot/Mountains"]
 position = Vector2(320, 0)
 texture = ExtResource("1_85xeq")
+offset = Vector2(160, 192)
+
+[node name="Mountains_" type="Parallax2D" parent="EstablishingShot"]
+visible = false
+scroll_scale = Vector2(0.05, 1)
+repeat_size = Vector2(640, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="EstablishingShot/Mountains_"]
+texture = ExtResource("7_8s4lh")
+offset = Vector2(160, 192)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EstablishingShot/Mountains_"]
+position = Vector2(320, 0)
+texture = ExtResource("7_8s4lh")
 offset = Vector2(160, 192)
 
 [node name="CloseShot" type="Node2D" parent="."]
@@ -139,8 +172,33 @@ texture = ExtResource("5_n4i4o")
 position = Vector2(603.7524, 501.90433)
 texture = ExtResource("5_n4i4o")
 
+[node name="SnowTrack_" type="Parallax2D" parent="CloseShot"]
+visible = false
+repeat_size = Vector2(960, 0)
+autoscroll = Vector2(50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CloseShot/SnowTrack_"]
+position = Vector2(-116.24759, 501.90433)
+texture = ExtResource("9_4s5u5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CloseShot/SnowTrack_"]
+position = Vector2(123.75241, 501.90433)
+texture = ExtResource("9_4s5u5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CloseShot/SnowTrack_"]
+position = Vector2(363.75244, 501.90433)
+texture = ExtResource("9_4s5u5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CloseShot/SnowTrack_"]
+position = Vector2(603.7524, 501.90433)
+texture = ExtResource("9_4s5u5")
+
 [node name="ski_player" parent="." instance=ExtResource("1_f2ocn")]
 position = Vector2(452, 259)
+
+[node name="ski_npc" parent="." instance=ExtResource("11_8s4lh")]
+visible = false
+position = Vector2(552, 289)
 
 [node name="MediumShot" type="Node2D" parent="."]
 

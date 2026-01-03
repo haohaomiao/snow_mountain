@@ -1,0 +1,7 @@
+res://scenes/dialogue_box.tscn
+res://scenes/bar/bar.tscn
+res://scenes/bar/dialogue/dialogue_runner.gd
+res://scenes/ski/ski.tscn
+res://scenes/ski/ski.gd
+res://assets/player/new_atlas_texture.tres
+res://scenes/ski/ski_npc.gd

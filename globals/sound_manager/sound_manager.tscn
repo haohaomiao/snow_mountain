@@ -21,41 +21,48 @@ metadata/_custom_type_script = "uid://b43owx7bibo7m"
 
 [node name="PlayerTyping" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("2_gbcdf")
+bus = &"Voice"
 
 [node name="WindowClick" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("2_dmdnw")
+bus = &"UI"
 
 [node name="WindowFocus" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_gbcdf")
+bus = &"UI"
 
 [node name="DoorInteract" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_aa63w")
+bus = &"SFX"
 
 [node name="FireBuring" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("6_yr0f0")
-<<<<<<< Updated upstream
-=======
 bus = &"Environment"
->>>>>>> Stashed changes
 
 [node name="FireLighting" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("5_k1d7a")
+bus = &"SFX"
 
 [node name="SkiSkate" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("10_6tadu")
+bus = &"SFX"
 
 [node name="SkiWind" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_ecfj0")
+bus = &"Environment"
 
 [node name="TalkingStart" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("8_gb18h")
 volume_db = 10.0
+bus = &"UI"
 
 [node name="NpcTyping" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("12_0xjot")
+bus = &"Voice"
 
 [node name="BarWind" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("2_wcfih")
+bus = &"Environment"
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -6.0
