@@ -1,52 +1,59 @@
-[gd_scene load_steps=11 format=3 uid="uid://c72y6huftmc6f"]
+[gd_scene load_steps=12 format=3 uid="uid://c72y6huftmc6f"]
 
-[ext_resource type="Texture2D" uid="uid://dgq0muxnudk6r" path="res://assets/player/skii.png" id="1_qkr7w"]
-[ext_resource type="Script" uid="uid://h9n4x2p7q1rz" path="res://scenes/ski/ski_npc.gd" id="2_ski_npc"]
+[ext_resource type="Texture2D" uid="uid://tmnhjyjxf8d3" path="res://assets/npc/npc.png" id="2_1f8mn"]
+[ext_resource type="Script" uid="uid://ian4x2p7q1r0" path="res://scenes/ski/ski_npc.gd" id="2_ski_npc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n6krx"]
-atlas = ExtResource("1_qkr7w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f8mn"]
+atlas = ExtResource("2_1f8mn")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cxi4i"]
-atlas = ExtResource("1_qkr7w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_utcfw"]
+atlas = ExtResource("2_1f8mn")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ftka2"]
-atlas = ExtResource("1_qkr7w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gboxn"]
+atlas = ExtResource("2_1f8mn")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k38bc"]
-atlas = ExtResource("1_qkr7w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_swqwi"]
+atlas = ExtResource("2_1f8mn")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_evs1o"]
-atlas = ExtResource("1_qkr7w")
-region = Rect2(512, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_12qf5"]
+atlas = ExtResource("2_1f8mn")
+region = Rect2(0, 128, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0lg6g"]
-atlas = ExtResource("1_qkr7w")
-region = Rect2(640, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_msr6b"]
+atlas = ExtResource("2_1f8mn")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibj6u"]
+atlas = ExtResource("2_1f8mn")
+region = Rect2(256, 128, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1cwwj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n6krx")
+"texture": SubResource("AtlasTexture_1f8mn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cxi4i")
+"texture": SubResource("AtlasTexture_utcfw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ftka2")
+"texture": SubResource("AtlasTexture_gboxn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k38bc")
+"texture": SubResource("AtlasTexture_swqwi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_evs1o")
+"texture": SubResource("AtlasTexture_12qf5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0lg6g")
+"texture": SubResource("AtlasTexture_msr6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibj6u")
 }],
 "loop": true,
 "name": &"default",
@@ -62,7 +69,7 @@ script = ExtResource("2_ski_npc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1cwwj")
 autoplay = "default"
-frame_progress = 0.106902555
+frame_progress = 0.3656546
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7vhn2")

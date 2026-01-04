@@ -1,13 +1,34 @@
-[gd_scene load_steps=10 format=3 uid="uid://fc86d88vo7b0"]
+[gd_scene load_steps=19 format=3 uid="uid://fc86d88vo7b0"]
 
-[ext_resource type="Texture2D" uid="uid://c6pbqaxe7ywop" path="res://assets/ski/skifield_.png" id="1_kcc1k"]
 [ext_resource type="Script" uid="uid://br3cqkqgckadr" path="res://scenes/menu/menu.gd" id="1_u7h56"]
-[ext_resource type="Texture2D" uid="uid://dajfepw7w3hs" path="res://assets/menu/title.png" id="2_1s7fx"]
 [ext_resource type="AudioStream" uid="uid://cp5px0dmoxhx2" path="res://music/bgm/MainMenuMusic.ogg" id="2_o0usu"]
-[ext_resource type="Texture2D" uid="uid://cdllmkrptjmb3" path="res://assets/menu/start_button.png" id="4_a7470"]
-[ext_resource type="Texture2D" uid="uid://0thrixbu1bxf" path="res://assets/menu/about_button.png" id="5_ljdvc"]
+[ext_resource type="Texture2D" uid="uid://cm15grs856iry" path="res://assets/awefawf.png" id="3_ljdvc"]
 [ext_resource type="Script" uid="uid://bwix63vdqfif6" path="res://scenes/menu/dim.gd" id="6_a7470"]
 [ext_resource type="Texture2D" uid="uid://bte6msk40oawl" path="res://assets/menu/about_board.png" id="7_ljdvc"]
+
+[sub_resource type="Theme" id="Theme_yenv6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7470"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljdvc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yenv6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0usu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2w27"]
+
+[sub_resource type="Theme" id="Theme_o0usu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_053gp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r75hh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_61ghr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ui5k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjuhj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0usu"]
 texture = ExtResource("7_ljdvc")
@@ -29,43 +50,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_kcc1k")
+texture = ExtResource("3_ljdvc")
 expand_mode = 1
 
-[node name="Title" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.1
-anchor_right = 0.8
-anchor_bottom = 0.631
-texture = ExtResource("2_1s7fx")
-expand_mode = 1
+[node name="_StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 145.0
+offset_right = 192.0
+offset_bottom = 203.0
+theme = SubResource("Theme_yenv6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a7470")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ljdvc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yenv6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o0usu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2w27")
 
-[node name="Buttons" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4
-anchor_top = 0.55
-anchor_right = 0.6
-anchor_bottom = 0.91
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 2
-
-[node name="StartButton" type="TextureButton" parent="Buttons"]
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("4_a7470")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="AboutButton" type="TextureButton" parent="Buttons"]
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("5_ljdvc")
-ignore_texture_size = true
-stretch_mode = 0
+[node name="_AboutButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 219.0
+offset_right = 197.0
+offset_bottom = 275.0
+theme = SubResource("Theme_o0usu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_053gp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r75hh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_61ghr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0ui5k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cjuhj")
 
 [node name="AboutLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -112,7 +124,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Team info: to do..."
 
-[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Buttons/AboutButton" to="." method="_on_about_button_pressed"]
+[connection signal="pressed" from="_StartButton" to="." method="_on__start_button_pressed"]
+[connection signal="pressed" from="_AboutButton" to="." method="_on__about_button_pressed"]
 [connection signal="clicked" from="AboutLayer/Dim" to="." method="_on_dim_clicked"]
 [connection signal="gui_input" from="AboutLayer/Dim" to="AboutLayer/Dim" method="_on_gui_input"]

@@ -4,6 +4,8 @@ var exit_dir := Vector2.from_angle(deg_to_rad(-12.0))
 @export var exit_duration := 3.0
 
 @export var EXIT_DISTANCE := 2000.0
+@export var ending_day: int = 6
+@export var ending_after_seconds: float = 10.0
 @export var single_bgm : AudioStream
 @export var double_bgm : AudioStream
 @onready var _sky: CanvasItem = $EstablishingShot/Sky
@@ -12,8 +14,8 @@ var exit_dir := Vector2.from_angle(deg_to_rad(-12.0))
 @onready var _mountains_alt: CanvasItem = $EstablishingShot/Mountains_
 @onready var _snow_track: CanvasItem = $CloseShot/SnowTrack
 @onready var _snow_track_alt: CanvasItem = $CloseShot/SnowTrack_
-@onready var ski_player: CharacterBody2D = $ski_player
-@onready var ski_npc: SkiNpc = $ski_npc
+@onready var ski_npc: SkiNpc = %ski_npc
+@onready var ski_player: CharacterBody2D = %ski_player
 
 var bgm : AudioStream = single_bgm
 
@@ -23,11 +25,23 @@ func _ready() -> void:
 	match_bgm(GameState.day)
 	SoundManager.play_bgm(bgm)
 	SoundManager.play_sfx('SkiWind')
-	$SkiTimer.timeout.connect(_on_ski_timer_timeout)
+	var timer := $SkiTimer as Timer
+	timer.timeout.connect(_on_ski_timer_timeout)
+	timer.stop()
+	if GameState.day >= ending_day:
+		timer.wait_time = maxf(0.0, ending_after_seconds)
+	if GameState.day == 1:
+		timer.wait_time = 20
+	else:
+		timer.wait_time = 45
+	timer.start()
 	EventBus.day_changed.connect(_on_day_changed)
 	_exit_skate_requester = "ski_exit_%s" % str(get_instance_id())
 
 func _on_ski_timer_timeout() -> void:
+	if GameState.day >= ending_day:
+		EventBus.go("ending")
+		return
 	print('结束滑雪')
 	SoundManager.request_loop_sfx("SkiSkate", _exit_skate_requester, true)
 	await _exit_characters_offscreen()

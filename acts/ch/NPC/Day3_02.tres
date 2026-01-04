@@ -7,29 +7,34 @@
 
 [sub_resource type="Resource" id="Line_01"]
 script = ExtResource("1_dialogue_line")
+portrait = 3
 text = "在这样的峡谷里滑雪是什么感觉？"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_02"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "我从来没有见过这样的——大雪给风刮得严严实实地积在雪道上。"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_03"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 3
 text = "順着陡起陡伏的山坡滑下去的时候，那股冲势，突然地又猛然下滑，真是把我弄得浑然忘卻一切"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_04"]
 script = ExtResource("1_dialogue_line")
+portrait = 1
 text = "看见你也如此沉浸在滑雪之中，真是由衷地让我感到高兴。"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_05"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "这样的话语听起来像是你已经滑了许久许久似的。"
 has_choices = true
 choices = Array[String](["事实上，我确实是退役滑雪运动员", "我已经不滑很久了"])

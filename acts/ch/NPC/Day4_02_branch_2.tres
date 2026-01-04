@@ -6,11 +6,13 @@
 [sub_resource type="Resource" id="Line_01"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 2
 text = "你几时离开这里？"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_02"]
 script = ExtResource("1_dialogue_line")
+portrait = 3
 text = "大概，在圣诞过后？……"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 

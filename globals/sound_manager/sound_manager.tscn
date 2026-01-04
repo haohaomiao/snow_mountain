@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://smbcvcot02gd"]
+[gd_scene load_steps=15 format=3 uid="uid://smbcvcot02gd"]
 
 [ext_resource type="Script" uid="uid://b43owx7bibo7m" path="res://globals/sound_manager/sound_manager.gd" id="1_s8vuo"]
 [ext_resource type="AudioStream" uid="uid://b6i6hcbwis58p" path="res://music/sfx/WindowClick.ogg" id="2_dmdnw"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://omea612adw5q" path="res://music/random_select/fire_lighting.tres" id="5_k1d7a"]
 [ext_resource type="AudioStream" uid="uid://c42ud8ox8lam1" path="res://music/sfx/FireBuring.ogg" id="6_yr0f0"]
 [ext_resource type="AudioStream" uid="uid://c7bgoy1joq5d6" path="res://music/random_select/talking_start.tres" id="8_gb18h"]
+[ext_resource type="AudioStream" uid="uid://khqixrrcqcnd" path="res://music/sfx/SkiToBar.ogg" id="10_0xjot"]
 [ext_resource type="AudioStream" uid="uid://cx0tavoxx7abd" path="res://music/sfx/SkiSkate.ogg" id="10_6tadu"]
 [ext_resource type="AudioStream" uid="uid://dk7bm7uwwsheb" path="res://music/sfx/SkiWind.ogg" id="11_ecfj0"]
 [ext_resource type="AudioStream" uid="uid://mdrsqobt7qyc" path="res://music/random_select/TypingSound/NPC/NPCTyping.tres" id="12_0xjot"]
@@ -51,6 +52,9 @@ bus = &"SFX"
 [node name="SkiWind" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_ecfj0")
 bus = &"Environment"
+
+[node name="SkiToBar" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("10_0xjot")
 
 [node name="TalkingStart" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("8_gb18h")

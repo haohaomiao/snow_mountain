@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cr7yhbhtwo58m"]
+[gd_scene load_steps=16 format=3 uid="uid://cr7yhbhtwo58m"]
 
 [ext_resource type="Texture2D" uid="uid://btapp2nnvpjv7" path="res://assets/bar/bar_normal.png" id="1_y2ob4"]
 [ext_resource type="Texture2D" uid="uid://dbs0efsmk4im" path="res://assets/bar/bar_normal_.png" id="2_wyc7t"]
@@ -12,9 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://contqivsxyhxh" path="res://scenes/bar/objects/chat_set.tscn" id="10_2b1m4"]
 [ext_resource type="PackedScene" uid="uid://pyivk01uj6sw" path="res://scenes/bar/objects/intro_tree.tscn" id="11_wyc7t"]
 [ext_resource type="Texture2D" uid="uid://cubqrksjp2e5b" path="res://assets/bar/bar_christmas_.png" id="12_kri82"]
+[ext_resource type="Script" uid="uid://cf5eker1f8g2b" path="res://scripts/dialogue_interactable.gd" id="13_dialogue_interactable"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjlp7"]
 size = Vector2(207, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_IntroDecorations"]
+size = Vector2(30, 40)
 
 [node name="BarIntro" type="Node2D"]
 y_sort_enabled = true
@@ -124,3 +128,21 @@ position = Vector2(124, -167)
 texture = ExtResource("12_kri82")
 region_enabled = true
 region_rect = Rect2(266, 6, 16, 26)
+
+[node name="Santa" type="Area2D" parent="Decorations"]
+position = Vector2(-65, -88)
+script = ExtResource("13_dialogue_interactable")
+subject = 3
+start_delay_seconds = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decorations/Santa"]
+shape = SubResource("RectangleShape2D_IntroDecorations")
+
+[node name="Sock" type="Area2D" parent="Decorations"]
+position = Vector2(124, -167)
+script = ExtResource("13_dialogue_interactable")
+subject = 4
+start_delay_seconds = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decorations/Sock"]
+shape = SubResource("RectangleShape2D_IntroDecorations")

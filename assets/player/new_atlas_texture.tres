@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://rlqofq0jknju"]
-
-[ext_resource type="Texture2D" uid="uid://dyhhm776aoodw" path="res://assets/player/微信图片_20251222024312_423_223.png" id="1_pkj2q"]
-
-[resource]
-atlas = ExtResource("1_pkj2q")
-region = Rect2(813, 330, 680, 563)

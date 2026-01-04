@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bj2su18klsw7e" path="res://assets/ski/sky_double.png" id="5_5m4dm"]
 [ext_resource type="Texture2D" uid="uid://br7uon03bceey" path="res://assets/ski/skitrack.png" id="5_n4i4o"]
 [ext_resource type="Texture2D" uid="uid://dvq6kbvuckiyr" path="res://assets/ski/moutain_pink.png" id="7_8s4lh"]
-[ext_resource type="Texture2D" uid="uid://y2a10jckj4p0" path="res://assets/ski/skitrack_pink.png" id="9_4s5u5"]
+[ext_resource type="Texture2D" uid="uid://d2ltjmproo4tc" path="res://assets/ski/skitrack_.png" id="9_8s4lh"]
 [ext_resource type="PackedScene" uid="uid://c72y6huftmc6f" path="res://scenes/ski/ski_npc.tscn" id="11_8s4lh"]
 
 [sub_resource type="Curve" id="Curve_n4i4o"]
@@ -195,32 +195,24 @@ autoscroll = Vector2(50, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="CloseShot/SnowTrack_"]
 position = Vector2(-116.24759, 501.90433)
-texture = ExtResource("9_4s5u5")
+texture = ExtResource("9_8s4lh")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CloseShot/SnowTrack_"]
 position = Vector2(123.75241, 501.90433)
-texture = ExtResource("9_4s5u5")
+texture = ExtResource("9_8s4lh")
 
 [node name="Sprite2D3" type="Sprite2D" parent="CloseShot/SnowTrack_"]
 position = Vector2(363.75244, 501.90433)
-texture = ExtResource("9_4s5u5")
+texture = ExtResource("9_8s4lh")
 
 [node name="Sprite2D4" type="Sprite2D" parent="CloseShot/SnowTrack_"]
 position = Vector2(603.7524, 501.90433)
-texture = ExtResource("9_4s5u5")
-
-[node name="ski_player" parent="." instance=ExtResource("1_f2ocn")]
-position = Vector2(452, 259)
-metadata/_edit_lock_ = true
-
-[node name="ski_npc" parent="." instance=ExtResource("11_8s4lh")]
-position = Vector2(552, 289)
-metadata/_edit_lock_ = true
+texture = ExtResource("9_8s4lh")
 
 [node name="MediumShot" type="Node2D" parent="."]
 
 [node name="SkiTimer" type="Timer" parent="."]
-wait_time = 40.0
+wait_time = 45.0
 one_shot = true
 autostart = true
 
@@ -272,3 +264,17 @@ shape = SubResource("SegmentShape2D_wlfea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D4"]
 shape = SubResource("SegmentShape2D_p73sb")
+
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ski_player" parent="Objects" instance=ExtResource("1_f2ocn")]
+unique_name_in_owner = true
+position = Vector2(452, 259)
+metadata/_edit_lock_ = true
+
+[node name="ski_npc" parent="Objects" instance=ExtResource("11_8s4lh")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(552, 289)
+metadata/_edit_lock_ = true

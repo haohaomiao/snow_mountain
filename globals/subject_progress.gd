@@ -3,6 +3,10 @@ extends Node
 enum Subject {
 	NPC,
 	IntroTree,
+	Cup,
+	Santa,
+	Sock,
+	FirePlace,
 }
 
 var progress: Dictionary = {}

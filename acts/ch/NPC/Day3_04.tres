@@ -8,56 +8,66 @@
 [sub_resource type="Resource" id="Line_01"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 3
 text = "话说，你在这里待了多久了？"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_02"]
 script = ExtResource("1_dialogue_line")
+portrait = 3
 text = "三天？一周？两周？"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_03"]
 script = ExtResource("1_dialogue_line")
+portrait = 0
 text = "遇见你之前，我好像没有考虑过时间这回事"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_04"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "嘛，真是喝醉了"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_05"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 3
 text = "（突然）你知道我下一句要说什么么？"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_06"]
 script = ExtResource("1_dialogue_line")
+portrait = 0
 text = "——你诚心诚意问我"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_07"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "好，那么，这里是诚心诚意地问你"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_08"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "要是你不知道——要是你不是把自己想成是我的那种知道"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_09"]
 script = ExtResource("1_dialogue_line")
+portrait = 3
 text = "就怎样？"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_10"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "那就别说。或者要是你只想说你的希望，也别说。"
 has_choices = true
 choices = Array[String](["（笑）我只是没有计划", "我想，或许我们可以一起滑雪"])
@@ -67,6 +77,7 @@ metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 [sub_resource type="Resource" id="Line_11"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 1
 text = "好，那就这么说定了。我们在山顶的缆车见！"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 

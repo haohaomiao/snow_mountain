@@ -6,6 +6,7 @@
 [sub_resource type="Resource" id="Line_01"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "对，咱们一定得滑"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 

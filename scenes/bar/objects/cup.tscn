@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvhqxbsc8qm4e"]
+
+[ext_resource type="Texture2D" uid="uid://bee13rjd2jrus" path="res://assets/bar/cup.png" id="1_6fps1"]
+[ext_resource type="Script" uid="uid://cf5eker1f8g2b" path="res://scripts/dialogue_interactable.gd" id="2_52b8h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fps1"]
+size = Vector2(14, 14)
+
+[node name="Cup" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6fps1")
+region_rect = Rect2(2, 208, 90, 155)
+
+[node name="DialogueInteractable" type="Area2D" parent="."]
+script = ExtResource("2_52b8h")
+subject = 2
+start_delay_seconds = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractable"]
+shape = SubResource("RectangleShape2D_6fps1")

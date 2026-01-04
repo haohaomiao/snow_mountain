@@ -6,12 +6,14 @@
 [sub_resource type="Resource" id="Resource_right_1"]
 script = ExtResource("1_8r2o1")
 speaker = 1
+portrait = 0
 text = "（右路）你选择了更热闹的路。"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Resource_right_2"]
 script = ExtResource("1_8r2o1")
 speaker = 1
+portrait = 0
 text = "（右路）绕了一圈，你也回来了。"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 

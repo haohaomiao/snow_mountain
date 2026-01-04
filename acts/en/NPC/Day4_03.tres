@@ -8,73 +8,86 @@
 [sub_resource type="Resource" id="Line_01"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "You know… after drinking, this feeling always comes."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_02"]
 script = ExtResource("1_dialogue_line")
+portrait = 3
 text = "A bad feeling?"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_03"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 3
 text = "No. A good one. Like the sky looked today. Just a little strange."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_04"]
 script = ExtResource("1_dialogue_line")
+portrait = 0
 text = "Yeah. I think I understand."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_05"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "Of course you do."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_06"]
 script = ExtResource("1_dialogue_line")
+portrait = 3
 text = "Then—another bottle?"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_07"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 2
 text = "…"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_08"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 2
 text = "I’m done drinking."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_09"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "There are a lot of mountains here. A lot of green trees. Looks like the snow season is almost over."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_10"]
 script = ExtResource("1_dialogue_line")
+portrait = 0
 text = "Yeah. Maybe that’s why people rarely talk about this place."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_11"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 2
 text = "Even someone lucky enough to live here year after year has things they’re unhappy with."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_12"]
 script = ExtResource("1_dialogue_line")
+portrait = 1
 text = "(Laughs loudly)"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_13"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 2
 text = "Maybe we won’t get another chance to ski together. I’m leaving tomorrow."
 has_choices = true
 choices = Array[String](["(Silence)", "We must ski again."])
@@ -84,22 +97,26 @@ metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 [sub_resource type="Resource" id="Line_14"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 2
 text = "If we can’t ski, then there’s no point."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_15"]
 script = ExtResource("1_dialogue_line")
+portrait = 2
 text = "(No point?)"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_16"]
 script = ExtResource("1_dialogue_line")
+portrait = 0
 text = "Then—it’s settled."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_17"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 1
 text = "(Laughs) Being settled doesn’t do us any good."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbo3iy8d3q4ec"]
+[gd_scene load_steps=15 format=3 uid="uid://dbo3iy8d3q4ec"]
 
 [ext_resource type="Texture2D" uid="uid://djy0bgn7l2kki" path="res://assets/bar/bar_christmas.png" id="1_4i056"]
 [ext_resource type="Texture2D" uid="uid://cubqrksjp2e5b" path="res://assets/bar/bar_christmas_.png" id="2_sykxy"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://t5xq2sswwwqw" path="res://scenes/bar/objects/sofa_back.tscn" id="10_0bcpr"]
 [ext_resource type="PackedScene" uid="uid://contqivsxyhxh" path="res://scenes/bar/objects/chat_set.tscn" id="11_imdgf"]
 [ext_resource type="PackedScene" uid="uid://bcpf6i6cgjo5x" path="res://scenes/bar/objects/christmas_tree.tscn" id="12_sykxy"]
+[ext_resource type="PackedScene" uid="uid://dvhqxbsc8qm4e" path="res://scenes/bar/objects/cup.tscn" id="13_c1aqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjlp7"]
 size = Vector2(207, 121)
@@ -131,3 +132,7 @@ position = Vector2(124, -167)
 texture = ExtResource("2_sykxy")
 region_enabled = true
 region_rect = Rect2(266, 6, 16, 26)
+
+[node name="Cup" parent="Decorations" instance=ExtResource("13_c1aqa")]
+z_index = 2
+position = Vector2(-130, 83)

@@ -11,13 +11,17 @@ var _act: DialogueAct
 var _index: int = 0
 var _waiting_for_choice := false
 var _return_stack: Array[Dictionary] = []
-
+@export var bn_theme: StyleBoxFlat
+@export var font: Font
 @export var typing_min_seconds: float = 0.5
 @export var typing_seconds_per_char: float = 0.05 # 10 字 ≈ 0.5s
 @export var typing_punct_pause_seconds: float = 0.1
 @export var typing_fade_out_seconds: float = 0.1
 @export var choice_button_font_size: int = 14
 @export var choice_button_min_height: float = 24.0
+@export_group('portrait')
+@export var player_portraits: Array[Texture2D]
+@export var npc_portraits: Array[Texture2D]
 
 var voice: AudioStreamPlayer
 var _voice_fade_tween: Tween
@@ -124,14 +128,21 @@ func _play_current_line() -> void:
 		return
 
 	var line: DialogueLine = _act.lines[_index]
+	_apply_portrait(line)
 	emit_signal("line_changed", line)
 	_current_line = line
-	%Speaker.text = line.get_speaker_name()
 	%SpeakText.text = ""
 	_clear_choices()
 	_waiting_for_choice = false
 	_set_click_catcher_enabled(true)
 	_start_typewriter(line)
+
+func _apply_portrait(line: DialogueLine):
+	match line.speaker:
+		DialogueLine.Speaker.PLAYER:
+			%Portrait.texture = player_portraits[line.portrait]
+		DialogueLine.Speaker.SKIER:
+			%Portrait.texture = npc_portraits[line.portrait]
 
 func _cancel_typing() -> void:
 	_typing_session_id += 1
@@ -413,6 +424,9 @@ func _set_click_catcher_enabled(enabled: bool) -> void:
 func _render_choices(line: DialogueLine) -> void:
 	for i in line.choices.size():
 		var button := Button.new()
+		button.add_theme_font_override("font",font)
+		button.add_theme_stylebox_override("normal", bn_theme)
+		button.add_theme_font_size_override("font_size", 24)
 		button.text = line.choices[i]
 		var explicitly_disabled := i < line.choice_branches.size() and line.choice_branches[i] == null
 		button.disabled = explicitly_disabled

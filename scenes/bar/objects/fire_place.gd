@@ -1,12 +1,10 @@
-extends Interactable
+extends DialogueInteractable
 
 var current_anim: StringName
 var burning_player: AudioStreamPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../AnimatedSprite2D"
-
 func _ready() -> void:
-	if animated_sprite_2d.animation == &"burning":
-		input_pickable = false
+	pass
 	
 func interact() -> void:
 	current_anim = animated_sprite_2d.animation
@@ -14,9 +12,8 @@ func interact() -> void:
 		SoundManager.play_sfx('FireLighting')
 		burning_player = SoundManager.play_sfx('FireBuring')
 		current_anim = &"burning"
-		input_pickable = false
-	#else:
-		#current_anim = &"default"
-		#burning_player.stop()
+		animated_sprite_2d.play(current_anim)
+		return
 
-	animated_sprite_2d.play(current_anim)
+	# burning -> narrative text
+	super.interact()

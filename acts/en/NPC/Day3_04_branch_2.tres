@@ -6,6 +6,7 @@
 [sub_resource type="Resource" id="Line_01"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "I’d like that very much."
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 

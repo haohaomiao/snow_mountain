@@ -54,6 +54,8 @@ polygon = PackedVector2Array(-28, 37, 20, 60, 21, -31, -28, -53, -28, 37)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("1_vlf4b")
+subject = 5
+start_delay_seconds = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-20, -7, -21, 33, 8, 47, 10, 5)

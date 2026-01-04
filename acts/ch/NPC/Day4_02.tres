@@ -8,27 +8,32 @@
 [sub_resource type="Resource" id="Line_01"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "圣诞快到了呢，这样装点一下……你得承认它挺温馨的。"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_02"]
 script = ExtResource("1_dialogue_line")
+portrait = 0
 text = "是啊……还没想好圣诞晚餐吃什么呢"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_03"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 3
 text = "姜饼人？姜饼人怎么样？"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_04"]
 script = ExtResource("1_dialogue_line")
+portrait = 1
 text = "听起来是个不错的选择。足够经典！"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_05"]
 script = ExtResource("1_dialogue_line")
+portrait = 0
 text = "嘿"
 has_choices = true
 choices = Array[String](["你在这里就只见到过我一个人么？", "我最近想来，山盟海誓想来也并不高过点头之交，不是么？"])
@@ -38,28 +43,33 @@ metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 [sub_resource type="Resource" id="Line_06"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 2
 text = "唉，真想一直这样滑下去"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_07"]
 script = ExtResource("1_dialogue_line")
+portrait = 0
 text = "好啊。如果，如果你感兴趣，我们可以沿着这里一路沿着边境线穿过去，带上我们的滑雪板"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_08"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "是啊，带上滑雪板，乘上火车，到哪儿滑个痛快。直奔Schief这样的偏僻国家。全身上下只带上一双浸得锃亮的雪地靴、一对结实的手套"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_09"]
 script = ExtResource("1_dialogue_line")
+portrait = 3
 text = "Schief？今年夏天，我还在那里钓过鱼呢。你想听听么？那里的景色，绝对美丽。"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_10"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "或许我能有幸亲自体验一次。"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 

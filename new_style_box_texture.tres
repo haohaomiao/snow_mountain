@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://bs6diso433x27"]
+
+[sub_resource type="Gradient" id="Gradient_vv00e"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5slsn"]
+gradient = SubResource("Gradient_vv00e")
+
+[resource]
+texture = SubResource("GradientTexture2D_5slsn")

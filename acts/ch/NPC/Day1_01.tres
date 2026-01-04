@@ -7,12 +7,14 @@
 
 [sub_resource type="Resource" id="Resource_giynq"]
 script = ExtResource("1_tkff2")
+portrait = 0
 text = "你好~"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Resource_choice_1"]
 script = ExtResource("1_tkff2")
 speaker = 1
+portrait = 3
 text = "要走哪条路？"
 has_choices = true
 choices = Array[String](["走左边", "走右边"])
@@ -22,12 +24,14 @@ metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 [sub_resource type="Resource" id="Resource_after_return"]
 script = ExtResource("1_tkff2")
 speaker = 1
+portrait = 0
 text = "你从分支回到主线了。"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Resource_pdsd7"]
 script = ExtResource("1_tkff2")
 speaker = 1
+portrait = 0
 text = "nihaoya"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 

@@ -69,4 +69,3 @@ func _on_director_dialogue_finished(day: int, finished_subject: Subject) -> void
 		return
 	if auto_disable_when_exhausted and _director != null and not _director.has_next_act(day, subject):
 		_disable_interaction()
-

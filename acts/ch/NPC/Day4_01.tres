@@ -6,51 +6,60 @@
 [sub_resource type="Resource" id="Line_01"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 3
 text = "突然觉得，滑雪板真是沉啊——"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_02"]
 script = ExtResource("1_dialogue_line")
+portrait = 1
 text = "呵，你今天滑的很不错呢！"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_03"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "为了努力跟上运动员的步伐，我可是一点也不敢怠慢呀"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_04"]
 script = ExtResource("1_dialogue_line")
+portrait = 1
 text = "（哈哈）嘿，我带了一瓶西昂酒。行不行？你喝得惯这个么？"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_05"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "行啊。看起来你对这里比我熟悉。我什么酒都爱喝"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_06"]
 script = ExtResource("1_dialogue_line")
+portrait = 0
 text = "我现在明白了，哪有一项玩意儿真正比得上滑雪的呢。"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_07"]
 script = ExtResource("1_dialogue_line")
 speaker = 0
+portrait = 0
 text = "当你滑了老长一段路头一回歇下来的时候——就会有这种感受"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_08"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 0
 text = "嘿。你说得对"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 
 [sub_resource type="Resource" id="Line_09"]
 script = ExtResource("1_dialogue_line")
 speaker = 1
+portrait = 1
 text = "滑雪真是妙不可言。我越来越相信自己彻底地爱上这门运动了"
 metadata/_custom_type_script = "uid://bw5nvw6g1w033"
 

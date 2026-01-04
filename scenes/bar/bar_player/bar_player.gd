@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 50.0
 
-var last_direction: Vector2 = Vector2.DOWN
+var last_direction: Vector2 = Vector2.RIGHT
 
 @export var footstep_fade_in_seconds: float = 0
 @export var footstep_fade_out_seconds: float = 0.2
@@ -15,6 +15,8 @@ var _footstep_fade_tween: Tween
 var _is_walking: bool = false
 
 func _ready() -> void:
+	_update_animation(Vector2.ZERO)
+
 	_footstep_player = SoundManager.get_node_or_null("SFX/BarFootstep") as AudioStreamPlayer
 	if _footstep_player == null:
 		push_warning("BarPlayer: SoundManager SFX/BarFootstep not found.")
@@ -88,7 +90,7 @@ func _set_footstep_sfx_active(active: bool) -> void:
 	)
 
 func _update_animation(input_direction: Vector2) -> void:
-	var motion := "down"
+	var motion := "right"
 	if last_direction.x != 0:
 		motion = "left" if last_direction.x < 0 else "right"
 	elif last_direction.y != 0:

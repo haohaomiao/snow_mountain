@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueDay" load_steps=4 format=3]
+
+[ext_resource type="Script" uid="uid://bfvancff2jw2f" path="res://scenes/bar/dialogue/dialogue_day.gd" id="1_dialogue_day"]
+[ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
+[ext_resource type="Resource" path="res://acts/en/FirePlace/Day2_01.tres" id="3_day2_01"]
+
+[resource]
+script = ExtResource("1_dialogue_day")
+day_index = 2
+acts = Array[ExtResource("2_dialogue_act")]([ExtResource("3_day2_01")])

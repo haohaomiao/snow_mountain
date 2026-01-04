@@ -8,7 +8,9 @@ size = Vector2(6, 6)
 [node name="CounterChair" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
 texture = ExtResource("1_64867")
+offset = Vector2(0, 10)
 region_enabled = true
 region_rect = Rect2(336, 184, 16, 24)
 

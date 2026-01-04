@@ -9,7 +9,8 @@ enum Speaker{
 enum Portrait{
 	DEFAULT,
 	SMILE,
-	SERIOUS,
+	SAD,
+	UNEXPECTED
 }
 
 const SPEAKER_NAME := {
