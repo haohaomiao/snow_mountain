@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://g4cv2hpa86mv"]
+[gd_scene load_steps=28 format=3 uid="uid://g4cv2hpa86mv"]
 
 [ext_resource type="Texture2D" uid="uid://b4nt0qgpga63m" path="res://assets/ski/mountain.png" id="1_85xeq"]
 [ext_resource type="PackedScene" uid="uid://dhupkfeq5a5ug" path="res://scenes/ski/ski_player.tscn" id="1_f2ocn"]
@@ -7,6 +7,11 @@
 [ext_resource type="AudioStream" uid="uid://c8hsyu58u5fe" path="res://music/bgm/SnowFieldSingleMusic.ogg" id="2_2fbrk"]
 [ext_resource type="AudioStream" uid="uid://6it8ud76m76r" path="res://music/bgm/SnowFieldDoubleMusic.ogg" id="3_7xlgx"]
 [ext_resource type="Texture2D" uid="uid://br7uon03bceey" path="res://assets/ski/skitrack.png" id="5_n4i4o"]
+[ext_resource type="Texture2D" uid="uid://ducny2a0ubn4t" path="res://assets/ski/ChatGPT Image 2026年1月3日 15_31_09.png" id="8_tf2pa"]
+[ext_resource type="FontFile" uid="uid://cd7kg67tsjw5t" path="res://assets/fonts/Stardew_Valley.ttf" id="9_oggis"]
+[ext_resource type="Script" uid="uid://c7ljhl3yca4q" path="res://scenes/ski/stone_generator.gd" id="10_408al"]
+[ext_resource type="PackedScene" uid="uid://ddwvysv67qr8q" path="res://scenes/ski/stone/Stone.tscn" id="11_bjgai"]
+[ext_resource type="Script" uid="uid://bgj2qrartbk3f" path="res://scenes/ski/crash_dialog_layer.gd" id="12_bjgai"]
 
 [sub_resource type="Curve" id="Curve_n4i4o"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.68749994, 0.7961255), -0.7339485, -0.7339485, 0, 0, Vector2(0.89338225, 0.47832108), -1.7792665, -1.7792665, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -79,6 +84,14 @@ scale_max = 1.8
 color_ramp = SubResource("GradientTexture1D_4s5u5")
 color_initial_ramp = SubResource("GradientTexture1D_5m4dm")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tf2pa"]
+texture = ExtResource("8_tf2pa")
+expand_margin_left = 20.0
+expand_margin_top = 5.0
+expand_margin_right = 20.0
+expand_margin_bottom = 10.0
+modulate_color = Color(1, 1, 1, 0.5803922)
+
 [node name="Ski" type="Node2D"]
 script = ExtResource("1_xsy6n")
 exit_duration = 2.0
@@ -145,7 +158,7 @@ position = Vector2(452, 259)
 [node name="MediumShot" type="Node2D" parent="."]
 
 [node name="SkiTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 
@@ -173,3 +186,57 @@ trail_enabled = true
 trail_lifetime = 1.0
 trail_sections = 12
 process_material = SubResource("ParticleProcessMaterial_a48q5")
+
+[node name="SubtitleLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="SubtitleLayer"]
+layout_mode = 3
+anchor_top = 0.93
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="SubtitleLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 1.0
+anchor_right = 0.8
+anchor_bottom = 1.0
+offset_top = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="SubtitleLayer/Control/CenterContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tf2pa")
+
+[node name="SubtitleLable" type="Label" parent="SubtitleLayer/Control/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7019608, 0.7607843, 0.9372549, 0.6156863)
+theme_override_colors/font_shadow_color = Color(0.43160713, 0.72303456, 0.60285914, 1)
+theme_override_fonts/font = ExtResource("9_oggis")
+theme_override_font_sizes/font_size = 20
+text = "Not having a drink?"
+
+[node name="StoneGenerator" type="Node2D" parent="."]
+script = ExtResource("10_408al")
+stone_scene = ExtResource("11_bjgai")
+spawn_x_range = Vector2(0, 30)
+spawn_y_range = Vector2(267, 420)
+
+[node name="SpawnTimer" type="Timer" parent="StoneGenerator"]
+
+[node name="CrashDialogLayer" type="CanvasLayer" parent="."]
+script = ExtResource("12_bjgai")
+
+[node name="CrashDialog" type="AcceptDialog" parent="CrashDialogLayer"]
+oversampling_override = 1.0
+title = "Oops..."
+initial_position = 2
+size = Vector2i(633, 106)
+ok_button_text = "Anyway, let's find a time machine."
+dialog_text = "“You were injured while skiing, bringing this brief journey to an end.
+The injury wasn’t serious, but you may have missed a few things along the way.”"

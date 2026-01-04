@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="DialogueDay" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="DialogueDay" load_steps=7 format=3 uid="uid://c1g0rqsys86wg"]
 
 [ext_resource type="Script" uid="uid://bfvancff2jw2f" path="res://scenes/bar/dialogue/dialogue_day.gd" id="1_dialogue_day"]
 [ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
-[ext_resource type="Resource" path="res://acts/en/NPC/Day3_01.tres" id="3_day3_01"]
-[ext_resource type="Resource" path="res://acts/en/NPC/Day3_02.tres" id="4_day3_02"]
-[ext_resource type="Resource" path="res://acts/en/NPC/Day3_03.tres" id="5_day3_03"]
-[ext_resource type="Resource" path="res://acts/en/NPC/Day3_04.tres" id="6_day3_04"]
+[ext_resource type="Resource" uid="uid://cybtdm1care4u" path="res://acts/en/NPC/Day3_01.tres" id="3_day3_01"]
+[ext_resource type="Resource" uid="uid://c12wvy5p4vwc" path="res://acts/en/NPC/Day3_02.tres" id="4_day3_02"]
+[ext_resource type="Resource" uid="uid://dha4rgjm40jlc" path="res://acts/en/NPC/Day3_03.tres" id="5_day3_03"]
+[ext_resource type="Resource" uid="uid://dh6ihb4ep7a0g" path="res://acts/en/NPC/Day3_04.tres" id="6_day3_04"]
 
 [resource]
 script = ExtResource("1_dialogue_day")
 day_index = 3
 acts = Array[ExtResource("2_dialogue_act")]([ExtResource("3_day3_01"), ExtResource("4_day3_02"), ExtResource("5_day3_03"), ExtResource("6_day3_04")])
-

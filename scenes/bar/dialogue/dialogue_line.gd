@@ -2,27 +2,27 @@ extends Resource
 class_name DialogueLine
 
 enum Speaker{
-	PLAYER,
-	SKIER
+    PLAYER,
+    SKIER
 }
 
 enum Portrait{
-	DEFAULT,
-	SMILE,
-	SERIOUS,
+    DEFAULT,
+    SMILE,
+    SERIOUS,
 }
 
 const SPEAKER_NAME := {
-	Speaker.PLAYER: "Player",
-	Speaker.SKIER: "NPC",
+    Speaker.PLAYER: "Player",
+    Speaker.SKIER: "NPC",
 }
 func get_speaker_name() -> String:
-	var names := SPEAKER_NAME if GameState.english else {
-		Speaker.PLAYER: "玩家",
-		Speaker.SKIER: "NPC",
-	}
+    var names := SPEAKER_NAME if GameState.english else {
+        Speaker.PLAYER: "玩家",
+        Speaker.SKIER: "NPC",
+    }
 
-	return names.get(speaker, "Unknown")
+    return names.get(speaker, "Unknown")
 
 @export var speaker: Speaker = Speaker.PLAYER
 @export var portrait: Portrait = Portrait.DEFAULT

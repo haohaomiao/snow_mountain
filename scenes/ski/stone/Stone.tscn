@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddwvysv67qr8q"]
+
+[ext_resource type="Script" uid="uid://cpbpogbom02n7" path="res://scenes/ski/stone/stone.gd" id="1_85wm7"]
+[ext_resource type="Texture2D" uid="uid://cfg40cc1rxo6p" path="res://assets/ski/stone2.png" id="1_mjqwk"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_85wm7"]
+points = PackedVector2Array(-23.434727, -9.892563, -20.415194, -0.049677372, -54.98109, 3.8488603, -54.85827, -6.3484383, -33.986435, -13.157739)
+
+[node name="Stone" type="Area2D"]
+rotation = -0.20943952
+script = ExtResource("1_85wm7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_mjqwk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(39, 4)
+shape = SubResource("ConvexPolygonShape2D_85wm7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,10 +1,10 @@
 extends Node
 
 enum Phase{
-	DEFAULT,
-	SKI,
-	BAR,
-	ENDING,
+    DEFAULT,
+    SKI,
+    BAR,
+    ENDING,
 }
 
 var day: int = 1
