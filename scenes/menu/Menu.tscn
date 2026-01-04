@@ -122,7 +122,9 @@ anchor_right = 0.822
 anchor_bottom = 0.733
 grow_horizontal = 2
 grow_vertical = 2
-text = "Team info: to do..."
+text = "Team info: 
+Program1 Chang_chang
+Program2 Haohaomiao"
 
 [connection signal="pressed" from="_StartButton" to="." method="_on__start_button_pressed"]
 [connection signal="pressed" from="_AboutButton" to="." method="_on__about_button_pressed"]

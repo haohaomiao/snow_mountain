@@ -1,12 +1,49 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://c6mik04wx4j7l"]
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://c6mik04wx4j7l"]
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_ckf2f"]
+resource_name = "Amplify"
+volume_db = 5.0
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_ckf2f"]
+resource_name = "Limiter"
+ceiling_db = -1.6
+threshold_db = -1.7
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_ckf2f"]
+resource_name = "Compressor"
+threshold = -12.0
+ratio = 6.0
+attack_us = 200.0
+sidechain = &"Voice"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_uqp7a"]
+resource_name = "Compressor"
+threshold = -18.0
+attack_us = 391.0
+sidechain = &"SFX"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_dor0b"]
+resource_name = "Compressor"
+threshold = -12.0
+sidechain = &"UI"
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectAmplify_ckf2f")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectLimiter_ckf2f")
+bus/0/effect/1/enabled = true
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = 0.0
+bus/1/volume_db = -1.0237408
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectCompressor_ckf2f")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectCompressor_uqp7a")
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource("AudioEffectCompressor_dor0b")
+bus/1/effect/2/enabled = true
 bus/2/name = &"SFX"
 bus/2/solo = false
 bus/2/mute = false

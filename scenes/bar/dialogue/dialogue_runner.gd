@@ -19,6 +19,9 @@ var _return_stack: Array[Dictionary] = []
 @export var typing_fade_out_seconds: float = 0.1
 @export var choice_button_font_size: int = 14
 @export var choice_button_min_height: float = 24.0
+@export_group("indicator")
+@export var float_distance: float = 6.0
+@export var float_duration: float = 0.6
 @export_group('portrait')
 @export var player_portraits: Array[Texture2D]
 @export var npc_portraits: Array[Texture2D]
@@ -32,9 +35,15 @@ var _is_typing: bool = false
 var _current_line: DialogueLine
 @onready var _choices_container: VBoxContainer = %ChoicesContainer
 @onready var _click_catcher: Button = %ClickCatcher
+@onready var _indicator: TextureRect = get_node_or_null("Indicator") as TextureRect
+var _indicator_base_position: Vector2
+var _indicator_float_tween: Tween
 
 func _ready() -> void:
 	_click_catcher.pressed.connect(SoundManager.play_sfx.bind('WindowClick'))
+	if _indicator != null:
+		_indicator_base_position = _indicator.position
+		_set_indicator_visible(false)
 	close()
 	get_viewport().gui_focus_changed.connect(func(c):
 		print("Focus -> ", c)
@@ -53,6 +62,7 @@ func start_act(act: DialogueAct) -> void:
 	_waiting_for_choice = false
 	_return_stack.clear()
 	_clear_choices()
+	_set_indicator_visible(false)
 	_set_click_catcher_enabled(true)
 	is_active = true
 	open()
@@ -69,6 +79,7 @@ func close() -> void:
 	_waiting_for_choice = false
 	_return_stack.clear()
 	_clear_choices()
+	_set_indicator_visible(false)
 	_set_click_catcher_enabled(false)
 	visible = false
 
@@ -133,6 +144,7 @@ func _play_current_line() -> void:
 	_current_line = line
 	%SpeakText.text = ""
 	_clear_choices()
+	_set_indicator_visible(false)
 	_waiting_for_choice = false
 	_set_click_catcher_enabled(true)
 	_start_typewriter(line)
@@ -244,11 +256,52 @@ func _after_line_fully_shown(line: DialogueLine) -> void:
 	if line.has_choices:
 		_waiting_for_choice = true
 		_set_click_catcher_enabled(false)
+		_set_indicator_visible(false)
 		emit_signal("choices_requested", line.choices)
 		_render_choices(line)
 	else:
 		_waiting_for_choice = false
 		_set_click_catcher_enabled(true)
+		_set_indicator_visible(true)
+
+func _set_indicator_visible(should_show: bool) -> void:
+	if _indicator == null:
+		return
+
+	if not should_show:
+		_stop_indicator_float(true)
+		_indicator.visible = false
+		return
+
+	if _indicator.visible:
+		return
+
+	_indicator.visible = true
+	_start_indicator_float()
+
+func _start_indicator_float() -> void:
+	if _indicator == null:
+		return
+	if float_distance == 0.0 or float_duration <= 0.0:
+		return
+
+	_stop_indicator_float(false)
+	_indicator.position = _indicator_base_position
+
+	_indicator_float_tween = create_tween()
+	_indicator_float_tween.set_loops()
+	_indicator_float_tween.set_trans(Tween.TRANS_SINE)
+	_indicator_float_tween.set_ease(Tween.EASE_IN_OUT)
+	_indicator_float_tween.tween_property(_indicator, "position", _indicator_base_position + Vector2(0, -float_distance), float_duration)
+	_indicator_float_tween.tween_property(_indicator, "position", _indicator_base_position, float_duration)
+
+func _stop_indicator_float(reset_position: bool) -> void:
+	if _indicator_float_tween != null:
+		_indicator_float_tween.kill()
+		_indicator_float_tween = null
+
+	if reset_position and _indicator != null:
+		_indicator.position = _indicator_base_position
 
 func _punctuation_pause(session_id: int) -> void:
 	if session_id != _typing_session_id:

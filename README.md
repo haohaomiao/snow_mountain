@@ -74,15 +74,15 @@
 
 ## 打开与运行
 
-使用 Godot 4.5 打开本目录下的 `project.godot`，直接运行即可（默认主场景：`scenes/menu/Menu.tscn`）。需要验证场景内容时，可以在编辑器里直接运行 `scenes/bar.tscn` / `scenes/ski/ski.tscn`。
+使用 Godot 4.5 打开本目录下的 `project.godot`，直接运行即可（默认主场景：`scenes/menu/Menu.tscn`）。需要验证场景内容时，可以在编辑器里直接运行 `scenes/bar/bar.tscn` / `scenes/ski/Ski.tscn`。
 
 ## 当前进度（概要）
 
 - 对话框（Resource 版）：`DialogueDirector` 根据 day/subject 加载 `acts/**/Day*.tres`（`DialogueDay` → `acts: Array[DialogueAct]`），再用 `SubjectProgress` 取下一段 `DialogueAct` 交给 `DialogueRunner` 播放；Runner 默认隐藏，`start_act()` 自动显示，结束自动隐藏。
-- 酒馆：`scenes/bar.tscn` 里实例了 `bar_player`，并挂了 `DialogueDirector`（通过 `$DialogueBox` 驱动对话）。
+- 酒馆：`scenes/bar/bar.tscn` 里实例了 `bar_player`，并挂了 `DialogueDirector`（通过 `$DialogueBox` 驱动对话）。
 - 互动：`scripts/interactable.gd` 在 hover 时通过 `CursorManager` 切换鼠标样式，并支持左键点击触发 `interacted`。
 - 切场景：通过 `EventBus.go(scene_key)` 发起，`globals/scene_manager.gd` 监听后执行切场景，并在切换前后调用 `Transition.fade_out()/fade_in()`（含强制 `CursorManager.set_default()`）。
-- 滑雪：`scenes/ski/ski.tscn` 目前以 `Parallax2D.autoscroll` 做远景/雪道滚动；`scenes/ski/ski.gd` 播放 BGM，并在 `SkiTimer` 到时让玩家按 `-dir` 滑出屏幕后再 `EventBus.go("bar")`。
+- 滑雪：`scenes/ski/Ski.tscn` 目前以 `Parallax2D.autoscroll` 做远景/雪道滚动；`scenes/ski/ski.gd` 播放 BGM，并在 `SkiTimer` 到时让玩家按 `-dir` 滑出屏幕后再 `EventBus.go("bar")`。
 
 ## 常见警告
 

@@ -8,6 +8,7 @@ var exit_dir := Vector2.from_angle(deg_to_rad(-12.0))
 @export var ending_after_seconds: float = 10.0
 @export var single_bgm : AudioStream
 @export var double_bgm : AudioStream
+@export var double_bgm_ : AudioStream
 @onready var _sky: CanvasItem = $EstablishingShot/Sky
 @onready var _sky_alt: CanvasItem = $EstablishingShot/Sky_
 @onready var _mountains: CanvasItem = $EstablishingShot/Mountains
@@ -76,6 +77,8 @@ func match_bgm(day: int) -> void:
 	match day:
 		4:
 			bgm = double_bgm
+		6:
+			bgm = double_bgm_
 		_:
 			bgm = single_bgm
 

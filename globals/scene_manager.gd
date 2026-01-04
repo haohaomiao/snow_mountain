@@ -5,7 +5,6 @@ const SCENES := {
 	"bar": "res://scenes/bar/bar.tscn",
 	"ending": "res://scenes/ending/ending.tscn",
 }
-
 signal day_changed
 
 var _is_changing := false

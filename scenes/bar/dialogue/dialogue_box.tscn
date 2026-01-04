@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://20ocomkmuthb"]
+[gd_scene load_steps=19 format=3 uid="uid://20ocomkmuthb"]
 
 [ext_resource type="Script" uid="uid://c1sg0tby256mi" path="res://scenes/bar/dialogue/dialogue_runner.gd" id="1_rc1id"]
 [ext_resource type="Texture2D" uid="uid://xxh7dfm56yjx" path="res://assets/player/portraits/player_default.png" id="2_eo332"]
@@ -10,9 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dmtraf75t01ku" path="res://assets/npc/portraits/npc_sad.png" id="8_70gft"]
 [ext_resource type="Texture2D" uid="uid://dn01xq2785mxu" path="res://assets/npc/portraits/npc_unexpected.png" id="9_xe56h"]
 [ext_resource type="Texture2D" uid="uid://ji3t04yclj3h" path="res://icon.svg" id="10_eo332"]
-[ext_resource type="Texture2D" uid="uid://cvqhybjw8l7gc" path="res://assets/微信图片_20260104221709_1742_222.png" id="11_0dy6d"]
 [ext_resource type="FontFile" uid="uid://d3xyw82rfym72" path="res://assets/fonts/VT323-Regular.ttf" id="12_0dy6d"]
+[ext_resource type="Texture2D" uid="uid://cvqhybjw8l7gc" path="res://assets/微信图片_20260104221709_1742_222.png" id="12_aismb"]
 [ext_resource type="StyleBox" uid="uid://b0f2gynb02wf4" path="res://new_style_box_flat.tres" id="13_mnhfr"]
+[ext_resource type="Texture2D" uid="uid://62uhamn5tsl6" path="res://assets/indicator.png" id="14_aismb"]
 
 [sub_resource type="Theme" id="Theme_11dv4"]
 
@@ -35,6 +36,7 @@ font = ExtResource("12_0dy6d")
 typing_min_seconds = 0.4
 typing_seconds_per_char = 0.02
 typing_fade_out_seconds = 0.05
+float_duration = 0.8
 player_portraits = Array[Texture2D]([ExtResource("2_eo332"), ExtResource("3_11dv4"), ExtResource("4_0dy6d"), ExtResource("5_mnhfr")])
 npc_portraits = Array[Texture2D]([ExtResource("6_aismb"), ExtResource("7_5qoj6"), ExtResource("8_70gft"), ExtResource("9_xe56h")])
 
@@ -44,7 +46,7 @@ offset_left = -10.0
 offset_top = 192.0
 offset_right = 638.0
 offset_bottom = 360.43997
-texture = ExtResource("11_0dy6d")
+texture = ExtResource("12_aismb")
 expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -119,13 +121,22 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3
+anchor_left = 0.05
 anchor_top = 0.55
-anchor_right = 0.3
+anchor_right = 0.05
 anchor_bottom = 0.55
-grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
 theme_override_constants/separation = 4
+
+[node name="Indicator" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 552.0
+offset_top = 310.0
+offset_right = 592.0
+offset_bottom = 350.0
+mouse_filter = 2
+texture = ExtResource("14_aismb")
 
 [connection signal="pressed" from="ClickCatcher" to="." method="_on_button_pressed"]

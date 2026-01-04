@@ -7,6 +7,7 @@ enum Subject {
 	Santa,
 	Sock,
 	FirePlace,
+	BarCabinet,
 }
 
 var progress: Dictionary = {}

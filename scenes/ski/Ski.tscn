@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://g4cv2hpa86mv"]
+[gd_scene load_steps=31 format=3 uid="uid://g4cv2hpa86mv"]
 
 [ext_resource type="Texture2D" uid="uid://b4nt0qgpga63m" path="res://assets/ski/mountain.png" id="1_85xeq"]
 [ext_resource type="PackedScene" uid="uid://dhupkfeq5a5ug" path="res://scenes/ski/ski_player.tscn" id="1_f2ocn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://1d4fr7errpng" path="res://scenes/ski/ski.gd" id="1_xsy6n"]
 [ext_resource type="AudioStream" uid="uid://c8hsyu58u5fe" path="res://music/bgm/SnowFieldSingleMusic.ogg" id="2_2fbrk"]
 [ext_resource type="AudioStream" uid="uid://qnk77id44rfm" path="res://music/bgm/SnowFieldDoubleMusic.ogg" id="3_7xlgx"]
+[ext_resource type="AudioStream" uid="uid://dd4fl451ekrk6" path="res://music/bgm/SnowFieldDoubleMusic_.ogg" id="4_4s5u5"]
 [ext_resource type="Texture2D" uid="uid://bj2su18klsw7e" path="res://assets/ski/sky_double.png" id="5_5m4dm"]
 [ext_resource type="Texture2D" uid="uid://br7uon03bceey" path="res://assets/ski/skitrack.png" id="5_n4i4o"]
 [ext_resource type="Texture2D" uid="uid://dvq6kbvuckiyr" path="res://assets/ski/moutain_pink.png" id="7_8s4lh"]
@@ -105,6 +106,7 @@ exit_duration = 2.0
 EXIT_DISTANCE = 1000.0
 single_bgm = ExtResource("2_2fbrk")
 double_bgm = ExtResource("3_7xlgx")
+double_bgm_ = ExtResource("4_4s5u5")
 metadata/_edit_vertical_guides_ = [-207.0, -167.0, 667.0]
 
 [node name="EstablishingShot" type="Node2D" parent="."]

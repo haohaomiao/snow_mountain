@@ -146,3 +146,10 @@ start_delay_seconds = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decorations/Sock"]
 shape = SubResource("RectangleShape2D_IntroDecorations")
+
+[node name="FullCup" type="Sprite2D" parent="Decorations"]
+z_index = 2
+position = Vector2(-131, 78)
+texture = ExtResource("2_wyc7t")
+region_enabled = true
+region_rect = Rect2(434, 196, 11, 12)

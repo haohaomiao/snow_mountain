@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1xr88ji0saav"]
+[gd_scene load_steps=13 format=3 uid="uid://b1xr88ji0saav"]
 
 [ext_resource type="Texture2D" uid="uid://btapp2nnvpjv7" path="res://assets/bar/bar_normal.png" id="1_8n8us"]
 [ext_resource type="Texture2D" uid="uid://dbs0efsmk4im" path="res://assets/bar/bar_normal_.png" id="2_e2otg"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bggd36ymdw626" path="res://scenes/bar/objects/diagonal_table.tscn" id="8_jnv5o"]
 [ext_resource type="PackedScene" uid="uid://t5xq2sswwwqw" path="res://scenes/bar/objects/sofa_back.tscn" id="9_5p4sm"]
 [ext_resource type="PackedScene" uid="uid://contqivsxyhxh" path="res://scenes/bar/objects/chat_set.tscn" id="10_qqtuv"]
+[ext_resource type="Script" uid="uid://cf5eker1f8g2b" path="res://scripts/dialogue_interactable.gd" id="11_dialogue_interactable"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqtuv"]
+size = Vector2(144, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjlp7"]
 size = Vector2(207, 121)
@@ -36,6 +40,15 @@ texture = ExtResource("2_e2otg")
 region_enabled = true
 region_rect = Rect2(0, 80, 168, 104)
 
+[node name="Area2D" type="Area2D" parent="BarCounter/BarCounter/BarCabinet"]
+script = ExtResource("11_dialogue_interactable")
+subject = 6
+start_delay_seconds = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarCounter/BarCounter/BarCabinet/Area2D"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_qqtuv")
+
 [node name="BarTable" type="Sprite2D" parent="BarCounter/BarCounter"]
 position = Vector2(-79, -94)
 texture = ExtResource("2_e2otg")
@@ -45,6 +58,7 @@ region_rect = Rect2(0, 0, 208, 80)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BarCounter/BarCounter"]
 position = Vector2(-78, -118)
 shape = SubResource("RectangleShape2D_kjlp7")
+metadata/_edit_lock_ = true
 
 [node name="CounterChairs" type="Node2D" parent="BarCounter"]
 y_sort_enabled = true

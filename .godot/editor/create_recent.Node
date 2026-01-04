@@ -1,14 +1,4 @@
-Button
-TextureRect
-Label
-AnimatedSprite2D
-Node2D
+Area2D
 CollisionShape2D
 Sprite2D
-Marker2D
-StaticBody2D
-CollisionPolygon2D
-AnimationPlayer
-CanvasModulate
-VBoxContainer
-MarginContainer
+TextureRect
