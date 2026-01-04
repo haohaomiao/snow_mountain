@@ -1,53 +1,158 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyde3lw70dhb"]
+[gd_scene load_steps=22 format=3 uid="uid://dycq84oydd6a3"]
 
-[ext_resource type="Script" uid="uid://ds1ycq1v3fil8" path="res://scenes/bar/bar.gd" id="1_f28po"]
-[ext_resource type="Script" uid="uid://coanxt6cugg4x" path="res://scenes/bar/dialogue/dialogue_director.gd" id="1_tcu61"]
-[ext_resource type="PackedScene" uid="uid://20ocomkmuthb" path="res://scenes/bar/dialogue/dialogue_box.tscn" id="2_4ex4t"]
-[ext_resource type="AudioStream" uid="uid://bkuuv4ik8nyrb" path="res://music/bgm/BarNormal_MusicDemo_ver3.ogg" id="2_078ud"]
-[ext_resource type="PackedScene" uid="uid://crhnrgwkssxrn" path="res://scenes/bar/bar_player/bar_player.tscn" id="3_uolcu"]
-[ext_resource type="Texture2D" uid="uid://dyi2l88jv71x2" path="res://assets/bar/bar_ground.png" id="5_vkkt2"]
-[ext_resource type="Script" uid="uid://c2nhy2o7redl5" path="res://scenes/bar/leaving_door.gd" id="6_078ud"]
-[ext_resource type="PackedScene" uid="uid://dfsi08vxswl0v" path="res://scenes/bar/bar_npc/bar_npc.tscn" id="8_vkkt2"]
+[ext_resource type="Script" uid="uid://ds1ycq1v3fil8" path="res://scenes/bar/bar.gd" id="1_l1w72"]
+[ext_resource type="AudioStream" uid="uid://cv34w7x5vwqan" path="res://music/bgm/BarNormalMusic.ogg" id="2_fdyug"]
+[ext_resource type="AudioStream" uid="uid://y0jiaw84trqv" path="res://music/bgm/BarChristmasIntroMusic.ogg" id="3_gq2kc"]
+[ext_resource type="Script" uid="uid://coanxt6cugg4x" path="res://scenes/bar/dialogue/dialogue_director.gd" id="3_v67d5"]
+[ext_resource type="AudioStream" uid="uid://cfpf1u1qf0v2l" path="res://music/bgm/BarChristmasMusic.ogg" id="4_76tu6"]
+[ext_resource type="PackedScene" uid="uid://20ocomkmuthb" path="res://scenes/bar/dialogue/dialogue_box.tscn" id="4_rrntp"]
+[ext_resource type="PackedScene" uid="uid://bblp8f54txy3i" path="res://scenes/bar/bar_normal_day_2.tscn" id="5_5d5an"]
+[ext_resource type="PackedScene" uid="uid://cr7yhbhtwo58m" path="res://scenes/bar/bar_intro.tscn" id="5_76tu6"]
+[ext_resource type="PackedScene" uid="uid://dbo3iy8d3q4ec" path="res://scenes/bar/bar_christmas.tscn" id="6_5d5an"]
+[ext_resource type="PackedScene" uid="uid://crhnrgwkssxrn" path="res://scenes/bar/bar_player/bar_player.tscn" id="6_cmq8q"]
+[ext_resource type="Script" uid="uid://c2nhy2o7redl5" path="res://scenes/bar/leaving_door.gd" id="7_i5gm6"]
+[ext_resource type="PackedScene" uid="uid://dfsi08vxswl0v" path="res://scenes/bar/bar_npc/bar_npc.tscn" id="8_7uitc"]
+[ext_resource type="PackedScene" uid="uid://b1xr88ji0saav" path="res://scenes/bar/bar_normal.tscn" id="10_53nt1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkkt2"]
-size = Vector2(32, 86)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y7uo"]
+size = Vector2(36, 104)
+
+[sub_resource type="Gradient" id="Gradient_fdyug"]
+offsets = PackedFloat32Array(0.0033333334, 1)
+colors = PackedColorArray(0.48439777, 0.4843983, 0.48439795, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gq2kc"]
+gradient = SubResource("Gradient_fdyug")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_76tu6"]
+a = Vector2(66, -92)
+b = Vector2(0, 237)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5d5an"]
+a = Vector2(-57, -275)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6fd3g"]
+a = Vector2(-38, 67)
+b = Vector2(53, 118)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_53nt1"]
+a = Vector2(86, -9)
+b = Vector2(-362, -9)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ndwor"]
+a = Vector2(360, 219)
+b = Vector2(-351, 222)
 
 [node name="Bar" type="Node2D"]
-script = ExtResource("1_f28po")
-bgm = ExtResource("2_078ud")
-
-[node name="DialogueDirector" type="Node" parent="."]
-script = ExtResource("1_tcu61")
-runner_path = NodePath("DialogueBox")
-metadata/_custom_type_script = "uid://coanxt6cugg4x"
-
-[node name="DialogueBox" parent="DialogueDirector" instance=ExtResource("2_4ex4t")]
-visible = false
-
-[node name="BackGround" type="Sprite2D" parent="."]
-position = Vector2(326, 222)
-texture = ExtResource("5_vkkt2")
-
-[node name="Player" parent="." instance=ExtResource("3_uolcu")]
-position = Vector2(345, 244)
+script = ExtResource("1_l1w72")
+day_1_2_3_bgm = ExtResource("2_fdyug")
+day_4_bgm = ExtResource("3_gq2kc")
+day_5_bgm = ExtResource("4_76tu6")
+normal_look = ExtResource("10_53nt1")
+day2_look = ExtResource("5_5d5an")
+intro_look = ExtResource("5_76tu6")
+christmas_look = ExtResource("6_5d5an")
+metadata/_edit_vertical_guides_ = [-309.0, 310.0]
+metadata/_edit_horizontal_guides_ = [-210.0, 233.0]
 
 [node name="LeavingDoor" type="Area2D" parent="."]
-script = ExtResource("6_078ud")
+script = ExtResource("7_i5gm6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeavingDoor"]
-position = Vector2(83, 128)
-shape = SubResource("RectangleShape2D_vkkt2")
+position = Vector2(279, 103)
+shape = SubResource("RectangleShape2D_8y7uo")
 
-[node name="BarNPC" parent="." instance=ExtResource("8_vkkt2")]
-position = Vector2(193, 247)
-
-[node name="Black" type="CanvasLayer" parent="."]
+[node name="背景黑布" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="Black"]
+[node name="ColorRect" type="ColorRect" parent="背景黑布"]
 custom_minimum_size = Vector2(10000, 1000000)
-offset_left = -364.0
-offset_top = -294.0
-offset_right = 9636.0
-offset_bottom = 999706.0
+offset_left = -1626.0
+offset_top = -1204.0
+offset_right = 8374.0
+offset_bottom = 998796.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="对话框" type="CanvasLayer" parent="."]
+
+[node name="DialogueDirector" type="Node" parent="对话框"]
+script = ExtResource("3_v67d5")
+
+[node name="DialogueBox" parent="对话框/DialogueDirector" instance=ExtResource("4_rrntp")]
+visible = false
+typing_seconds_per_char = 0.03
+typing_punct_pause_seconds = 0.2
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Darker" type="CanvasModulate" parent="."]
+color = Color(0.6899446, 0.6081292, 0.5537689, 1)
+
+[node name="VisualObjects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Look" type="Node2D" parent="VisualObjects"]
+y_sort_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="BarNormal" parent="VisualObjects/Look" instance=ExtResource("10_53nt1")]
+metadata/_edit_lock_ = true
+
+[node name="Objectives" type="Node2D" parent="VisualObjects"]
+y_sort_enabled = true
+
+[node name="BarNPC" parent="VisualObjects/Objectives" instance=ExtResource("8_7uitc")]
+position = Vector2(-34, -41)
+
+[node name="Day3" type="Marker2D" parent="VisualObjects/Objectives/BarNPC"]
+position = Vector2(137, -35)
+
+[node name="Day4" type="Marker2D" parent="VisualObjects/Objectives/BarNPC"]
+position = Vector2(-57, 134)
+
+[node name="Player" parent="VisualObjects/Objectives" instance=ExtResource("6_cmq8q")]
+position = Vector2(-225, -33)
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="VisualObjects/Objectives/Player"]
+scale = Vector2(10.34375, 8.78125)
+texture = SubResource("GradientTexture2D_gq2kc")
+
+[node name="Borderlines" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borderlines"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D"]
+position = Vector2(-293, -16)
+shape = SubResource("SegmentShape2D_76tu6")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D2"]
+position = Vector2(295, 208)
+shape = SubResource("SegmentShape2D_5d5an")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D3"]
+position = Vector2(185, -184)
+shape = SubResource("SegmentShape2D_6fd3g")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borderlines/StaticBody2D4"]
+position = Vector2(74, -98)
+shape = SubResource("SegmentShape2D_53nt1")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Borderlines"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borderlines/StaticBody2D5"]
+position = Vector2(3, -6)
+shape = SubResource("SegmentShape2D_ndwor")

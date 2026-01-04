@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://dne0kg2dqem6n"]
+
+[ext_resource type="AudioStream" uid="uid://d3jkxlnhhr8gu" path="res://music/sfx/TypingSound_Group/TypingNPCVer2_1.ogg" id="1_lhgce"]
+[ext_resource type="AudioStream" uid="uid://cgxywewi25bhy" path="res://music/sfx/TypingSound_Group/TypingNPCVer2_2.ogg" id="2_8as0m"]
+[ext_resource type="AudioStream" uid="uid://t30wuwn070sg" path="res://music/sfx/TypingSound_Group/TypingNPCVer2_3.ogg" id="3_v4hue"]
+[ext_resource type="AudioStream" uid="uid://i65aj6nysro7" path="res://music/sfx/TypingSound_Group/TypingNPCVer2_4.ogg" id="4_bwiaa"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_lhgce")
+stream_1/stream = ExtResource("2_8as0m")
+stream_2/stream = ExtResource("3_v4hue")
+stream_3/stream = ExtResource("4_bwiaa")

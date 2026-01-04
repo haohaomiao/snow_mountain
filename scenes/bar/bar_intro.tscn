@@ -1,0 +1,148 @@
+[gd_scene load_steps=16 format=3 uid="uid://cr7yhbhtwo58m"]
+
+[ext_resource type="Texture2D" uid="uid://btapp2nnvpjv7" path="res://assets/bar/bar_normal.png" id="1_y2ob4"]
+[ext_resource type="Texture2D" uid="uid://dbs0efsmk4im" path="res://assets/bar/bar_normal_.png" id="2_wyc7t"]
+[ext_resource type="PackedScene" uid="uid://g1aborb2jsge" path="res://scenes/bar/objects/counter_chair.tscn" id="3_yk4pr"]
+[ext_resource type="PackedScene" uid="uid://crnujmbcb7v05" path="res://scenes/bar/objects/fire_place.tscn" id="4_ljwj5"]
+[ext_resource type="PackedScene" uid="uid://40xqy77i17et" path="res://scenes/bar/objects/stool.tscn" id="5_gqmof"]
+[ext_resource type="PackedScene" uid="uid://caf0uaijqs7me" path="res://scenes/bar/objects/big_sofa.tscn" id="6_tkjnw"]
+[ext_resource type="PackedScene" uid="uid://bfpf8agsjx57l" path="res://scenes/bar/objects/sofa_front.tscn" id="7_fwk77"]
+[ext_resource type="PackedScene" uid="uid://bggd36ymdw626" path="res://scenes/bar/objects/diagonal_table.tscn" id="8_e3ait"]
+[ext_resource type="PackedScene" uid="uid://t5xq2sswwwqw" path="res://scenes/bar/objects/sofa_back.tscn" id="9_x26xq"]
+[ext_resource type="PackedScene" uid="uid://contqivsxyhxh" path="res://scenes/bar/objects/chat_set.tscn" id="10_2b1m4"]
+[ext_resource type="PackedScene" uid="uid://pyivk01uj6sw" path="res://scenes/bar/objects/intro_tree.tscn" id="11_wyc7t"]
+[ext_resource type="Texture2D" uid="uid://cubqrksjp2e5b" path="res://assets/bar/bar_christmas_.png" id="12_kri82"]
+[ext_resource type="Script" uid="uid://cf5eker1f8g2b" path="res://scripts/dialogue_interactable.gd" id="13_dialogue_interactable"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjlp7"]
+size = Vector2(207, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_IntroDecorations"]
+size = Vector2(30, 40)
+
+[node name="BarIntro" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -1
+
+[node name="BackGround" type="Sprite2D" parent="Background"]
+texture = ExtResource("1_y2ob4")
+metadata/_edit_lock_ = true
+
+[node name="BarCounter" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BarCounter" type="StaticBody2D" parent="BarCounter"]
+y_sort_enabled = true
+
+[node name="BarCabinet" type="Sprite2D" parent="BarCounter/BarCounter"]
+position = Vector2(-55, -147)
+texture = ExtResource("2_wyc7t")
+region_enabled = true
+region_rect = Rect2(0, 80, 168, 104)
+
+[node name="BarTable" type="Sprite2D" parent="BarCounter/BarCounter"]
+position = Vector2(-79, -94)
+texture = ExtResource("2_wyc7t")
+region_enabled = true
+region_rect = Rect2(0, 0, 208, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarCounter/BarCounter"]
+position = Vector2(-78, -118)
+shape = SubResource("RectangleShape2D_kjlp7")
+
+[node name="CounterChairs" type="Node2D" parent="BarCounter"]
+y_sort_enabled = true
+
+[node name="CounterChair" parent="BarCounter/CounterChairs" instance=ExtResource("3_yk4pr")]
+position = Vector2(18, -43)
+
+[node name="CounterChair2" parent="BarCounter/CounterChairs" instance=ExtResource("3_yk4pr")]
+position = Vector2(-11, -43)
+
+[node name="CounterChair3" parent="BarCounter/CounterChairs" instance=ExtResource("3_yk4pr")]
+position = Vector2(-37, -43)
+
+[node name="CounterChair4" parent="BarCounter/CounterChairs" instance=ExtResource("3_yk4pr")]
+position = Vector2(-69, -43)
+
+[node name="CounterChair5" parent="BarCounter/CounterChairs" instance=ExtResource("3_yk4pr")]
+position = Vector2(-100, -43)
+
+[node name="FirePlace" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="FirePlace" parent="FirePlace" instance=ExtResource("4_ljwj5")]
+position = Vector2(198, -130)
+
+[node name="Stool" parent="FirePlace" instance=ExtResource("5_gqmof")]
+position = Vector2(161, -68)
+
+[node name="CounterChair" parent="FirePlace" instance=ExtResource("3_yk4pr")]
+position = Vector2(145, -86)
+
+[node name="CounterChair2" parent="FirePlace" instance=ExtResource("3_yk4pr")]
+position = Vector2(179, -53)
+
+[node name="CouncilArea" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BigSofa" parent="CouncilArea" instance=ExtResource("6_tkjnw")]
+position = Vector2(116, 36)
+
+[node name="SofaFront" parent="CouncilArea" instance=ExtResource("7_fwk77")]
+position = Vector2(168, -7)
+
+[node name="DiagonalTable" parent="CouncilArea" instance=ExtResource("8_e3ait")]
+position = Vector2(166, 38)
+
+[node name="SofaBack" parent="CouncilArea" instance=ExtResource("9_x26xq")]
+position = Vector2(178, 77)
+
+[node name="ChatTables" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ChatSet" parent="ChatTables" instance=ExtResource("10_2b1m4")]
+position = Vector2(-143, 86)
+
+[node name="ChatSet2" parent="ChatTables" instance=ExtResource("10_2b1m4")]
+position = Vector2(11, 90)
+
+[node name="ChristmasTree" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="IntroTree" parent="ChristmasTree" instance=ExtResource("11_wyc7t")]
+position = Vector2(-216, 150)
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="decoration" type="Sprite2D" parent="Decorations"]
+position = Vector2(-65, -88)
+texture = ExtResource("12_kri82")
+region_enabled = true
+region_rect = Rect2(297, 3, 19, 29)
+
+[node name="decoration2" type="Sprite2D" parent="Decorations"]
+position = Vector2(124, -167)
+texture = ExtResource("12_kri82")
+region_enabled = true
+region_rect = Rect2(266, 6, 16, 26)
+
+[node name="Santa" type="Area2D" parent="Decorations"]
+position = Vector2(-65, -88)
+script = ExtResource("13_dialogue_interactable")
+subject = 3
+start_delay_seconds = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decorations/Santa"]
+shape = SubResource("RectangleShape2D_IntroDecorations")
+
+[node name="Sock" type="Area2D" parent="Decorations"]
+position = Vector2(124, -167)
+script = ExtResource("13_dialogue_interactable")
+subject = 4
+start_delay_seconds = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decorations/Sock"]
+shape = SubResource("RectangleShape2D_IntroDecorations")

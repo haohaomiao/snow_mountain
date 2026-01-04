@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://pyivk01uj6sw"]
+
+[ext_resource type="Texture2D" uid="uid://dbs0efsmk4im" path="res://assets/bar/bar_normal_.png" id="1_imihl"]
+[ext_resource type="Script" uid="uid://cf5eker1f8g2b" path="res://scripts/dialogue_interactable.gd" id="2_dialogue_interactable"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwans"]
+size = Vector2(58, 26)
+
+[node name="IntroTree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_imihl")
+offset = Vector2(0, -40)
+region_enabled = true
+region_rect = Rect2(2, 208, 90, 155)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_uwans")
+
+[node name="DialogueInteractable" type="Area2D" parent="."]
+script = ExtResource("2_dialogue_interactable")
+subject = 1
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="DialogueInteractable"]
+polygon = PackedVector2Array(-35, 8, 41, 9, 0, -85, -35, 6, -35, 6)
+metadata/_edit_lock_ = true

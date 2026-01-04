@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="DialogueAct" load_steps=6 format=3 uid="uid://dn32wa2u3jx7a"]
+
+[ext_resource type="Script" uid="uid://bw5nvw6g1w033" path="res://scenes/bar/dialogue/dialogue_line.gd" id="1_dialogue_line"]
+[ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
+
+[sub_resource type="Resource" id="Line_01"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 0
+text = "By the time I found this place, I’d been walking in the storm for a long while. Then I saw the light in the window and realized there was a cabin here."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_02"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 3
+text = "You wouldn’t expect lights in a place like this, would you?"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_03"]
+script = ExtResource("1_dialogue_line")
+portrait = 3
+text = "Yeah. You’re right. It really is a strange place."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[resource]
+script = ExtResource("2_dialogue_act")
+lines = Array[ExtResource("1_dialogue_line")]([SubResource("Line_01"), SubResource("Line_02"), SubResource("Line_03")])
+metadata/_custom_type_script = "uid://6jp7pl2lqrck"

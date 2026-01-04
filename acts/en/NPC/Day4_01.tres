@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="DialogueAct" load_steps=12 format=3 uid="uid://be1rdx04p4wvf"]
+
+[ext_resource type="Script" uid="uid://bw5nvw6g1w033" path="res://scenes/bar/dialogue/dialogue_line.gd" id="1_dialogue_line"]
+[ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
+
+[sub_resource type="Resource" id="Line_01"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 3
+text = "Suddenly feels like skis are heavy things."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_02"]
+script = ExtResource("1_dialogue_line")
+portrait = 0
+text = "Ha. You skied well today."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_03"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 0
+text = "Trying to keep up with an athlete—I didn’t dare slack off for a second."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_04"]
+script = ExtResource("1_dialogue_line")
+portrait = 3
+text = "(Laughs) Hey, I brought a bottle of Cion wine. Is that alright? Can you handle it?"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_05"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 0
+text = "Sure. You seem more familiar with this place than I am. I’ll drink anything."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_06"]
+script = ExtResource("1_dialogue_line")
+portrait = 0
+text = "I get it now. Nothing really compares to skiing."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_07"]
+script = ExtResource("1_dialogue_line")
+portrait = 0
+text = "When you finally stop after a long run—that’s when you feel it."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_08"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 0
+text = "Yeah. You’re right."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_09"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 1
+text = "Skiing is incredible. I’m starting to believe I’ve truly fallen in love with it."
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[resource]
+script = ExtResource("2_dialogue_act")
+lines = Array[ExtResource("1_dialogue_line")]([SubResource("Line_01"), SubResource("Line_02"), SubResource("Line_03"), SubResource("Line_04"), SubResource("Line_05"), SubResource("Line_06"), SubResource("Line_07"), SubResource("Line_08"), SubResource("Line_09")])
+metadata/_custom_type_script = "uid://6jp7pl2lqrck"

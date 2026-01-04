@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcpf6i6cgjo5x"]
+
+[ext_resource type="Texture2D" uid="uid://cubqrksjp2e5b" path="res://assets/bar/bar_christmas_.png" id="1_jcmdp"]
+[ext_resource type="Script" uid="uid://cf5eker1f8g2b" path="res://scripts/dialogue_interactable.gd" id="2_dialogue_interactable"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwans"]
+size = Vector2(52, 45)
+
+[node name="ChristmasTree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jcmdp")
+offset = Vector2(0, -40)
+region_enabled = true
+region_rect = Rect2(2, 208, 90, 155)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_uwans")
+
+[node name="DialogueInteractable" type="Area2D" parent="."]
+script = ExtResource("2_dialogue_interactable")
+subject = 1
+start_delay_seconds = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractable"]
+shape = SubResource("RectangleShape2D_uwans")

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogueAct" load_steps=4 format=3]
+
+[ext_resource type="Script" uid="uid://bw5nvw6g1w033" path="res://scenes/bar/dialogue/dialogue_line.gd" id="1_dialogue_line"]
+[ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
+
+[sub_resource type="Resource" id="Line_01"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 0
+text = "对，咱们一定得滑"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[resource]
+script = ExtResource("2_dialogue_act")
+act_id = "Day4_03_branch_2"
+day_index = 4
+lines = Array[ExtResource("1_dialogue_line")]([SubResource("Line_01")])
+metadata/_custom_type_script = "uid://6jp7pl2lqrck"
+

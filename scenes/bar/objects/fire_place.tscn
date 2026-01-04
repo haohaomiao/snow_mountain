@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://crnujmbcb7v05"]
+
+[ext_resource type="Texture2D" uid="uid://bjt5exmai6til" path="res://assets/bar/fireplace/fireplace0.tres" id="1_amgdd"]
+[ext_resource type="Script" uid="uid://cq01s2htbodm3" path="res://scenes/bar/objects/fire_place.gd" id="1_vlf4b"]
+[ext_resource type="Texture2D" uid="uid://baot7nkpuhw8h" path="res://assets/bar/fireplace/fireplace1.tres" id="2_vlf4b"]
+[ext_resource type="Texture2D" uid="uid://defngms3xyjaj" path="res://assets/bar/fireplace/fireplace2.tres" id="3_sij5w"]
+[ext_resource type="Texture2D" uid="uid://dfy0sqggdjrn1" path="res://assets/bar/fireplace/fireplace3.tres" id="4_ts1d4"]
+[ext_resource type="Texture2D" uid="uid://dyi34ayl2uncf" path="res://assets/bar/fireplace/fireplace4.tres" id="5_ooyve"]
+[ext_resource type="Texture2D" uid="uid://y6cad1sfffos" path="res://assets/bar/fireplace/fireplace.tres" id="6_bgse7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wuco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_amgdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vlf4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sij5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ts1d4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ooyve")
+}],
+"loop": true,
+"name": &"burning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bgse7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FirePlace" type="Node2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3wuco")
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-28, 37, 20, 60, 21, -31, -28, -53, -28, 37)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_vlf4b")
+subject = 5
+start_delay_seconds = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-20, -7, -21, 33, 8, 47, 10, 5)
+metadata/_edit_lock_ = true

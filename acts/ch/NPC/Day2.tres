@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueDay" load_steps=7 format=3 uid="uid://yhk28us4y40w"]
+
+[ext_resource type="Script" uid="uid://bfvancff2jw2f" path="res://scenes/bar/dialogue/dialogue_day.gd" id="1_dialogue_day"]
+[ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
+[ext_resource type="Resource" uid="uid://dp46j6up6na0m" path="res://acts/ch/NPC/Day2_01.tres" id="3_day2_01"]
+[ext_resource type="Resource" uid="uid://tn16ebtf7x2b" path="res://acts/ch/NPC/Day2_02.tres" id="4_day2_02"]
+[ext_resource type="Resource" path="res://acts/ch/NPC/Day2_03.tres" id="5_day2_03"]
+[ext_resource type="Resource" path="res://acts/ch/NPC/Day2_04.tres" id="6_day2_04"]
+
+[resource]
+script = ExtResource("1_dialogue_day")
+day_index = 2
+acts = Array[ExtResource("2_dialogue_act")]([ExtResource("3_day2_01"), ExtResource("4_day2_02"), ExtResource("5_day2_03"), ExtResource("6_day2_04")])

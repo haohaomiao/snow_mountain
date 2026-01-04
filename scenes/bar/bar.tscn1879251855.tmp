@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://dycq84oydd6a3"]
+
+[ext_resource type="Script" uid="uid://ds1ycq1v3fil8" path="res://scenes/bar/bar.gd" id="1_l1w72"]
+[ext_resource type="AudioStream" uid="uid://magy7h88i30l" path="res://music/bgm/BarNormal_MusicDemo_ver4.ogg" id="2_vkkt2"]
+[ext_resource type="Script" uid="uid://coanxt6cugg4x" path="res://scenes/bar/dialogue/dialogue_director.gd" id="3_v67d5"]
+[ext_resource type="PackedScene" uid="uid://20ocomkmuthb" path="res://scenes/dialogue_box.tscn" id="4_rrntp"]
+[ext_resource type="Texture2D" uid="uid://dyi2l88jv71x2" path="res://assets/bar/bar_ground.png" id="5_5qaxt"]
+[ext_resource type="PackedScene" uid="uid://crhnrgwkssxrn" path="res://scenes/bar/bar_player/bar_player.tscn" id="6_cmq8q"]
+[ext_resource type="Script" uid="uid://c2nhy2o7redl5" path="res://scenes/bar/leaving_door.gd" id="7_i5gm6"]
+[ext_resource type="PackedScene" uid="uid://dfsi08vxswl0v" path="res://scenes/bar/bar_npc/bar_npc.tscn" id="8_7uitc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y7uo"]
+size = Vector2(36, 104)
+
+[node name="Bar" type="Node2D"]
+script = ExtResource("1_l1w72")
+bgm = ExtResource("2_vkkt2")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(323, 247)
+texture = ExtResource("5_5qaxt")
+
+[node name="LeavingDoor" type="Area2D" parent="."]
+script = ExtResource("7_i5gm6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeavingDoor"]
+position = Vector2(681, 381)
+shape = SubResource("RectangleShape2D_8y7uo")
+
+[node name="Black" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Black"]
+custom_minimum_size = Vector2(10000, 1000000)
+offset_left = -1626.0
+offset_top = -1204.0
+offset_right = 8374.0
+offset_bottom = 998796.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueDirector" type="Node" parent="CanvasLayer"]
+script = ExtResource("3_v67d5")
+
+[node name="DialogueBox" parent="CanvasLayer/DialogueDirector" instance=ExtResource("4_rrntp")]
+visible = false
+
+[node name="Objectives" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Objectives" instance=ExtResource("6_cmq8q")]
+position = Vector2(345, 244)
+
+[node name="BarNPC" parent="Objectives" instance=ExtResource("8_7uitc")]
+position = Vector2(193, 247)

@@ -1,29 +1,95 @@
 extends Node2D
 
-var exit_dir := Vector2.from_angle(deg_to_rad(-30.0))
+var exit_dir := Vector2.from_angle(deg_to_rad(-12.0))
 @export var exit_duration := 3.0
 
 @export var EXIT_DISTANCE := 2000.0
-@export var bgm : AudioStream
+@export var ending_day: int = 6
+@export var ending_after_seconds: float = 10.0
+@export var single_bgm : AudioStream
+@export var double_bgm : AudioStream
+@onready var _sky: CanvasItem = $EstablishingShot/Sky
+@onready var _sky_alt: CanvasItem = $EstablishingShot/Sky_
+@onready var _mountains: CanvasItem = $EstablishingShot/Mountains
+@onready var _mountains_alt: CanvasItem = $EstablishingShot/Mountains_
+@onready var _snow_track: CanvasItem = $CloseShot/SnowTrack
+@onready var _snow_track_alt: CanvasItem = $CloseShot/SnowTrack_
+@onready var ski_npc: SkiNpc = %ski_npc
+@onready var ski_player: CharacterBody2D = %ski_player
 
+var bgm : AudioStream = single_bgm
+
+var _exit_skate_requester: String = ""
 func _ready() -> void:
+	_apply_day_state(GameState.day)
+	match_bgm(GameState.day)
 	SoundManager.play_bgm(bgm)
-	$SkiTimer.timeout.connect(_on_ski_timer_timeout)
+	SoundManager.play_sfx('SkiWind')
+	var timer := $SkiTimer as Timer
+	timer.timeout.connect(_on_ski_timer_timeout)
+	timer.stop()
+	if GameState.day >= ending_day:
+		timer.wait_time = maxf(0.0, ending_after_seconds)
+	if GameState.day == 1:
+		timer.wait_time = 20
+	else:
+		timer.wait_time = 45
+	timer.start()
+	EventBus.day_changed.connect(_on_day_changed)
+	_exit_skate_requester = "ski_exit_%s" % str(get_instance_id())
 
 func _on_ski_timer_timeout() -> void:
+	if GameState.day >= ending_day:
+		EventBus.go("ending")
+		return
 	print('结束滑雪')
-	await _exit_player_offscreen()
+	SoundManager.request_loop_sfx("SkiSkate", _exit_skate_requester, true)
+	await _exit_characters_offscreen()
 	EventBus.go("bar")
 
-func _exit_player_offscreen() -> void:
-	var player := get_node_or_null("ski_player") as Node2D
-	# 玩家沿 -dir 冲出屏幕
-	var dir := (-exit_dir)
+func _exit_characters_offscreen() -> void:
+	if ski_player != null:
+		ski_player.set_physics_process(false)
+	if ski_npc != null:
+		ski_npc.set_follow_enabled(false)
+		ski_npc.set_physics_process(false)
 
-	var target_world := player.global_position + dir * EXIT_DISTANCE
+	var dir := (-exit_dir)
 	var duration := maxf(0.0, exit_duration)
 
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.tween_property(player, "global_position", target_world, duration)
+	if ski_player != null:
+		var player_target := ski_player.global_position + dir * EXIT_DISTANCE
+		tween.tween_property(ski_player, "global_position", player_target, duration)
+	if ski_npc != null and ski_npc.visible:
+		var npc_target := ski_npc.global_position + dir * EXIT_DISTANCE
+		tween.parallel().tween_property(ski_npc, "global_position", npc_target, duration)
 	await tween.finished
+
+func _on_day_changed(cur_day: int) -> void:
+	_apply_day_state(cur_day)
+	match_bgm(cur_day)
+	SoundManager.play_bgm(bgm)
+
+func match_bgm(day: int) -> void:
+	match day:
+		4:
+			bgm = double_bgm
+		_:
+			bgm = single_bgm
+
+func _apply_day_state(day: int) -> void:
+	var is_day4 := day == 4
+	_set_variant_visible(_sky, _sky_alt, is_day4)
+	_set_variant_visible(_mountains, _mountains_alt, is_day4)
+	_set_variant_visible(_snow_track, _snow_track_alt, is_day4)
+	if ski_npc != null:
+		ski_npc.visible = is_day4
+		ski_npc.set_follow_enabled(is_day4)
+
+func _set_variant_visible(normal_node: CanvasItem, variant_node: CanvasItem, use_variant: bool) -> void:
+	if normal_node != null:
+		normal_node.visible = not use_variant
+	if variant_node != null:
+		variant_node.visible = use_variant

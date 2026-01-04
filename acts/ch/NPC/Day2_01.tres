@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="DialogueAct" load_steps=9 format=3 uid="uid://dp46j6up6na0m"]
+
+[ext_resource type="Script" uid="uid://bw5nvw6g1w033" path="res://scenes/bar/dialogue/dialogue_line.gd" id="1_dialogue_line"]
+[ext_resource type="Script" uid="uid://6jp7pl2lqrck" path="res://scenes/bar/dialogue/dialogue_act.gd" id="2_dialogue_act"]
+
+[sub_resource type="Resource" id="Line_01"]
+script = ExtResource("1_dialogue_line")
+portrait = 3
+text = "你好？"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_02"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 3
+text = "你好，你也是来滑雪的么？"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_03"]
+script = ExtResource("1_dialogue_line")
+portrait = 3
+text = "是的。这是片很棒的雪场，但是知道的人不多。我很惊讶能在这里遇到人。"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_04"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 0
+text = "啊，我在这附近停留，听人说这块有片还不错的雪场，我可是冒着迷路的风险找到这里的呢。"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_05"]
+script = ExtResource("1_dialogue_line")
+portrait = 0
+text = "雪场就在上面呀。"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[sub_resource type="Resource" id="Line_06"]
+script = ExtResource("1_dialogue_line")
+speaker = 1
+portrait = 1
+text = "太好了。我等不及要体验一下了。"
+metadata/_custom_type_script = "uid://bw5nvw6g1w033"
+
+[resource]
+script = ExtResource("2_dialogue_act")
+lines = Array[ExtResource("1_dialogue_line")]([SubResource("Line_01"), SubResource("Line_02"), SubResource("Line_03"), SubResource("Line_04"), SubResource("Line_05"), SubResource("Line_06")])
+metadata/_custom_type_script = "uid://6jp7pl2lqrck"

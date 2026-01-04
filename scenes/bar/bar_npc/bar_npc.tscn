@@ -1,30 +1,75 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfsi08vxswl0v"]
+[gd_scene load_steps=10 format=3 uid="uid://dfsi08vxswl0v"]
 
-[ext_resource type="Texture2D" uid="uid://ji3t04yclj3h" path="res://icon.svg" id="1_e5jlj"]
-[ext_resource type="Script" uid="uid://dd6t863te5o4j" path="res://scenes/bar/bar_npc/bar_npc_interactable.gd" id="2_cu38s"]
+[ext_resource type="Script" uid="uid://cvh5s715fcpno" path="res://scenes/bar/bar_npc/bar_npc.gd" id="1_e5jlj"]
+[ext_resource type="Texture2D" uid="uid://tmnhjyjxf8d3" path="res://assets/npc/npc.png" id="1_mpymf"]
+[ext_resource type="Script" uid="uid://dd6t863te5o4j" path="res://scenes/bar/bar_npc/npc_interactable.gd" id="2_rv78h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1rb5"]
+atlas = ExtResource("1_mpymf")
+region = Rect2(0, 288, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5jlj"]
+atlas = ExtResource("1_mpymf")
+region = Rect2(256, 288, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu38s"]
+atlas = ExtResource("1_mpymf")
+region = Rect2(192, 288, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpymf"]
+atlas = ExtResource("1_mpymf")
+region = Rect2(224, 288, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7n8xq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_e5jlj")
+"texture": SubResource("AtlasTexture_r1rb5")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5jlj")
+}],
+"loop": true,
+"name": &"sit_behind",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu38s")
+}],
+"loop": true,
+"name": &"sit_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpymf")
+}],
+"loop": true,
+"name": &"sit_right",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wlns"]
-size = Vector2(36, 40)
+size = Vector2(20, 16)
 
 [node name="BarNPC" type="Node2D"]
+script = ExtResource("1_e5jlj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.28125, 0.328125)
 sprite_frames = SubResource("SpriteFrames_7n8xq")
+animation = &"sit_right"
+autoplay = "sit_right"
+offset = Vector2(0, -16)
 
 [node name="NPCInteractable" type="Area2D" parent="."]
-script = ExtResource("2_cu38s")
+script = ExtResource("2_rv78h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCInteractable"]
+position = Vector2(1, -13)
 shape = SubResource("RectangleShape2D_4wlns")

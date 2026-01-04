@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://eqvvn0loae50"
+uid="uid://dk7bm7uwwsheb"
 path="res://.godot/imported/SkiWind.ogg-5b7f7837b148191946c4ae635106d9af.oggvorbisstr"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/SkiWind.ogg-5b7f7837b148191946c4ae635106d9af.
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

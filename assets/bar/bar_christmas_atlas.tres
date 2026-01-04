@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dqtaf2r70q33d"]
+
+[ext_resource type="Texture2D" uid="uid://cubqrksjp2e5b" path="res://assets/bar/bar_christmas_.png" id="1_j2hyc"]
+
+[resource]
+atlas = ExtResource("1_j2hyc")
+region = Rect2(0, 80, 176, 104)

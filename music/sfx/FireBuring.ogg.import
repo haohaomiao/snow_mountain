@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/FireBuring.ogg-6b35265bf0f597abfa0666baea0f73
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
