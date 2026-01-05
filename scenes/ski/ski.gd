@@ -33,6 +33,8 @@ func _ready() -> void:
 		timer.wait_time = maxf(0.0, ending_after_seconds)
 	if GameState.day == 1:
 		timer.wait_time = 20
+	elif GameState.day == 6:
+		timer.wait_time = 10
 	else:
 		timer.wait_time = 45
 	timer.start()
