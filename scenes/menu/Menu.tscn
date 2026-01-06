@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://fc86d88vo7b0"]
+[gd_scene load_steps=20 format=3 uid="uid://fc86d88vo7b0"]
 
 [ext_resource type="Script" uid="uid://br3cqkqgckadr" path="res://scenes/menu/menu.gd" id="1_u7h56"]
 [ext_resource type="AudioStream" uid="uid://cp5px0dmoxhx2" path="res://music/bgm/MainMenuMusic.ogg" id="2_o0usu"]
 [ext_resource type="Texture2D" uid="uid://cm15grs856iry" path="res://assets/awefawf.png" id="3_ljdvc"]
 [ext_resource type="Script" uid="uid://bwix63vdqfif6" path="res://scenes/menu/dim.gd" id="6_a7470"]
+[ext_resource type="FontFile" uid="uid://d3xyw82rfym72" path="res://assets/fonts/VT323-Regular.ttf" id="6_ljdvc"]
 [ext_resource type="Texture2D" uid="uid://bte6msk40oawl" path="res://assets/menu/about_board.png" id="7_ljdvc"]
 
 [sub_resource type="Theme" id="Theme_yenv6"]
@@ -80,7 +81,6 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_0ui5k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cjuhj")
 
 [node name="AboutLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Dim" type="ColorRect" parent="AboutLayer"]
 modulate = Color(0, 0, 0, 0.5803922)
@@ -93,24 +93,28 @@ grow_vertical = 2
 script = ExtResource("6_a7470")
 
 [node name="AboutPanel" type="Panel" parent="AboutLayer"]
-anchors_preset = -1
-anchor_left = 0.192
-anchor_top = 0.212
-anchor_right = 0.74
-anchor_bottom = 0.668
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_o0usu")
 
 [node name="AboutTitle" type="Label" parent="AboutLayer/AboutPanel"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
+anchor_top = 0.06
 anchor_right = 0.5
+anchor_bottom = 0.06
 offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.0627451, 0.50980395, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("6_ljdvc")
+theme_override_font_sizes/font_size = 28
 text = "About"
 
 [node name="TeamInfo" type="RichTextLabel" parent="AboutLayer/AboutPanel"]
@@ -122,9 +126,18 @@ anchor_right = 0.822
 anchor_bottom = 0.733
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.047058824, 0.4862745, 0.78039217, 1)
+theme_override_fonts/normal_font = ExtResource("6_ljdvc")
+theme_override_font_sizes/normal_font_size = 21
 text = "Team info: 
-Program1 Chang_chang
-Program2 Haohaomiao"
+We are Snow Bar Studio! Hope you like skiing QvQ
+
+Credits:
+Program: Chang_chang & hhm
+Game Design: Muuuu777 & Chang_chang
+Art: danceonsaturn
+Sound Design & Composing: fredyfeng
+"
 
 [connection signal="pressed" from="_StartButton" to="." method="_on__start_button_pressed"]
 [connection signal="pressed" from="_AboutButton" to="." method="_on__about_button_pressed"]
